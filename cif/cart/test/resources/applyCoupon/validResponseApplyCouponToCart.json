@@ -1,0 +1,13 @@
+{
+  "data": {
+    "updateCart": {
+      "discountCodes": [
+        {
+          "discountCode": {
+            "code": "FLAT10"
+          }
+        }
+      ]
+    }
+  }
+}

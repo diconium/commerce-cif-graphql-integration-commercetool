@@ -1,0 +1,55 @@
+service: commercetools-graphql
+package:
+  individually: true
+  exclude:
+    - ./**
+provider:
+  name: openwhisk
+  runtime: nodejs:default
+  ignore_certs: true
+  service: commercetools-graphql
+plugins:
+  - serverless-openwhisk
+  - serverless-webpack
+resources:
+  packages:
+    commercetools-graphql:
+      parameters:
+functions:
+  dispatcher:
+    name: commercetools-graphql/dispatcher
+    handler: cif/common/dispatcher.main
+    concurrency: 200
+    annotations:
+      web-export: true
+    parameters:
+      remoteSchemas: # Action with smaller order has "merge priority" in schema conflicts
+        customer:
+          order: 10
+          action: commercetools-graphql/customer
+        cart:
+          order: 20
+          action: commercetools-graphql/cart
+        category:
+          order: 30
+          action: commercetools-graphql/category
+  customer:
+    name: commercetools-graphql/customer
+    handler: cif/customer/src/resolvers/customerResolver.main
+    concurrency: 200
+  cart:
+    name: commercetools-graphql/cart
+    handler: cif/cart/src/resolvers/cartResolver.main
+    concurrency: 200
+  category:
+    name: commercetools-graphql/category
+    handler: cif/category/src/resolvers/categoryResolver.main
+    concurrency: 200    
+  # This deploys a GraphQL introspection endpoint that includes all the Magento types and fields
+  # used by the AEM/Magento integration.
+  # cif-schema:
+  #  name: commercetools-graphql/cif-schema
+  #  handler: cif/documentation/introspection.main
+  #  concurrency: 200
+  #  annotations:
+  #    web-export: true

@@ -1,0 +1,9 @@
+{
+  "applyCouponToCart": {
+    "cart": {
+      "applied_coupon": {
+        "code": "FLAT10"
+      }
+    }
+  }
+}

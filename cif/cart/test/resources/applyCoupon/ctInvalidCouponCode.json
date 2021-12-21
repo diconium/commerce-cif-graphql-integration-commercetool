@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "The discount code 'INVALID' was not found.",
+      "locations": [
+        {
+          "line": 1,
+          "column": 110
+        }
+      ],
+      "path": [
+        "applyCouponToCart",
+        "cart"
+      ]
+    }
+  ],
+  "data": {
+    "applyCouponToCart": null
+  }
+}

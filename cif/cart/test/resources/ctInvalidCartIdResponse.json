@@ -1,0 +1,23 @@
+{
+  "data": {
+    "updateCart": null
+  },
+  "errors": [
+    {
+      "message": "The Cart with ID '03bdd6d9-ede2-495c-8ed8-072832600325' was not found.",
+      "path": [
+        "updateCart"
+      ],
+      "locations": [
+        {
+          "line": 1,
+          "column": 12
+        }
+      ],
+      "code": "InvalidSubject",
+      "extensions": {
+        "code": "InvalidSubject"
+      }
+    }
+  ]
+}

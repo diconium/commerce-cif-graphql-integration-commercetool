@@ -1,0 +1,23 @@
+{
+  "data": {
+    "updateCart": null
+  },
+  "errors": [
+    {
+      "message": "Object 03bdd6d9-ede2-495c-8ed8-728326003259 has a different version than expected. Expected: 16 - Actual: 22.",
+      "path": ["updateCart"],
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "code": "ConcurrentModification",
+      "currentVersion": 16,
+      "extensions": {
+        "code": "ConcurrentModification",
+        "currentVersion": 22
+      }
+    }
+  ]
+}

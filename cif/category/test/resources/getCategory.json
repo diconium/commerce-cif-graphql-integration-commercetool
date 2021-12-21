@@ -1,0 +1,101 @@
+{
+  "data": {
+    "categories": {
+      "results": [
+        {
+          "childCount": 3,
+          "externalId": "1",
+          "name": "New",
+          "key": "c1",
+          "slug": "new",
+          "children": [
+            {
+              "externalId": "8",
+              "name": "Men",
+              "key": "c8",
+              "slug": "new-men",
+              "children": [
+                {
+                  "externalId": "69",
+                  "name": "Shoes",
+                  "key": "c69",
+                  "slug": "new-men-shoes"
+                },
+                {
+                  "externalId": "68",
+                  "name": "Clothing",
+                  "key": "c68",
+                  "slug": "new-men-clothing"
+                },
+                {
+                  "externalId": "71",
+                  "name": "Looks",
+                  "key": "c71",
+                  "slug": "new-men-looks"
+                },
+                {
+                  "externalId": "70",
+                  "name": "Bags",
+                  "key": "c70",
+                  "slug": "new-men-bags"
+                }
+              ]
+            },
+            {
+              "externalId": "7",
+              "name": "Women",
+              "key": "c7",
+              "slug": "new-women",
+              "children": [
+                {
+                  "externalId": "66",
+                  "name": "Bags",
+                  "key": "c66",
+                  "slug": "new-women-bags"
+                },
+                {
+                  "externalId": "67",
+                  "name": "Looks",
+                  "key": "c67",
+                  "slug": "new-women-looks"
+                },
+                {
+                  "externalId": "64",
+                  "name": "Clothing",
+                  "key": "c64",
+                  "slug": "new-women-clothing"
+                },
+                {
+                  "externalId": "65",
+                  "name": "Shoes",
+                  "key": "c65",
+                  "slug": "new-women-shoes"
+                }
+              ]
+            },
+            {
+              "externalId": "9",
+              "name": "Special",
+              "key": "c9",
+              "slug": "new-special",
+              "children": [
+                {
+                  "externalId": "72",
+                  "name": "Fall in love",
+                  "key": "c72",
+                  "slug": "new-special-fall-in-love"
+                },
+                {
+                  "externalId": "73",
+                  "name": "Just go",
+                  "key": "c73",
+                  "slug": "new-special-just-go"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

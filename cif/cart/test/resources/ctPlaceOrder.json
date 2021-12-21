@@ -1,0 +1,7 @@
+{
+    "data":{
+        "createOrderFromCart": {
+          "orderNumber": "123456"
+        }
+      }
+}

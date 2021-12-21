@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "The discount code 'f7e3cd2f-1cdd-4544-a16f-e3d9dfda9554' is already present in the cart.",
+      "locations": [
+        {
+          "line": 1,
+          "column": 109
+        }
+      ],
+      "path": [
+        "applyCouponToCart",
+        "cart"
+      ]
+    }
+  ],
+  "data": {
+    "applyCouponToCart": null
+  }
+}

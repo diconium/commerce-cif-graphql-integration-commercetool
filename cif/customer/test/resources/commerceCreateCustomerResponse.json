@@ -1,0 +1,12 @@
+{
+    "data": {
+        "customerSignUp": {
+            "customer": {
+                "email": "amar10@test.com",
+                "password": "Test@1234",
+                "firstName": "Amaresh1",
+                "lastName": "muni"
+            }
+        }
+    }
+}

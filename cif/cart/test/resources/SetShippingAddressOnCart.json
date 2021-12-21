@@ -1,0 +1,27 @@
+{
+  "setShippingAddressesOnCart": {
+    "cart": {
+      "shipping_addresses": [
+        {
+          "firstname": "Bob",
+          "lastname": "Roll",
+          "company": "Magento",
+          "street": [
+            "Magento shipping"
+          ],
+          "city": "Austin",
+          "region": {
+            "code": "US-WA",
+            "label": "US-WA"
+          },
+          "postcode": "78758",
+          "telephone": "9999998899",
+          "country": {
+            "code": "US",
+            "label": "US"
+          }
+        }
+      ]
+    }
+  }
+}

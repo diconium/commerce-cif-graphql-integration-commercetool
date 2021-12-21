@@ -1,0 +1,15 @@
+{
+  "data": {
+    "createCustomerV2": {
+      "customer": {
+        "firstname": "Amaresh1",
+        "lastname": "muni",
+        "email": "amar10@test.com",
+        "is_subscribed": false
+      }
+    }
+  }
+}
+
+
+

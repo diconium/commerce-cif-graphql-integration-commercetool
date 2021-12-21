@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "The discount code '1767d4c8-b692-43df-b5a1-2a6b063f95e4' is not active.",
+      "locations": [
+        {
+          "line": 1,
+          "column": 111
+        }
+      ],
+      "path": [
+        "applyCouponToCart",
+        "cart"
+      ]
+    }
+  ],
+  "data": {
+    "applyCouponToCart": null
+  }
+}

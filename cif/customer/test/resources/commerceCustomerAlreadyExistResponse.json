@@ -1,0 +1,27 @@
+{
+  "data": {
+    "customerSignUp": null
+  },
+  "errors": [
+    {
+      "message": "There is already an existing customer with the email '\"amar10@test.com\"'.",
+      "path": [
+        "customerSignUp"
+      ],
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "code": "DuplicateField",
+      "duplicateValue": "amar10@test.com",
+      "field": "email",
+      "extensions": {
+        "code": "DuplicateField",
+        "duplicateValue": "amar10@test.com",
+        "field": "email"
+      }
+    }
+  ]
+}

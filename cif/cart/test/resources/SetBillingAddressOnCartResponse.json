@@ -1,0 +1,17 @@
+{
+    "data": {
+      "updateCart": {
+        "billingAddress": {
+          "firstName": "Bob",
+          "lastName": "Roll",
+          "company": "Magento",
+          "streetName": "Magento shipping",
+          "city": "Austin",
+          "region": "US-WA",
+          "postalCode": "78758",
+          "country": "US",
+          "phone": "9999998899"
+        }
+      }
+    }
+  }

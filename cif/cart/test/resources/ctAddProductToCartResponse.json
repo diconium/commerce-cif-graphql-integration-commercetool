@@ -1,0 +1,35 @@
+{
+  "data": {
+    "addSimpleProductsToCart": {
+      "cart": {
+        "prices":{
+          "subtotal_excluding_tax" : {
+            "value" : 16789,
+            "currency": "USD"
+          },
+          "subtotal_including_tax" :{
+            "value" :16789,
+            "currency": "USD"
+          },
+          "grand_total": {
+            "value":16789,
+           "currency":"USD"
+          }
+        },
+        "id": "03bdd6d9-ede2-495c-8ed8-728326003259",
+        "items": [
+          {
+            "id": "c93582ae-79d7-4b6c-906b-40c8bcdca204",
+            "product": {
+              "name": "blazer Harris Wharf grey",
+              "sku": "902b77be-0a40-4f98-a182-56b3367b8cb5"
+            },
+            "quantity": 54
+          }
+        ],
+       
+        "total_quantity" : 1
+      }
+    }
+  }
+}

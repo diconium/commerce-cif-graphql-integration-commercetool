@@ -1,0 +1,25 @@
+{
+  "data": {
+    "updateCart": {
+      "id": "03bdd6d9-ede2-495c-8ed8-728326003259",
+      "totalPrice": {
+        "centAmount": 16789,
+        "currencyCode": "USD"
+      },
+      "lineItems": [
+        {
+          "id": "c93582ae-79d7-4b6c-906b-40c8bcdca204",
+          "productId": "902b77be-0a40-4f98-a182-56b3367b8cb5",
+          "quantity": 54,
+          "name": "blazer Harris Wharf grey",
+          "price": {
+            "value": {
+              "centAmount": 11000,
+              "currencyCode": "USD"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

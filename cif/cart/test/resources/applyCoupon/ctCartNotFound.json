@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "Error: Request failed with status code 400",
+      "locations": [
+        {
+          "line": 1,
+          "column": 110
+        }
+      ],
+      "path": [
+        "applyCouponToCart",
+        "cart"
+      ]
+    }
+  ],
+  "data": {
+    "applyCouponToCart": null
+  }
+}

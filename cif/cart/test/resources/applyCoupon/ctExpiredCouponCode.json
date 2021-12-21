@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "The discount code 'EXPIRED' is valid only from 2020-05-01T00:00:00.000Z until 2020-05-28T00:00:00.000Z",
+      "locations": [
+        {
+          "line": 1,
+          "column": 110
+        }
+      ],
+      "path": [
+        "applyCouponToCart",
+        "cart"
+      ]
+    }
+  ],
+  "data": {
+    "applyCouponToCart": null
+  }
+}
