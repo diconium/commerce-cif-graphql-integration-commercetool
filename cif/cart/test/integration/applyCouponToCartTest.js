@@ -16,8 +16,7 @@
 const sinon = require('sinon');
 const assert = require('chai').assert;
 const TestUtils = require('../../../utils/TestUtils.js');
-const resolve = require('../../src/resolvers/applyCouponToCartResolver.js')
-  .main;
+const resolve = require('../../src/resolvers/cartResolver.js').main;
 const chai = require('chai');
 const expect = require('chai').expect;
 const chaiShallowDeepEqual = require('chai-shallow-deep-equal');

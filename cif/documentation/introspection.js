@@ -14,11 +14,11 @@
 
 'use strict';
 
-const magentoSchema = require('../resources/magento-schema-2.4.3.min.json');
+const magentoSchema = require('../resources/magento-schema-2.4.3.pruned.min.json');
 const { buildClientSchema, graphql } = require('graphql');
 
 function resolve(args) {
-  let schema = buildClientSchema(magentoSchema.data);
+  const schema = buildClientSchema(magentoSchema);
 
   return graphql(
     schema,

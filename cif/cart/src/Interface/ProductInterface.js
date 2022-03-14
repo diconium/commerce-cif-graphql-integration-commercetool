@@ -39,10 +39,10 @@ class ProductInterface {
       name: this.data.name,
       sku: this.data.productId,
       thumbnail: {
-        url: this.data.thumbnail ? this.data.thumbnail[0].url : '',
+        url: this.data.variant.images ? this.data.variant.images[0].url : '',
       },
       small_image: {
-        url: this.data.thumbnail ? this.data.thumbnail[0].url : '',
+        url: this.data.variant.images ? this.data.variant.images[0].url : '',
       },
     };
   }

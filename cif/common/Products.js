@@ -35,9 +35,12 @@ class Products {
    */
   constructor(parameters) {
     this.graphqlContext = parameters.graphqlContext;
+    this.parameters = parameters;
+    this.filters = { ...parameters.filters };
     this.actionParameters = parameters.actionParameters;
     this.categoryTreeLoader = new CategoryTreeLoader(parameters);
     this.productsLoader = new ProductsLoader(parameters);
+
     if (parameters.filters && parameters.filters.category_uid) {
       this.categoryId = parameters.filters.category_uid.eq;
     }
@@ -45,7 +48,7 @@ class Products {
       this.product_url = parameters.filters.url_key.eq;
     }
     if (parameters.filters && parameters.filters.sku) {
-      this.product_url = parameters.filters.sku.eq;
+      this.product_url = parameters.filters.sku.eq || parameters.filters.sku.in;
     }
     /**
      * This class returns a Proxy to avoid having to implement a getter for all properties.
@@ -71,14 +74,18 @@ class Products {
    * @returns {Object} The backend category data converted into a GraphQL "CategoryTree" data.
    */
   __convertData(data) {
+    const items = data.results.map(
+      product =>
+        new Product({
+          productData: product,
+        })
+    );
     return {
-      items: data.results.map(
-        product =>
-          new Product({
-            productData: product,
-          })
-      ),
+      items,
       total_count: data.total,
+      page_info: {
+        total_pages: Math.ceil(data.total / this.parameters.limit),
+      },
     };
   }
 }
@@ -95,12 +102,22 @@ class Product {
     return Promise.resolve(this.productData);
   }
   __convertData(data) {
-    const product = data.masterData.current;
+    const product = data.masterData ? data.masterData.current : data;
     return {
+      uid: data.id,
+      id: product.masterVariant.id,
       name: product.name,
       url_key: product.slug,
       sku: product.masterVariant.sku,
       staged: false,
+      thumbnail: {
+        url:
+          product.masterVariant.images &&
+          product.masterVariant.images.length > 0
+            ? product.masterVariant.images[0].url
+            : '',
+        label: product.name,
+      },
       small_image: {
         url:
           product.masterVariant.images &&
@@ -132,8 +149,11 @@ class Product {
    * @returns {*}
    */
   get media_gallery() {
-    return this.productData.masterData.current.masterVariant.images
-      ? this.productData.masterData.current.masterVariant.images.map(
+    const product = this.productData.masterData
+      ? this.productData.masterData.current
+      : this.productData;
+    return product.masterVariant.images
+      ? product.masterVariant.images.map(
           (image, index) =>
             new MediaGallery({
               position: index,

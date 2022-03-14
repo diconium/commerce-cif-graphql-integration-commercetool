@@ -1,0 +1,104 @@
+{
+    "data": {
+        "me": {
+            "activeCart": {
+                "id": "65990889-bc81-46e1-b83c-83105715bd39"
+            }
+        },
+        "shippingMethods": {
+            "results": [
+                {
+                    "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+                    "name": "Standard US",
+                    "taxCategory": {
+                        "rates": [
+                            {
+                                "amount": 0.2,
+                                "country": "AT"
+                            }
+                        ]
+                    },
+                    "zoneRates": [
+                        {
+                            "shippingRates": [
+                                {
+                                    "freeAbove": {
+                                        "centAmount": 20000
+                                    }
+                                }
+                            ],
+                            "zone": {
+                                "name": "United States",
+                                "locations": [
+                                    {
+                                        "country": "US"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "payments": {
+            "results": [
+                {
+                    "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+                    "paymentMethodInfo": {
+                        "name": "Credit Card"
+                    }
+                }
+            ]
+        },
+        "cart": {
+            "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+            "totalPrice": {
+                "centAmount": 14500,
+                "currencyCode": "EUR"
+            },
+            "paymentInfo": {
+                "payments": [
+                  {
+                    "id": "3cb2a635-0fc4-4a0d-aac4-fc886894d763",
+                    "paymentMethodInfo": {
+                      "name": "Cash on Delivery",
+                      "method": "cash_on_delivery"
+                    }
+                  }
+                ]
+              },
+              "discountCodes": [
+                {
+                  "discountCode": {
+                    "code": "FLAT20",
+                    "id": "b372a64f-f6ed-4c1d-afca-ef4f14d3cf02"
+                  }
+                }
+              ],
+            "shippingAddress": null,
+            "billingAddress": null,
+            "lineItems": [
+                {
+                    "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+                    "quantity": 1,
+                    "productId": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+                    "name": "Bag medium Liu Jo olive yo",
+                    "slug": "liujo-bag-medium-A15085E0087-olive",
+                    "variant":{
+                        "images":[
+                            {
+                                "url":"https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg"
+                            }
+                        ]
+                    },
+                    "price": {
+                        "value": {
+                          "centAmount": 14500,
+                          "currencyCode": "EUR"
+                        }
+                      }
+                }
+            ]
+        }
+    }
+}

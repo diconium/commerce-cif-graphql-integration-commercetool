@@ -15,10 +15,11 @@
 'use strict';
 
 const LoaderProxy = require('../../../common/LoaderProxy.js');
-const AddLineItemToCartLoader = require('../loaders/AddLineItemToCartLoader.js');
+const LineItemToCartLoader = require('../loaders/LineItemToCartLoader.js');
 const VersionLoader = require('../loaders/VersionLoader.js');
-const CartItemInterface = require('../Interface/CartItemInterface');
-class AddLineItemToCart {
+const CartInterface = require('../Interface/CartInterface.js');
+const CartLoader = require('../loaders/CartLoader.js');
+class LineItemToCart {
   /**
    * @param {Object} parameters parameters object contains the input, graphqlContext & actionParameters
    * @param {Object} [parameters.input] contains the cart id, product ID and sku
@@ -29,9 +30,10 @@ class AddLineItemToCart {
     this.input = parameters.input;
     this.graphqlContext = parameters.graphqlContext;
     this.actionParameters = parameters.actionParameters;
-    this.addLineItemToCartLoader = new AddLineItemToCartLoader(parameters);
+    this.lineItemToCartLoader = new LineItemToCartLoader(parameters);
     this._versionLoader = new VersionLoader(parameters);
 
+    this.cartLoader = new CartLoader(parameters.graphqlContext);
     /**
      * This class returns a Proxy to avoid having to implement a getter for all properties.
      */
@@ -44,38 +46,17 @@ class AddLineItemToCart {
    */
   __load() {
     return this._versionLoader.load(this.input).then(version => {
-      return this.addLineItemToCartLoader.load(this.input, version);
+      return this.lineItemToCartLoader.load(this.input, version);
     });
   }
 
   /**
-   * method used to return the results of the commerce Graphql response.
+   * Converts data from the 3rd-party commerce system into the Magento GraphQL format.
    * @param {Object} data parameter data contains details of line item added to cart
    */
   __convertData(data) {
-    const { items } = new CartItemInterface([data.lineItems[0]]);
-    return {
-      cart: {
-        prices: {
-          subtotal_excluding_tax: {
-            value: data.totalPrice.centAmount,
-            currency: data.totalPrice.currencyCode,
-          },
-          subtotal_including_tax: {
-            value: data.totalPrice.centAmount,
-            currency: data.totalPrice.currencyCode,
-          },
-          grand_total: {
-            value: data.totalPrice.centAmount,
-            currency: data.totalPrice.currencyCode,
-          },
-        },
-        id: data.id,
-        items,
-        total_quantity: data.lineItems.length,
-      },
-    };
+    return { cart: new CartInterface(data, true).value };
   }
 }
 
-module.exports = AddLineItemToCart;
+module.exports = LineItemToCart;

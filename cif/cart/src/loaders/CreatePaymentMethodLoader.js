@@ -96,6 +96,11 @@ const AvailablePaymentMethods = {
     code: 'cash_on_delivery',
     centAmount: 500,
   },
+  free: {
+    title: 'Free',
+    code: 'free',
+    centAmount: 0,
+  },
 };
 module.exports.AvailablePaymentMethods = AvailablePaymentMethods;
 module.exports.CreatePaymentLoader = CreatePaymentLoader;

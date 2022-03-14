@@ -77,7 +77,7 @@ class GenerateCustomerTokenLoader {
           grant_type: 'password',
           username: email,
           password: password,
-          scope: 'manage_project:CT_INSTANCE_PROJECT',
+          scope: 'manage_project:adobeio-ct-connector',
         },
       };
       const request = {

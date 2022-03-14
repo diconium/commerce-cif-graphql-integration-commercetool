@@ -1,0 +1,80 @@
+{
+    "errors": [
+      {
+        "message": "Cannot read property 'children' of undefined",
+        "locations": [
+          {
+            "line": 1,
+            "column": 76
+          }
+        ],
+        "path": [
+          "categoryList",
+          0,
+          "children_count"
+        ]
+      },
+      {
+        "message": "Backend data is null",
+        "locations": [
+          {
+            "line": 1,
+            "column": 54
+          }
+        ],
+        "path": [
+          "categoryList",
+          0,
+          "name"
+        ]
+      },
+      {
+        "message": "Backend data is null",
+        "locations": [
+          {
+            "line": 1,
+            "column": 59
+          }
+        ],
+        "path": [
+          "categoryList",
+          0,
+          "url_path"
+        ]
+      },
+      {
+        "message": "Backend data is null",
+        "locations": [
+          {
+            "line": 1,
+            "column": 68
+          }
+        ],
+        "path": [
+          "categoryList",
+          0,
+          "url_key"
+        ]
+      },
+      {
+        "message": "Backend data is null",
+        "locations": [
+          {
+            "line": 1,
+            "column": 50
+          }
+        ],
+        "path": [
+          "categoryList",
+          0,
+          "uid"
+        ]
+      }
+    ],
+    "data": {
+      "categoryList": [
+        null
+      ]
+    }
+  }
+  

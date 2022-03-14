@@ -1,0 +1,88 @@
+{
+  "data": {
+    "setShippingMethodsOnCart": {
+      "__typename": "SetShippingMethodsOnCartOutput",
+      "cart": {
+        "__typename": "Cart",
+        "applied_gift_cards": [],
+        "available_payment_methods": [
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "credit_card",
+            "title": "Credit Card"
+          },
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "cash_on_delivery",
+            "title": "Cash On Delivery"
+          },
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "free",
+            "title": "Free"
+          }
+        ],
+        "email": null,
+        "id": "76f11761-0d10-4dd3-806d-8ce04ffcd653",
+        "items": [
+          {
+            "__typename": "SimpleCartItem",
+            "id": "25f65ab9-4f83-45f1-871c-9809d32a5ca0",
+            "quantity": 1
+          }
+        ],
+        "prices": {
+          "__typename": "CartPrices",
+          "applied_taxes": [],
+          "discounts": null,
+          "grand_total": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 13350
+          },
+          "subtotal_excluding_tax": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 13350
+          }
+        },
+        "shipping_addresses": [
+          {
+            "__typename": "ShippingCartAddress",
+            "available_shipping_methods": [],
+            "city": "Austin",
+            "country": {
+              "__typename": "CartAddressCountry",
+              "code": "DE",
+              "label": "DE"
+            },
+            "firstname": "abc",
+            "lastname": "k",
+            "postcode": "73331",
+            "region": {
+              "__typename": "CartAddressRegion",
+              "code": "201",
+              "label": "201",
+              "region_id": 201
+            },
+            "selected_shipping_method": {
+              "__typename": "SelectedShippingMethod",
+              "amount": {
+                "__typename": "Money",
+                "currency": "EUR",
+                "value": 10
+              },
+              "carrier_code": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf",
+              "method_code": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf",
+              "method_title": "Standard EU"
+            },
+            "street": [
+              "Magento Shipping"
+            ],
+            "telephone": "1234567890"
+          }
+        ]
+      }
+    }
+  }
+}

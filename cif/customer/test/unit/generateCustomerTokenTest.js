@@ -23,14 +23,14 @@ chai.use(chaiShallowDeepEqual);
 const nock = require('nock');
 const assert = require('chai').assert;
 const TestUtils = require('../../../utils/TestUtils.js');
-const ctGenerateCustomerBearer = require('../resources/ctGenerateCustomerBearer.json');
-const validGenerateCustomerToken = require('../resources/validGenerateCustomerToken.json');
-const unSupportedGrantType = require('../resources/unSupportedGrantType.json');
-const badClientCredentials = require('../resources/badClientCredentials.json');
+const ctGenerateCustomerBearerResponse = require('../resources/ctGenerateCustomerBearer.json');
+const mValidGenerateCustomerTokenResponse = require('../resources/validGenerateCustomerToken.json');
+const unSupportedGrantTypeResponse = require('../resources/unSupportedGrantType.json');
+const badClientCredentialsResponse = require('../resources/badClientCredentials.json');
 const qs = require('querystring');
 
 describe('GenerateCustomerToken', () => {
-  const scopeAuth = nock('https://CT_TEST_INSTANCE_HOSTNAME');
+  const scopeAuth = nock('https://<auth-host>');
 
   before(() => {
     // Disable console debugging
@@ -49,48 +49,50 @@ describe('GenerateCustomerToken', () => {
     it('Mutation: Generate customer token ', () => {
       const query = {
         grant_type: 'password',
-        username: 'test@example.com',
-        password: 'Password@123',
-        scope: 'manage_project:CT_INSTANCE_PROJECT',
+        username: 'abc.xyz@123.com',
+        password: 'abcxyz@123',
+        scope: 'manage_project:adobeio-ct-connector',
       };
       scopeAuth
         .post(
-          'CT_TEST_INSTANCE_OAUTH_PATH',
+          '/oauth/adobeio-ct-connector/customers/token',
           qs.stringify(query)
         )
         .basicAuth({
-          user: 'CT_TEST_INSTANCE_CLIENTID',
-          pass: 'CT_TEST_INSTANCE_CLIENTSECRET',
+          user: 'zCzF-LD2Y3Ga5BNSoi8mDtT9',
+          pass: 'WZPn-vId3rVbJwm5xjJyDeavp_KuoBPN',
         })
-        .reply(200, ctGenerateCustomerBearer);
+        .reply(200, ctGenerateCustomerBearerResponse);
       args.query =
-        'mutation {generateCustomerToken(email: "test@example.com", password: "Password@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
       return resolve(args).then(result => {
         assert.isUndefined(result.errors);
         let response = result.data.generateCustomerToken.token;
-        expect(response).to.deep.equals(validGenerateCustomerToken.token);
+        expect(response).to.deep.equals(
+          mValidGenerateCustomerTokenResponse.token
+        );
       });
     });
 
     it('Mutation: validate response should return unsupported grant type', () => {
       const query = {
         grant_type: 'password',
-        username: 'test@example.com',
-        password: 'Password@123',
-        scope: 'manage_project:CT_INSTANCE_PROJECT',
+        username: 'abc.xyz@123.com',
+        password: 'abcxyz@123',
+        scope: 'manage_project:adobeio-ct-connector',
       };
       scopeAuth
         .post(
-          'CT_TEST_INSTANCE_OAUTH_PATH',
+          '/oauth/adobeio-ct-connector/customers/token',
           qs.stringify(query)
         )
         .basicAuth({
-          user: 'CT_TEST_INSTANCE_CLIENTID',
-          pass: 'CT_TEST_INSTANCE_CLIENTSECRET',
+          user: 'zCzF-LD2Y3Ga5BNSoi8mDtT9',
+          pass: 'WZPn-vId3rVbJwm5xjJyDeavp_KuoBPN',
         })
-        .reply(400, unSupportedGrantType);
+        .reply(400, unSupportedGrantTypeResponse);
       args.query =
-        'mutation {generateCustomerToken(email: "test@example.com", password: "Password@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
       args.context.settings.grant_type = 'pass';
       return resolve(args).then(result => {
         const errors = result.errors[0];
@@ -106,19 +108,19 @@ describe('GenerateCustomerToken', () => {
     it('Mutation: validate response should return bad client credentials ', () => {
       const query = {
         grant_type: 'password',
-        username: 'test@example.com',
-        password: 'Password@123',
-        scope: 'manage_project:CT_INSTANCE_PROJECT',
+        username: 'abc.xyz@123.com',
+        password: 'abcxyz@123',
+        scope: 'manage_project:adobeio-ct-connector',
       };
       scopeAuth
         .post(
-          'CT_TEST_INSTANCE_OAUTH_PATH',
+          '/oauth/adobeio-ct-connector/customers/token',
           qs.stringify(query)
         )
-        .basicAuth({ user: 'CT_TEST_INSTANCE_CLIENTID', pass: 'CT_TEST_INSTANCE_CLIENTSECRET' })
-        .reply(401, badClientCredentials);
+        .basicAuth({ user: 'zCzF-LD2Y3Ga5BNSoi8mDtT9', pass: 'ADOBE_' })
+        .reply(401, badClientCredentialsResponse);
       args.query =
-        'mutation {generateCustomerToken(email: "test@example.com", password: "Password@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
       args.context.settings.CT_CLIENTSECRET = 'ADOBE_';
       return resolve(args).then(result => {
         const errors = result.errors[0];

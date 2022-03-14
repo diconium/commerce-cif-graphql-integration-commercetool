@@ -1,0 +1,35 @@
+{
+    "data": {
+        "products": {
+            "total": 1,
+            "results": [
+                {
+                    "id": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+                    "masterData": {
+                        "current": {
+                            "masterVariant": {
+                                "sku": "A0E2000000022N9",
+                                "id": 1,
+                                "price": {
+                                    "id": "dd815a2b-0b98-4017-860c-444875ad123e",
+                                    "value": {
+                                        "centAmount": 18125,
+                                        "currencyCode": "EUR"
+                                    }
+                                },
+                                "images": [
+                                    {
+                                        "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg",
+                                        "label": null
+                                    }
+                                ]
+                            },
+                            "slug": "liujo-bag-medium-A15085E0087-olive",
+                            "name": "Bag medium Liu Jo olive yo"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

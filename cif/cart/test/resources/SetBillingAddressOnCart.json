@@ -1,26 +1,86 @@
 {
+  "data": {
     "setBillingAddressOnCart": {
+      "__typename": "SetBillingAddressOnCartOutput",
       "cart": {
-        "billing_address": 
+        "__typename": "Cart",
+        "applied_gift_cards": [],
+        "available_payment_methods": [
           {
-            "firstname": "Bob",
-            "lastname": "Roll",
-            "company": "Magento",
-            "street": [
-              "Magento shipping"
-            ],
-            "city": "Austin",
-            "region": {
-              "code": "US-WA",
-              "label": "US-WA"
-            },
-            "postcode": "78758",
-            "telephone": "9999998899",
-            "country": {
-              "code": "US",
-              "label": "US"
-            }
+            "__typename": "AvailablePaymentMethod",
+            "code": "credit_card",
+            "title": "Credit Card"
+          },
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "cash_on_delivery",
+            "title": "Cash On Delivery"
+          },
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "free",
+            "title": "Free"
           }
+        ],
+        "billing_address": {
+          "__typename": "BillingCartAddress",
+          "city": "Austin",
+          "country": {
+            "__typename": "CartAddressCountry",
+            "code": "US"
+          },
+          "firstname": "Bob",
+          "lastname": "Roll",
+          "postcode": "78758",
+          "region": {
+            "__typename": "CartAddressRegion",
+            "code": "US-WA"
+          },
+          "street": [
+            "Magento Shipping"
+          ],
+          "telephone": "9999998899"
+        },
+        "id": "03bdd6d9-ede2-495c-8ed8-728326003259",
+        "items": [
+          {
+            "__typename": "SimpleCartItem",
+            "id": "25f65ab9-4f83-45f1-871c-9809d32a5ca0",
+            "quantity": 3
+          }
+        ],
+        "prices": {
+          "__typename": "CartPrices",
+          "applied_taxes": [],
+          "discounts": null,
+          "grand_total": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 39150
+          },
+          "subtotal_excluding_tax": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 39150
+          }
+        },
+        "shipping_addresses": [
+          {
+            "__typename": "ShippingCartAddress",
+            "selected_shipping_method": {
+              "__typename": "SelectedShippingMethod",
+              "amount": {
+                "__typename": "Money",
+                "currency": "EUR",
+                "value": 10
+              }
+            },
+            "street": [
+              "Magento Shipping"
+            ]
+          }
+        ]
       }
     }
   }
+}

@@ -77,13 +77,13 @@ class SetShippingAddressOnCartLoader {
         firstname: firstName,
         lastname: lastName,
         company,
-        street,
+        streetName,
         city,
         region,
         postcode: postalCode,
         country_code: country,
         telephone: phone,
-      } = shippingAddressObj[0].address;
+      } = shippingAddressObj;
       let request = { ...defaultRequest };
       let uid = cartID;
       request.data = {
@@ -95,7 +95,7 @@ class SetShippingAddressOnCartLoader {
           firstName,
           lastName,
           company,
-          streetName: street[0],
+          streetName,
           city,
           region,
           postalCode,
@@ -108,7 +108,7 @@ class SetShippingAddressOnCartLoader {
         .request(request)
         .then(response => {
           if (!response.data.errors) {
-            return resolve(response.data.data.updateCart.shippingAddress);
+            return resolve(response.data.data.updateCart);
           }
           reject(response.data.errors[0].message);
         })

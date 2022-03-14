@@ -100,7 +100,7 @@ class SetBillingAddressOnCartLoader {
         .request(request)
         .then(response => {
           if (!response.data.errors) {
-            return resolve(response.data.data.updateCart.billingAddress);
+            return resolve(response.data.data.updateCart);
           }
           reject(response.data.errors[0].message);
         })

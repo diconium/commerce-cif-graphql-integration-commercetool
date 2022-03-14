@@ -1,0 +1,13 @@
+{
+    "data": {
+      "setPaymentMethodOnCart": {
+        "cart": {
+          "selected_payment_method": {
+            "code": "cash_on_delivery",
+            "title": "Cash On Delivery"
+
+          }
+        }
+      }
+    }
+  }

@@ -20,6 +20,11 @@ mutation UpdateCart($uid: String!, $version: Long!, $code: String!) {
     id: $uid
     actions: { addPayment: { payment: { id: $code } } }
   ) {
+    id
+    totalPrice {
+      centAmount
+      currencyCode
+    }
     paymentInfo {
       payments {
         id
@@ -29,7 +34,61 @@ mutation UpdateCart($uid: String!, $version: Long!, $code: String!) {
         }
       }
     }
-  }
+    shippingAddress {
+      id
+      firstname: firstName
+      lastname: lastName
+      email
+      region
+      country
+      streetName
+      city
+      postcode: postalCode
+      telephone: phone
+    }
+    discountCodes{
+      discountCode{
+          code
+          id
+      }
+    }
+    billingAddress {
+      id
+      firstname: firstName
+      lastname: lastName
+      email
+      region
+      country
+      streetName
+      city
+      postcode: postalCode
+      telephone: phone
+    }
+    shippingInfo {
+      shippingMethod {
+        name
+        id
+      }
+    }
+    lineItems {
+      id
+      quantity
+      productId
+      name(locale: "en")
+      slug: productSlug(locale: "en")
+      variant {
+        images {
+          url
+        }
+      }
+      price {
+        value {
+          centAmount
+          currencyCode
+        }
+      }
+    }
+} 
 }
 
  `;

@@ -1,0 +1,139 @@
+{
+    "data": {
+      "products": {
+        "total": 5,
+        "results": [
+          {
+            "id": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+            "masterData": {
+              "current": {
+                "masterVariant": {
+                  "sku": "A0E2000000022N9",
+                  "id": 1,
+                  "price": {
+                    "id": "dd815a2b-0b98-4017-860c-444875ad123e",
+                    "value": {
+                      "centAmount": 18125,
+                      "currencyCode": "EUR"
+                    }
+                  },
+                  "images": [
+                    {
+                      "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg",
+                      "label": null
+                    }
+                  ]
+                },
+                "slug": "liujo-bag-medium-A15085E0087-olive",
+                "name": "Bag medium Liu Jo olive yo"
+              }
+            }
+          },
+          {
+            "id": "71f84c9e-486c-4b0a-8967-c637987f7ba5",
+            "masterData": {
+              "current": {
+                "masterVariant": {
+                  "sku": "A0E20000000279V",
+                  "id": 1,
+                  "price": {
+                    "id": "aa37902e-4d9b-424c-8f03-118d80b996e7",
+                    "value": {
+                      "centAmount": 40625,
+                      "currencyCode": "EUR"
+                    }
+                  },
+                  "images": [
+                    {
+                      "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082510_1_medium.jpg",
+                      "label": null
+                    }
+                  ]
+                },
+                "slug": "michael-kors-bag-30S5GCPS3L-yellow",
+                "name": "Bag “Cindy“medium Michael Kors yellow"
+              }
+            }
+          },
+          {
+            "id": "12aa1171-2afa-437b-91af-10ea1fefd529",
+            "masterData": {
+              "current": {
+                "masterVariant": {
+                  "sku": "A0E2000000027AZ",
+                  "id": 1,
+                  "price": {
+                    "id": "29895c9d-3ace-4725-a8a2-6fae83fd65e1",
+                    "value": {
+                      "centAmount": 36875,
+                      "currencyCode": "EUR"
+                    }
+                  },
+                  "images": [
+                    {
+                      "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082533_1_large.jpg",
+                      "label": null
+                    }
+                  ]
+                },
+                "slug": "michael-kors-bag-30S3GLMS2L-red",
+                "name": "Bag “Selma“ medium Michael Kors red"
+              }
+            }
+          },
+          {
+            "id": "23216b17-8bfa-458f-abca-b7664be3b01a",
+            "masterData": {
+              "current": {
+                "masterVariant": {
+                  "sku": "A0E200000001UTR",
+                  "id": 1,
+                  "price": {
+                    "id": "9cef194b-1dd4-49b0-9266-6da30e706984",
+                    "value": {
+                      "centAmount": 81125,
+                      "currencyCode": "EUR"
+                    }
+                  },
+                  "images": [
+                    {
+                      "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/071642_1_large.jpg",
+                      "label": null
+                    }
+                  ]
+                },
+                "slug": "bag-karllagerfeld-46kw3004-black",
+                "name": "Handbag by Karl Lagerfeld"
+              }
+            }
+          },
+          {
+            "id": "bf3fa416-7a70-4efe-a638-1e047bd87019",
+            "masterData": {
+              "current": {
+                "masterVariant": {
+                  "sku": "A0E200000001Z0W",
+                  "id": 1,
+                  "price": {
+                    "id": "1e88ae47-cec4-4dab-88a0-e5440c18f1ff",
+                    "value": {
+                      "centAmount": 32375,
+                      "currencyCode": "EUR"
+                    }
+                  },
+                  "images": [
+                    {
+                      "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/073294_1_large.jpg",
+                      "label": null
+                    }
+                  ]
+                },
+                "slug": "liebeskind-handbag-chelsea-brown",
+                "name": "Handbag ”Chelsea” Liebeskind brown"
+              }
+            }
+          }
+        ]
+      }
+    }
+}

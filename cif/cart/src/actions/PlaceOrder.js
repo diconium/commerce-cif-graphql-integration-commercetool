@@ -49,13 +49,14 @@ class PlaceOrder {
 
   /**
    * Converts post order data from the 3rd-party commerce system into the Magento GraphQL format.
-   * @param {Object} data parameter data contains post order details from hybris
-   * @returns {Object} convert the hybris data into magento graphQL schema and return the post order object
+   * @param {Object} data parameter data contains post order details from commerce
+   * @returns {Object} convert the commerce tool data into magento graphQL schema and return the post order object
    */
   __convertData(data) {
     return {
       order: {
         order_id: data.orderNumber,
+        order_number: data.orderNumber,
       },
     };
   }

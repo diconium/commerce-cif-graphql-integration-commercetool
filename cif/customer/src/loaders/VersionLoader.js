@@ -31,7 +31,7 @@ class VersionLoader {
         inputs.map(input => {
           return this.getVersion(this.graphqlContext).catch(error => {
             console.log(input);
-            throw new Error(error);
+            throw new Error(error[0].message);
           });
         })
       );

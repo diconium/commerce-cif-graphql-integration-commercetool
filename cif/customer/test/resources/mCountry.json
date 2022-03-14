@@ -1,0 +1,28 @@
+{
+    "data": {
+      "country": {
+        "id": "US",
+        "full_name_locale": null,
+        "full_name_english": "United States",
+        "available_regions": [
+          {
+            "id": 300,
+            "code": "NY",
+            "name": "New York"
+          },
+          {
+            "id": 302,
+            "code": "CA",
+            "name": "Calfornia"
+          },
+          {
+            "id": 301,
+            "code": "NJ",
+            "name": "New Jersey"
+          }
+
+
+        ]
+      }
+    }
+  }

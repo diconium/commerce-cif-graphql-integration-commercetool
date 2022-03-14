@@ -15,7 +15,7 @@
 'use strict';
 
 const { parse } = require('graphql');
-
+const prettier = require('prettier');
 class SchemaPruner {
   /**
    * @param {*} jsonSchema The schema in JSON format, as returned by an introspection query.
@@ -27,19 +27,50 @@ class SchemaPruner {
   }
 
   /**
+   * Remove Comments and get query from javascript file, Example mutation.setBilling.graphql.js
+   *
+   * @param {String} jsCodeStr A Javascript code string.
+   */
+  processJs(jsCodeStr) {
+    const options = {
+      printWidth: 160,
+      singleQuote: true,
+      trailingComma: 'none',
+    };
+    options.parser = (text, { babel }) => {
+      const ast = babel(text);
+      delete ast.comments;
+      return ast;
+    };
+
+    const query = prettier
+      .format(jsCodeStr, options)
+      //eslint-disable-next-line
+      .replace(/(\r\n|\n|\r)/gm, '')
+      //eslint-disable-next-line
+        .match(/\`(.*)\`/)
+      .pop();
+    this.process(query);
+  }
+  /**
    * Processes a query and adds it to the internal list of fields being queried.
    *
-   * @param {String} query A GraphQL query.
+   * @param {String} query A Javascript Graphql code.
    */
+
   process(query) {
-    let ast = parse(query);
-    // console.debug(query);
-    // console.debug(JSON.stringify(ast, null, 2));
-    ast.definitions.forEach(def => {
-      let op = def.operation.charAt(0).toUpperCase() + def.operation.slice(1);
-      let parentType = this.__getType(op);
-      this.__extractTypeFields(parentType, def);
-    });
+    try {
+      console.log(query);
+      let ast = parse(query);
+      ast.definitions.forEach(def => {
+        const op =
+          def.operation.charAt(0).toUpperCase() + def.operation.slice(1);
+        const parentType = this.__getType(op);
+        this.__extractTypeFields(parentType, def);
+      });
+    } catch (ex) {
+      console.error(ex);
+    }
   }
 
   /**
@@ -55,37 +86,46 @@ class SchemaPruner {
     }
 
     selection.selectionSet.selections.forEach(sel => {
-      if (sel.kind == 'Field') {
-        // console.debug('Looking for field ' + parentType.name + '.' + sel.name.value);
+      if (sel.kind === 'Field') {
         this.__addToTypeFields(parentType.name, sel.name.value);
-        let field = parentType.fields.find(f => f.name == sel.name.value);
+        const field = parentType.fields.find(f => f.name === sel.name.value);
         if (field) {
-          let fieldType = this.__getFieldType(field);
-          if (fieldType.kind == 'OBJECT' || fieldType.kind == 'INTERFACE') {
-            let type = this.__getType(fieldType.name);
+          const fieldType = this.__getFieldType(field);
+          if (fieldType.kind === 'OBJECT' || fieldType.kind === 'INTERFACE') {
+            const type = this.__getType(fieldType.name);
             this.__extractTypeFields(type, sel);
           }
         }
 
         if (sel.arguments) {
           sel.arguments.forEach(arg => {
-            // console.debug('Looking for argument ' + parentType.name + '.' + sel.name.value + '.' + arg.name.value);
-            let key = parentType.name + '.' + sel.name.value;
+            const key = `${parentType.name}.${sel.name.value}`;
             this.__addToTypeFields(key, arg.name.value);
-            let argField = field.args.find(f => f.name == arg.name.value);
-            if (argField) {
-              let argFieldType = this.__getFieldType(argField);
-              if (argFieldType.kind == 'INPUT_OBJECT') {
-                let type = this.__getType(argFieldType.name);
-                arg.value.fields.forEach(f => {
-                  this.__extractArgument(type, f);
-                });
+            if (field) {
+              const argField = field.args.find(f => f.name === arg.name.value);
+              if (argField) {
+                const argFieldType = this.__getFieldType(argField);
+                if (argFieldType.kind === 'INPUT_OBJECT') {
+                  const type = this.__getType(argFieldType.name);
+                  if (arg.value.fields) {
+                    arg.value.fields.forEach(f => {
+                      this.__extractArgument(type, f);
+                    });
+                  } else if (arg.value.values) {
+                    // Arguments can also be arrays
+                    arg.value.values.forEach(value => {
+                      value.fields.forEach(arg2 => {
+                        this.__extractArgument(type, arg2);
+                      });
+                    });
+                  }
+                }
               }
             }
           });
         }
-      } else if (sel.kind == 'InlineFragment' && sel.typeCondition) {
-        let type = this.__getType(sel.typeCondition.name.value);
+      } else if (sel.kind === 'InlineFragment' && sel.typeCondition) {
+        const type = this.__getType(sel.typeCondition.name.value);
         this.__extractTypeFields(type, sel);
       }
     });
@@ -94,7 +134,7 @@ class SchemaPruner {
   __getFieldType(field) {
     let fieldType = field.type;
     // LIST and NOT_NULL can be nested in multiple levels
-    while (fieldType.kind == 'LIST' || fieldType.kind == 'NON_NULL') {
+    while (fieldType.kind === 'LIST' || fieldType.kind === 'NON_NULL') {
       fieldType = fieldType.ofType;
     }
     return fieldType;
@@ -106,7 +146,7 @@ class SchemaPruner {
    * @param {*} typeName The name of the type, for example 'ProductInterface'.
    */
   __getType(typeName) {
-    return this.schema.data.__schema.types.find(t => t.name == typeName);
+    return this.schema.data.__schema.types.find(t => t.name === typeName);
   }
 
   /**
@@ -116,13 +156,14 @@ class SchemaPruner {
    * @param {*} selection The argument currently being processed.
    */
   __extractArgument(parentType, argument) {
-    // console.debug('Looking for argument ' + parentType.name + '.' + argument.name.value);
     this.__addToTypeFields(parentType.name, argument.name.value);
-    let field = parentType.inputFields.find(f => f.name == argument.name.value);
+    const field = parentType.inputFields.find(
+      f => f.name === argument.name.value
+    );
     if (field) {
-      let fieldType = this.__getFieldType(field);
-      if (fieldType.kind == 'INPUT_OBJECT') {
-        let type = this.__getType(fieldType.name);
+      const fieldType = this.__getFieldType(field);
+      if (fieldType.kind === 'INPUT_OBJECT') {
+        const type = this.__getType(fieldType.name);
         if (argument.value.fields) {
           argument.value.fields.forEach(arg => {
             this.__extractArgument(type, arg);
@@ -146,11 +187,10 @@ class SchemaPruner {
   }
 
   __extractInputField(type, inputField) {
-    // console.debug('Adding input field ' + type.name + '.' + inputField.name);
     this.__addToTypeFields(type.name, inputField.name);
-    let inputFieldType = this.__getFieldType(inputField);
-    if (inputFieldType.kind == 'INPUT_OBJECT') {
-      let type = this.__getType(inputFieldType.name);
+    const inputFieldType = this.__getFieldType(inputField);
+    if (inputFieldType.kind === 'INPUT_OBJECT') {
+      type = this.__getType(inputFieldType.name);
       // We don't know what fields should be kept so we add them all
       // This happens for parameterized queries with object arguments
       type.inputFields.forEach(f => {
@@ -187,15 +227,13 @@ class SchemaPruner {
    * This method returns the pruned schema used in the constructor.
    */
   prune() {
-    // console.debug('Pruning schema with ' + JSON.stringify(this.typeFields, this.__setToJson, 2));
-
     // We first remove all unused types
     this.schema.data.__schema.types = this.schema.data.__schema.types.filter(
       type => {
         if (
-          type.kind == 'OBJECT' ||
-          type.kind == 'INPUT_OBJECT' ||
-          type.kind == 'INTERFACE'
+          type.kind === 'OBJECT' ||
+          type.kind === 'INPUT_OBJECT' ||
+          type.kind === 'INTERFACE'
         ) {
           return this.typeFields[type.name];
         } else {
@@ -214,17 +252,17 @@ class SchemaPruner {
 
     // We remove all unused fields from interfaces
     this.schema.data.__schema.types.forEach(type => {
-      if (type.kind == 'INTERFACE') {
-        let fields = this.typeFields[type.name];
+      if (type.kind === 'INTERFACE') {
+        const fields = this.typeFields[type.name];
         type.fields = type.fields.filter(field => fields.has(field.name));
       }
     });
 
     // We remove all unused fields from objects, but keep fields still defined in interfaces
     this.schema.data.__schema.types.forEach(type => {
-      if (type.kind == 'OBJECT' || type.kind == 'INPUT_OBJECT') {
-        let fields = this.typeFields[type.name];
-        if (type.kind == 'INPUT_OBJECT') {
+      if (type.kind === 'OBJECT' || type.kind === 'INPUT_OBJECT') {
+        const fields = this.typeFields[type.name];
+        if (type.kind === 'INPUT_OBJECT') {
           type.inputFields = type.inputFields.filter(field =>
             fields.has(field.name)
           );
@@ -234,8 +272,8 @@ class SchemaPruner {
               return true;
             } else if (type.interfaces && type.interfaces.length > 0) {
               return type.interfaces.some(iface => {
-                let interfaceType = this.__getType(iface.name);
-                return interfaceType.fields.find(f => f.name == field.name);
+                const interfaceType = this.__getType(iface.name);
+                return interfaceType.fields.find(f => f.name === field.name);
               });
             } else {
               return false;
@@ -245,8 +283,7 @@ class SchemaPruner {
           // If the field has arguments, we filter them
           type.fields.forEach(field => {
             if (field.args && field.args.length > 0) {
-              // console.debug('Filtering arg ' + type.name + '.' + field.name);
-              let argFields = this.typeFields[type.name + '.' + field.name];
+              const argFields = this.typeFields[`${type.name}.${field.name}`];
               field.args = field.args.filter(
                 arg => argFields && argFields.has(arg.name)
               );

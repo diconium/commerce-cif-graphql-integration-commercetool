@@ -16,9 +16,9 @@
 
 const DataLoader = require('dataloader');
 const axios = require('axios');
-const AddLineItemToCartMutation = require('../graphql/addLineItemToCart.graphql');
+const LineItemToCartMutation = require('../graphql/lineItemCart.graphql');
 
-class AddLineItemToCartLoader {
+class LineItemToCartLoader {
   /**
    * @param {Object} parameters parameters object contains the input, graphqlContext & actionParameters
    * @param {Object} [parameters.graphqlContext] The optional GraphQL execution context passed to the resolver.
@@ -35,7 +35,8 @@ class AddLineItemToCartLoader {
             input.cart_id,
             this.version,
             this.graphqlContext,
-            this.actionParameters
+            this.actionParameters,
+            input.custom
           ).catch(error => {
             throw new Error(error);
           });
@@ -65,20 +66,32 @@ class AddLineItemToCartLoader {
   _addLineItemToCart(cartID, version, graphqlContext, actionParameters) {
     return new Promise((resolve, reject) => {
       const { defaultRequest } = graphqlContext.settings;
-      const { sku, quantity } = actionParameters.input.cart_items[0].data;
+      let actions = {};
+      if (actionParameters.input.cart_item_uid) {
+        actions.removeLineItem = {
+          lineItemId: actionParameters.input.cart_item_uid,
+        }; //Remove Item to cart
+      } else {
+        let params = actionParameters.input.cart_items;
+        if (params[0].data) {
+          const { sku, quantity } = params[0].data;
+          actions.addLineItem = { sku, quantity }; // Add Item to cart
+        } else {
+          const { cart_item_uid: lineItemId, quantity } = params[0];
+          actions.changeLineItemQuantity = { lineItemId, quantity }; //Update Item to cart
+        }
+      }
       let request = { ...defaultRequest };
 
       let uid = cartID;
       request.data = {
-        query: AddLineItemToCartMutation,
+        query: LineItemToCartMutation,
         variables: {
           uid,
           version,
-          sku,
-          quantity,
+          actions,
         },
       };
-
       axios
         .request(request)
         .then(response => {
@@ -94,4 +107,4 @@ class AddLineItemToCartLoader {
   }
 }
 
-module.exports = AddLineItemToCartLoader;
+module.exports = LineItemToCartLoader;

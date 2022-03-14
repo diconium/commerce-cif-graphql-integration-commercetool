@@ -29,7 +29,7 @@ function resolve(args) {
   if (cachedSchema == null) {
     let schemaBuilder = new SchemaBuilder()
       .removeMutationType()
-      .filterQueryFields(new Set(['products', 'categoryList']));
+      .filterQueryFields(new Set(['products', 'categoryList', 'categories']));
 
     cachedSchema = schemaBuilder.build();
   }
@@ -37,7 +37,7 @@ function resolve(args) {
   let resolvers = {
     /**
      * method used to get the category list
-     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {Object} params parameter contains filter,graphqlContext and actionParameters
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     categoryList: (params, context) => {
@@ -46,17 +46,35 @@ function resolve(args) {
           filters: params.filters,
           graphqlContext: context,
           actionParameters: args,
+          params,
         }),
       ];
     },
     /**
+     * method used to get the category list
+     * @param {Object} params parameter contains filter,graphqlContext and actionParameters
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    categories: (params, context) => {
+      return new CategoryTree({
+        filters: params.filters,
+        params,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
+    /**
      * method used to get the products
-     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {Object} params parameter contains filter,graphqlContext and actionParameters
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     products: (params, context) => {
       return new Products({
         filters: params.filter,
+        sort: params.sort,
+        search: params.search,
+        limit: params.pageSize,
+        offset: params.currentPage,
         graphqlContext: context,
         actionParameters: args,
       });

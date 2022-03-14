@@ -28,7 +28,7 @@ const TestUtils = require('../../../utils/TestUtils.js');
 const CreateEmptyCartMutation = require('../../src/graphql/createEmptyCart.graphql.js');
 
 describe('SetGuestEmailOnCart', function() {
-  const scope = nock('https://CT_INSTANCE_HOSTNAME', {
+  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -51,7 +51,7 @@ describe('SetGuestEmailOnCart', function() {
 
     it('Mutation: validate create empty cart for user', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: CreateEmptyCartMutation,
           variables: {
             draft: {

@@ -1,0 +1,150 @@
+{
+  "data": {
+    "products": {
+      "aggregations": null,
+      "items": [
+        {
+          "__typename": "SimpleProduct",
+          "name": "Bag medium Liu Jo olive yo",
+          "price_range": {
+            "minimum_price": {
+              "discount": {
+                "amount_off": 0,
+                "percent_off": 0
+              },
+              "final_price": {
+                "currency": "EUR",
+                "value": 18125
+              },
+              "regular_price": {
+                "currency": "EUR",
+                "value": 18125
+              }
+            }
+          },
+          "sku": "A0E2000000022N9",
+          "small_image": {
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg"
+          },
+          "staged": false,
+          "url_key": "liujo-bag-medium-A15085E0087-olive",
+          "url_path": null,
+          "url_rewrites": null
+        },
+        {
+          "__typename": "SimpleProduct",
+          "name": "Bag “Cindy“medium Michael Kors yellow",
+          "price_range": {
+            "minimum_price": {
+              "discount": {
+                "amount_off": 0,
+                "percent_off": 0
+              },
+              "final_price": {
+                "currency": "EUR",
+                "value": 40625
+              },
+              "regular_price": {
+                "currency": "EUR",
+                "value": 40625
+              }
+            }
+          },
+          "sku": "A0E20000000279V",
+          "small_image": {
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082510_1_medium.jpg"
+          },
+          "staged": false,
+          "url_key": "michael-kors-bag-30S5GCPS3L-yellow",
+          "url_path": null,
+          "url_rewrites": null
+        },
+        {
+          "__typename": "SimpleProduct",
+          "name": "Bag “Selma“ medium Michael Kors red",
+          "price_range": {
+            "minimum_price": {
+              "discount": {
+                "amount_off": 0,
+                "percent_off": 0
+              },
+              "final_price": {
+                "currency": "EUR",
+                "value": 36875
+              },
+              "regular_price": {
+                "currency": "EUR",
+                "value": 36875
+              }
+            }
+          },
+          "sku": "A0E2000000027AZ",
+          "small_image": {
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082533_1_large.jpg"
+          },
+          "staged": false,
+          "url_key": "michael-kors-bag-30S3GLMS2L-red",
+          "url_path": null,
+          "url_rewrites": null
+        },
+        {
+          "__typename": "SimpleProduct",
+          "name": "Handbag by Karl Lagerfeld",
+          "price_range": {
+            "minimum_price": {
+              "discount": {
+                "amount_off": 0,
+                "percent_off": 0
+              },
+              "final_price": {
+                "currency": "EUR",
+                "value": 81125
+              },
+              "regular_price": {
+                "currency": "EUR",
+                "value": 81125
+              }
+            }
+          },
+          "sku": "A0E200000001UTR",
+          "small_image": {
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/071642_1_large.jpg"
+          },
+          "staged": false,
+          "url_key": "bag-karllagerfeld-46kw3004-black",
+          "url_path": null,
+          "url_rewrites": null
+        },
+        {
+          "__typename": "SimpleProduct",
+          "name": "Handbag ”Chelsea” Liebeskind brown",
+          "price_range": {
+            "minimum_price": {
+              "discount": {
+                "amount_off": 0,
+                "percent_off": 0
+              },
+              "final_price": {
+                "currency": "EUR",
+                "value": 32375
+              },
+              "regular_price": {
+                "currency": "EUR",
+                "value": 32375
+              }
+            }
+          },
+          "sku": "A0E200000001Z0W",
+          "small_image": {
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/073294_1_large.jpg"
+          },
+          "staged": false,
+          "url_key": "liebeskind-handbag-chelsea-brown",
+          "url_path": null,
+          "url_rewrites": null
+        }
+      ],
+      "total_count": 5
+    }
+  }
+}

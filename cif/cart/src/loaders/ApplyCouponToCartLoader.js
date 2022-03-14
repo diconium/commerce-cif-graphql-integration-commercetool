@@ -43,6 +43,7 @@ class ApplyCouponToCartLoader {
   /**
    * method used to call the loadingFunction using dataloader
    * @param {*} input parameter cartId
+   * @param {*} version parameter contains the version number
    * @returns {Promise} a promise return null after resolved successfully other wise return the error.
    */
   load(input, version) {

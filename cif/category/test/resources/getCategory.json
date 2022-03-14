@@ -4,40 +4,56 @@
       "results": [
         {
           "childCount": 3,
+          "id": "73f64d48-ab66-4baa-b961-6b19e0637760",
           "externalId": "1",
           "name": "New",
           "key": "c1",
+          "product_count": 94,
+          "description": null,
           "slug": "new",
+          "meta_title": null,
+          "meta_description": null,
+          "meta_keywords": null,
           "children": [
             {
               "externalId": "8",
               "name": "Men",
               "key": "c8",
               "slug": "new-men",
+              "description": null,
+              "product_count": 46,
               "children": [
                 {
                   "externalId": "69",
                   "name": "Shoes",
                   "key": "c69",
-                  "slug": "new-men-shoes"
-                },
-                {
-                  "externalId": "68",
-                  "name": "Clothing",
-                  "key": "c68",
-                  "slug": "new-men-clothing"
+                  "slug": "new-men-shoes",
+                  "description": null,
+                  "product_count": 18
                 },
                 {
                   "externalId": "71",
                   "name": "Looks",
                   "key": "c71",
-                  "slug": "new-men-looks"
+                  "slug": "new-men-looks",
+                  "description": null,
+                  "product_count": 0
+                },
+                {
+                  "externalId": "68",
+                  "name": "Clothing",
+                  "key": "c68",
+                  "slug": "new-men-clothing",
+                  "description": null,
+                  "product_count": 26
                 },
                 {
                   "externalId": "70",
                   "name": "Bags",
                   "key": "c70",
-                  "slug": "new-men-bags"
+                  "slug": "new-men-bags",
+                  "description": null,
+                  "product_count": 1
                 }
               ]
             },
@@ -46,30 +62,40 @@
               "name": "Women",
               "key": "c7",
               "slug": "new-women",
+              "description": null,
+              "product_count": 49,
               "children": [
                 {
                   "externalId": "66",
                   "name": "Bags",
                   "key": "c66",
-                  "slug": "new-women-bags"
+                  "slug": "new-women-bags",
+                  "description": null,
+                  "product_count": 7
                 },
                 {
                   "externalId": "67",
                   "name": "Looks",
                   "key": "c67",
-                  "slug": "new-women-looks"
+                  "slug": "new-women-looks",
+                  "description": null,
+                  "product_count": 0
                 },
                 {
                   "externalId": "64",
                   "name": "Clothing",
                   "key": "c64",
-                  "slug": "new-women-clothing"
+                  "slug": "new-women-clothing",
+                  "description": null,
+                  "product_count": 28
                 },
                 {
                   "externalId": "65",
                   "name": "Shoes",
                   "key": "c65",
-                  "slug": "new-women-shoes"
+                  "slug": "new-women-shoes",
+                  "description": null,
+                  "product_count": 14
                 }
               ]
             },
@@ -78,18 +104,24 @@
               "name": "Special",
               "key": "c9",
               "slug": "new-special",
+              "description": null,
+              "product_count": 0,
               "children": [
-                {
-                  "externalId": "72",
-                  "name": "Fall in love",
-                  "key": "c72",
-                  "slug": "new-special-fall-in-love"
-                },
                 {
                   "externalId": "73",
                   "name": "Just go",
                   "key": "c73",
-                  "slug": "new-special-just-go"
+                  "slug": "new-special-just-go",
+                  "description": null,
+                  "product_count": 0
+                },
+                {
+                  "externalId": "72",
+                  "name": "Fall in love",
+                  "key": "c72",
+                  "slug": "new-special-fall-in-love",
+                  "description": null,
+                  "product_count": 0
                 }
               ]
             }

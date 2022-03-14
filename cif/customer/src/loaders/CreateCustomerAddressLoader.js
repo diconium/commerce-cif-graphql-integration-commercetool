@@ -28,20 +28,12 @@ class CreateCustomerAddressLoader {
     let loadingFunction = keys => {
       return Promise.resolve(
         keys.map(key => {
-          console.debug(`--> Fetching customer with id ${key}`);
           return this.createCustomerAddress(
             key,
             this.version,
             actionParameters
           ).catch(error => {
-            console.error(
-              `Failed loading customer ${key}, got error ${JSON.stringify(
-                error,
-                null,
-                0
-              )}`
-            );
-            return null;
+            throw new Error(JSON.stringify(error));
           });
         })
       );
@@ -53,7 +45,7 @@ class CreateCustomerAddressLoader {
   /**
    * method used to call the loadingFunction using dataloader
    * @param {*} input parameter input
-   * @returns {Promise} a promise return access token after resolved successfully other wise return the error.
+   * @returns {Promise} a promise return address after resolved successfully other wise return the error.
    */
   load(input, version) {
     this.version = version;
@@ -71,7 +63,9 @@ class CreateCustomerAddressLoader {
    */
   createCustomerAddress(input, version, actionParameters) {
     return new Promise((resolve, reject) => {
+      // reject(actionParameters);
       const { defaultRequest } = actionParameters.context.settings;
+
       let request = { ...defaultRequest };
       const {
         firstname: firstName,

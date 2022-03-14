@@ -12,13 +12,12 @@
  *
  ******************************************************************************/
 'use strict';
-const ProductQuery = `query Products($whereQuery:String,$skus:[String!]){
-  products(where:$whereQuery,skus:$skus){
+const ProductQuery = `query Products($whereQuery:String,$skus:[String!],$sort:[String!],$limit:Int,$offset:Int){
+  products(where:$whereQuery,skus:$skus,sort:$sort,limit:$limit,offset:$offset){
     total
     results{
       id
-    
-      masterData {
+     masterData {
         current {
           masterVariant {
             sku
@@ -37,7 +36,6 @@ const ProductQuery = `query Products($whereQuery:String,$skus:[String!]){
           }
           slug(locale: "en")
           name(locale: "en")
-
         }
       }
     }

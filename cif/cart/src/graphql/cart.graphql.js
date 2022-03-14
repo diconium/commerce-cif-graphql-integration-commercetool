@@ -14,6 +14,11 @@
 'use strict';
 
 const GetCartQuery = `query Cart($cartId: String!) {
+  me{
+    activeCart{
+      id
+    }
+  }
   shippingMethods {
     results {
       id
@@ -74,6 +79,12 @@ const GetCartQuery = `query Cart($cartId: String!) {
       postcode: postalCode
       telephone: phone
     }
+    discountCodes{
+      discountCode{
+          code
+          id
+      }
+    }
     billingAddress {
       id
       firstname: firstName
@@ -98,6 +109,11 @@ const GetCartQuery = `query Cart($cartId: String!) {
       productId
       name(locale: "en")
       slug: productSlug(locale: "en")
+      variant {
+        images {
+          url
+        }
+      }
       price {
         value {
           centAmount

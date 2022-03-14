@@ -73,7 +73,7 @@ class CustomerLoader {
       axios
         .request(request)
         .then(response => {
-          resolve(response.data.data.me.customer);
+          resolve(response.data.data.me);
         })
         .catch(error => {
           reject(error);

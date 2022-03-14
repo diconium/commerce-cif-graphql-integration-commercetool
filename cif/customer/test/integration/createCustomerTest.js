@@ -38,13 +38,13 @@ describe('CreateCustomer', function() {
 
     it('Mutation: create customer response should always contain new customer object', () => {
       args.query =
-        'mutation {createCustomer(input: {firstname: "Amaresh1", lastname: "muni", email: "amar17@test.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
+        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc.xyz@123.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
       return TestUtils.getBearer().then(accessToken => {
         args.context.settings.bearer = accessToken;
         return resolve(args).then(result => {
           const { errors } = result;
           assert.isUndefined(errors);
-          let responseData = result.data.createCustomer;
+          let responseData = result.data.createCustomerV2;
           assert.notEqual(responseData, null);
           expect(errors).to.be.undefined;
         });

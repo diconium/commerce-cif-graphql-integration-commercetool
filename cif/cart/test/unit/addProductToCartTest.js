@@ -28,11 +28,11 @@ const commerceVersionNumberResponse = require('../resources/ctVersionNumberRespo
 const commerceInvalidVersionIdResponse = require('../resources/ctInvalidVersionIdResponse.json');
 const commerceInvalidCartIdResponse = require('../resources/ctInvalidCartIdResponse.json');
 const TestUtils = require('../../../utils/TestUtils.js');
-const AddLineItemToCartMutation = require('../../src/graphql/addLineItemToCart.graphql.js');
 const VersionCartQuery = require('../../src/graphql/version.grapql.js');
+const LineItemToCartMutation = require('../../src/graphql/lineItemCart.graphql.js');
 
 describe('addProductToCart', function() {
-  const scope = nock('https://CT_INSTANCE_HOSTNAME', {
+  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -54,7 +54,7 @@ describe('addProductToCart', function() {
 
     it('Mutation: validate response should return new line item for carts', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: '03bdd6d9-ede2-495c-8ed8-728326003259',
@@ -62,19 +62,35 @@ describe('addProductToCart', function() {
         })
         .reply(200, commerceVersionNumberResponse);
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
-          query: AddLineItemToCartMutation,
+        .post('/adobeio-ct-connector/graphql', {
+          query: LineItemToCartMutation,
           variables: {
             uid: '03bdd6d9-ede2-495c-8ed8-728326003259',
             version: 106,
-            sku: '902b77be-0a40-4f98-a182-56b3367b8cb5',
-            quantity: 2,
+            actions: {
+              addLineItem: {
+                sku: 'A0E2000000022N9',
+                quantity: 1,
+              },
+            },
           },
         })
         .reply(200, commerceAddLineItemToCartResponse);
 
+      args.variables = {
+        cartId: '03bdd6d9-ede2-495c-8ed8-728326003259',
+        cartItems: [
+          {
+            data: {
+              sku: 'A0E2000000022N9',
+              quantity: 1,
+            },
+          },
+        ],
+      };
+
       args.query =
-        'mutation {addSimpleProductsToCart(input:{cart_id: "03bdd6d9-ede2-495c-8ed8-728326003259", cart_items: [{data: {quantity: 2, sku: "902b77be-0a40-4f98-a182-56b3367b8cb5" } }]}){cart {prices {subtotal_excluding_tax {value,currency},subtotal_including_tax{value,currency},grand_total{value,currency}},id,items {id,product { name,sku },quantity},total_quantity }}}';
+        'mutation addSimpleProductToCart($cartId:String!$cartItems:[SimpleProductCartItemInput]!){addSimpleProductsToCart(input:{cart_id:$cartId cart_items:$cartItems}){cart{id items{uid quantity product{name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
       return resolve(args).then(result => {
         let response = result.data;
         assert.isUndefined(result.errors);
@@ -84,26 +100,43 @@ describe('addProductToCart', function() {
 
     it('Mutation: validate response should return invalid version id', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: '03bdd6d9-ede2-495c-8ed8-728326003259',
           },
         })
-        .reply(200, commerceVersionNumberResponse);
+        .reply(200, commerceInvalidVersionIdResponse);
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
-          query: AddLineItemToCartMutation,
+        .post('/adobeio-ct-connector/graphql', {
+          query: LineItemToCartMutation,
           variables: {
             uid: '03bdd6d9-ede2-495c-8ed8-728326003259',
             version: 106,
-            sku: '902b77be-0a40-4f98-a182-56b3367b8cb5',
-            quantity: 2,
+            actions: {
+              addLineItem: {
+                sku: 'A0E2000000022N9',
+                quantity: 2,
+              },
+            },
           },
         })
-        .reply(200, commerceInvalidVersionIdResponse);
+        .reply(200, commerceAddLineItemToCartResponse);
+      args.variables = {
+        cartId: '03bdd6d9-ede2-495c-8ed8-728326003259',
+        cartItems: [
+          {
+            data: {
+              sku: 'A0E2000000022N9',
+              quantity: 2,
+            },
+          },
+        ],
+      };
+
       args.query =
-        'mutation {addSimpleProductsToCart(input:{cart_id: "03bdd6d9-ede2-495c-8ed8-728326003259", cart_items: [{data: {quantity: 2, sku: "902b77be-0a40-4f98-a182-56b3367b8cb5" } }]}){cart {prices {subtotal_excluding_tax {value,currency},subtotal_including_tax{value,currency},grand_total{value,currency}},id,items {id,product { name,sku },quantity},total_quantity }}}';
+        'mutation addSimpleProductToCart($cartId:String!$cartItems:[SimpleProductCartItemInput]!){addSimpleProductsToCart(input:{cart_id:$cartId cart_items:$cartItems}){cart{id items{uid quantity product{name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
+
       return resolve(args).then(result => {
         const errors = result.errors[0];
         expect(errors).shallowDeepEqual({
@@ -118,26 +151,42 @@ describe('addProductToCart', function() {
 
     it('Mutation: validate response should return invalid cart id', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
-            uid: '03bdd6d9-ede2-495c-8ed8-728326003259',
+            uid: '03bdd6d9-ede2-495c-8ed8-072832600325',
           },
         })
         .reply(200, commerceVersionNumberResponse);
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
-          query: AddLineItemToCartMutation,
+        .post('/adobeio-ct-connector/graphql', {
+          query: LineItemToCartMutation,
           variables: {
-            uid: '03bdd6d9-ede2-495c-8ed8-728326003259',
+            uid: '03bdd6d9-ede2-495c-8ed8-072832600325',
             version: 106,
-            sku: '902b77be-0a40-4f98-a182-56b3367b8cb5',
-            quantity: 2,
+            actions: {
+              addLineItem: {
+                sku: 'A0E2000000022N9',
+                quantity: 2,
+              },
+            },
           },
         })
         .reply(200, commerceInvalidCartIdResponse);
+      args.variables = {
+        cartId: '03bdd6d9-ede2-495c-8ed8-072832600325',
+        cartItems: [
+          {
+            data: {
+              sku: 'A0E2000000022N9',
+              quantity: 2,
+            },
+          },
+        ],
+      };
+
       args.query =
-        'mutation {addSimpleProductsToCart(input:{cart_id: "03bdd6d9-ede2-495c-8ed8-728326003259", cart_items: [{data: {quantity: 2, sku: "902b77be-0a40-4f98-a182-56b3367b8cb5" } }]}){cart {prices {subtotal_excluding_tax {value,currency},subtotal_including_tax{value,currency},grand_total{value,currency}},id,items {id,product { name,sku },quantity},total_quantity }}}';
+        'mutation addSimpleProductToCart($cartId:String!$cartItems:[SimpleProductCartItemInput]!){addSimpleProductsToCart(input:{cart_id:$cartId cart_items:$cartItems}){cart{id items{uid quantity product{name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
       return resolve(args).then(result => {
         const errors = result.errors[0];
         expect(errors).shallowDeepEqual({

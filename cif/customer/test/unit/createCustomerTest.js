@@ -22,13 +22,14 @@ const assert = require('chai').assert;
 const chaiShallowDeepEqual = require('chai-shallow-deep-equal');
 chai.use(chaiShallowDeepEqual);
 const resolve = require('../../src/resolvers/customerResolver.js').main;
-const commerceCreateCustomerResponse = require('../resources//commerceCreateCustomerResponse.json');
-const createCustomerResponse = require('../resources/createCustomerResponse.json');
-const commerceCustomerAlreadyExistResponse = require('../resources/commerceCustomerAlreadyExistResponse.json');
+const ctCreateCustomerResponse = require('../resources/commerceCreateCustomerResponse.json');
+const mCreateCustomerResponse = require('../resources/createCustomerResponse.json');
+const ctCustomerAlreadyExistResponse = require('../resources/commerceCustomerAlreadyExistResponse.json');
 const TestUtils = require('../../../utils/TestUtils.js');
 const CreateCustomerMutation = require('./../../src/graphql/createCustomer.graphql');
+
 describe('CreateCustomer', function() {
-  const scope = nock('https://CT_INSTANCE_HOSTNAME', {
+  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -50,44 +51,44 @@ describe('CreateCustomer', function() {
 
     it('Mutation: validate response should always contains new customer', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: CreateCustomerMutation,
           variables: {
-            email: 'amar10@test.com',
+            email: 'abc.xyz@123.com',
             password: 'Test@1234',
-            firstName: 'Amaresh1',
-            lastName: 'muni',
+            firstName: 'abc',
+            lastName: 'xyz',
           },
         })
-        .reply(200, commerceCreateCustomerResponse);
+        .reply(200, ctCreateCustomerResponse);
       args.query =
-        'mutation {createCustomerV2(input: {firstname: "Amaresh1", lastname: "muni", email: "amar10@test.com", password: "Test@1234", is_subscribed: false}) {customer {firstname,lastname,email,is_subscribed}}}';
+        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc.xyz@123.com", password: "Test@1234", is_subscribed: false}) {customer {firstname,lastname,email,is_subscribed}}}';
       return resolve(args).then(result => {
         let response = result.data;
         assert.isUndefined(result.errors);
-        expect(response).to.deep.equals(createCustomerResponse.data);
+        expect(response).to.deep.equals(mCreateCustomerResponse.data);
       });
     });
 
     it('Mutation: validate response should return customer already exist', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: CreateCustomerMutation,
           variables: {
-            email: 'amar10@test.com',
+            email: 'abc.xyz@123.com',
             password: 'Test@1234',
-            firstName: 'Amaresh1',
-            lastName: 'muni',
+            firstName: 'abc',
+            lastName: 'xyz',
           },
         })
-        .reply(200, commerceCustomerAlreadyExistResponse);
+        .reply(200, ctCustomerAlreadyExistResponse);
       args.query =
-        'mutation {createCustomerV2(input: {firstname: "Amaresh1", lastname: "muni", email: "amar10@test.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
+        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc.xyz@123.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
       return resolve(args).then(result => {
         const errors = result.errors[0];
         expect(errors).shallowDeepEqual({
           message:
-            'There is already an existing customer with the email \'"amar10@test.com"\'.',
+            'There is already an existing customer with the email \'"abc.xyz@123.com"\'.',
           source: {
             name: 'GraphQL request',
           },

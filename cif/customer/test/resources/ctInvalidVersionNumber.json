@@ -1,0 +1,25 @@
+{
+    "data": {
+      "updateMyCustomer": null
+    },
+    "errors": [
+      {
+        "message": "Object b596a867-e803-41cd-9f04-815b35e71c14 has a different version than expected. Expected: 120 - Actual: 55.",
+        "path": [
+          "updateMyCustomer"
+        ],
+        "locations": [
+          {
+            "line": 13,
+            "column": 5
+          }
+        ],
+        "code": "ConcurrentModification",
+        "currentVersion": 55,
+        "extensions": {
+          "code": "ConcurrentModification",
+          "currentVersion": 55
+        }
+      }
+    ]
+  }

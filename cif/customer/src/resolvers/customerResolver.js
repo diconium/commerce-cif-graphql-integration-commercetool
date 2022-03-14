@@ -22,6 +22,7 @@ const Country = require('../actions/Country.js');
 
 const GenerateCustomerToken = require('../actions/GenerateCustomerToken.js');
 const CreateCustomerAddress = require('../actions/CreateCusomerAddress.js');
+const ChangePassword = require('../actions/ChangeCustomerPassword.js');
 let cachedSchema = null;
 
 function resolve(args) {
@@ -30,20 +31,20 @@ function resolve(args) {
       .filterMutationFields(
         new Set([
           'createCustomerV2',
+          'createCustomer',
           'generateCustomerToken',
           'createCustomerAddress',
           'revokeCustomerToken',
+          'changeCustomerPassword',
         ])
       )
-      .filterQueryFields(
-        new Set(['customer', 'customerCart', 'countries', 'country'])
-      );
+      .filterQueryFields(new Set(['customer', 'countries', 'country']));
     cachedSchema = schemaBuilder.build();
   }
 
   let resolvers = {
     /**
-     * method used to create customer in commerce
+     * method used to create customer
      * @param {Object} params parameter contains input,graphqlContext and actionParameters
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
@@ -56,15 +57,35 @@ function resolve(args) {
       });
     },
     /**
-     * method used to revoke customer token in commerce
+     * method used to create customer
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    createCustomer: (params, context) => {
+      const { input } = params;
+      return new CreateCustomer({
+        input,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
+    /**
+     * method used to revoke customer token
      */
     revokeCustomerToken: () => {
       return {
         result: true,
       };
     },
+    changeCustomerPassword: (params, context) => {
+      return new ChangePassword({
+        input: params,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
     /**
-     * method used to generate customer token in commerce
+     * method used to generate customer token
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     generateCustomerToken: context => {
@@ -74,7 +95,7 @@ function resolve(args) {
       });
     },
     /**
-     * method used to get the countries in commerce
+     * method used to get the countries
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     customer: context => {
@@ -84,7 +105,7 @@ function resolve(args) {
       });
     },
     /**
-     * method used to get the countries in commerce
+     * method used to get the countries
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     countries: context => {
@@ -95,7 +116,7 @@ function resolve(args) {
       return countries.response;
     },
     /**
-     * method used to get the country in commerce
+     * method used to get the country
      * @param {Object} params parameter contains country code,graphqlContext and actionParameters
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */

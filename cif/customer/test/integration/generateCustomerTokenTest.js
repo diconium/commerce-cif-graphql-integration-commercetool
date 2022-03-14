@@ -16,8 +16,7 @@
 
 const sinon = require('sinon');
 const assert = require('chai').assert;
-const resolve = require('../../src/resolvers/generateCustomerTokenResolver.js')
-  .main;
+const resolve = require('../../src/resolvers/customerResolver.js').main;
 const chai = require('chai');
 const expect = require('chai').expect;
 const chaiShallowDeepEqual = require('chai-shallow-deep-equal');
@@ -44,10 +43,10 @@ describe('GenerateCustomerToken', function() {
           bearer: '',
           customerId: '',
           CT_PROTOCOL: 'https',
-          CT_AUTH_HOST: 'CT_TEST_INSTANCE_HOSTNAME',
-          CT_OAUTH_PATH: 'CT_TEST_INSTANCE_OAUTH_PATH',
-          CT_CLIENTSECRET: 'CT_TEST_INSTANCE_CLIENTSECRET',
-          CT_CLIENTID: 'CT_TEST_INSTANCE_CLIENTID',
+          CT_AUTH_HOST: '<auth-host>',
+          CT_OAUTH_PATH: '/oauth/adobeio-ct-connector/customers/token',
+          CT_CLIENTSECRET: '<CLIENT_SECRET>',
+          CT_CLIENTID: '<CLIENT_ID>',
           apiHost: ctApiHost,
         },
       },
@@ -55,7 +54,7 @@ describe('GenerateCustomerToken', function() {
 
     it('Mutation: Validate generate customer token', () => {
       args.query =
-        'mutation {generateCustomerToken(email: "test@example.com", password: "Password@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
       return resolve(args).then(result => {
         const { errors } = result;
         assert.isUndefined(result.errors);

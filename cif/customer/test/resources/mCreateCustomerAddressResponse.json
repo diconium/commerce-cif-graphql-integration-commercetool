@@ -1,0 +1,22 @@
+{
+  "data": {
+    "createCustomerAddress": {
+      "city": "Austin",
+      "company": "Magento",
+      "country_code": "US",
+      "default_billing": null,
+      "default_shipping": true,
+      "firstname": "Bob",
+      "id": "53",
+      "lastname": "Roll",
+      "postcode": "78758",
+      "region": {
+        "region_code": "US-WA"
+      },
+      "street": [
+        null
+      ],
+      "telephone": "9999998899"
+    }
+  }
+}

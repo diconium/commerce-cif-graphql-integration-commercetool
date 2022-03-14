@@ -33,6 +33,7 @@ class CategoryTreeLoader {
         categoryIds.map(categoryId => {
           console.debug(`--> Fetching category with id ${categoryId}`);
           return this.__getCategoryById(
+            categoryId,
             parameters,
             parameters.actionParameters
           ).catch(error => {
@@ -43,7 +44,7 @@ class CategoryTreeLoader {
                 0
               )}`
             );
-            return null;
+            throw new Error(error);
           });
         })
       );
@@ -72,15 +73,15 @@ class CategoryTreeLoader {
    * @param {String} actionParameters contain the context
    * @returns {Promise} A Promise with the category data.
    */
-  __getCategoryById(parameters, actionParameters) {
+  __getCategoryById(categoryId, parameters, actionParameters) {
     return new Promise((resolve, reject) => {
       const { defaultRequest } = actionParameters.context.settings;
       let request = { ...defaultRequest };
       let whereQuery =
-        parameters.filters.category_uid && parameters.filters.category_uid.eq
-          ? `externalId=${parameters.filters.category_uid.eq}`
-          : //eslint-disable-next-line
-          `slug(en=\"${parameters.filters.url_key.eq}\")`;
+        parameters && parameters.filters && parameters.filters.url_key
+          ? //eslint-disable-next-line
+          `slug(en=\"${parameters.filters.url_key.eq}\")`
+          : `externalId=${categoryId}`;
       request.data = {
         query: CategoryListQuery,
         variables: {
@@ -93,7 +94,10 @@ class CategoryTreeLoader {
           axios
             .request(request)
             .then(response => {
-              resolve(response.data.data.categories.results[0]);
+              if (!response.data.errors) {
+                return resolve(response.data.data.categories.results[0]);
+              }
+              reject(response.data.errors);
             })
             .catch(error => {
               reject(error);

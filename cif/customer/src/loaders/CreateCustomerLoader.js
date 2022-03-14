@@ -38,7 +38,7 @@ class CreateCustomerLoader {
 
   /**
    * method used to call the loadingFunction using dataloader
-   * @param {*} input parameter contains the customer details like firstname, lastname, email,  pasword details
+   * @param {*} input parameter contains the customer details like firstname, lastname, email,  password details
    * @returns {Promise} a promise return cart Id after resolved successfully other wise return the error.
    */
   load(input) {
