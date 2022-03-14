@@ -16,8 +16,7 @@
 
 const sinon = require('sinon');
 const assert = require('chai').assert;
-const resolve = require('../../src/resolvers/setShippingAddressOnCartResolver.js')
-  .main;
+const resolve = require('../../src/resolvers/cartResolver.js').main;
 const TestUtils = require('../../../utils/TestUtils.js');
 const chai = require('chai');
 const expect = require('chai').expect;

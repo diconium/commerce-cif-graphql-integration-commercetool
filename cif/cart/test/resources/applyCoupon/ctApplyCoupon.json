@@ -1,8 +1,86 @@
 {
-  "applyCouponToCart": {
-    "cart": {
-      "applied_coupon": {
-        "code": "FLAT10"
+  "data": {
+    "applyCouponToCart": {
+      "__typename": "ApplyCouponToCartOutput",
+      "cart": {
+        "__typename": "Cart",
+        "applied_coupons": [{
+          "__typename": "AppliedCoupon",
+          "code": "FLAT20"
+        }],
+        "applied_gift_cards": [],
+        "available_payment_methods": [{
+          "__typename": "AvailablePaymentMethod",
+          "code": "credit_card",
+          "title": "Credit Card"
+        }, {
+          "__typename": "AvailablePaymentMethod",
+          "code": "cash_on_delivery",
+          "title": "Cash On Delivery"
+        }, {
+          "__typename": "AvailablePaymentMethod",
+          "code": "free",
+          "title": "Free"
+        }],
+        "id": "76f11761-0d10-4dd3-806d-8ce04ffcd653",
+        "items": [{
+          "__typename": "SimpleCartItem",
+          "id": "0",
+          "prices": {
+            "__typename": "CartItemPrices",
+            "price": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 14500
+            }
+          },
+          "product": {
+            "__typename": "SimpleProduct",
+            "id": null,
+            "name": "Bag medium Liu Jo olive yo",
+            "sku": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+            "small_image": {
+              "__typename": "ProductImage",
+              "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg"
+            },
+            "stock_status": null,
+            "thumbnail": {
+              "__typename": "ProductImage",
+              "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg"
+            },
+            "url_key": null,
+            "url_suffix": null
+          },
+          "quantity": 1
+        }],
+        "prices": {
+          "__typename": "CartPrices",
+          "applied_taxes": [],
+          "discounts": null,
+          "grand_total": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 13350
+          },
+          "subtotal_excluding_tax": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 13350
+          }
+        },
+        "shipping_addresses": [{
+          "__typename": "ShippingCartAddress",
+          "selected_shipping_method": {
+            "__typename": "SelectedShippingMethod",
+            "amount": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 10
+            }
+          },
+          "street": ["Magento Shipping"]
+        }],
+        "total_quantity": 1
       }
     }
   }

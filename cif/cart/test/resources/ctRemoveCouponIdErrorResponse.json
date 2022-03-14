@@ -1,0 +1,25 @@
+{
+    "data": {
+      "updateCart": null
+    },
+    "errors": [
+      {
+        "message": "Cannot remove discount code 'b372a64f-f6ed-4c1d-afca-ef4f14d3cf02' because it is not contained in the cart.",
+        "path": [
+          "updateCart"
+        ],
+        "locations": [
+          {
+            "line": 6,
+            "column": 13
+          }
+        ],
+        "code": "InvalidOperation",
+        "actionIndex": 1,
+        "extensions": {
+          "code": "InvalidOperation",
+          "actionIndex": 1
+        }
+      }
+    ]
+  }

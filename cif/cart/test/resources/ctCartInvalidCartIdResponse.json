@@ -1,0 +1,55 @@
+{
+    "data": {
+        "me": {
+            "activeCart": {
+                "id": "65990889-bc81-46e1-b83c-83105715bd39"
+            }
+        },
+        "shippingMethods": {
+            "results": [
+                {
+                    "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+                    "name": "Standard US",
+                    "taxCategory": {
+                        "rates": [
+                            {
+                                "amount": 0.2,
+                                "country": "AT"
+                            }
+                        ]
+                    },
+                    "zoneRates": [
+                        {
+                            "shippingRates": [
+                                {
+                                    "freeAbove": {
+                                        "centAmount": 20000
+                                    }
+                                }
+                            ],
+                            "zone": {
+                                "name": "United States",
+                                "locations": [
+                                    {
+                                        "country": "US"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "payments": {
+            "results": [
+                {
+                    "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+                    "paymentMethodInfo": {
+                        "name": "Credit Card"
+                    }
+                }
+            ]
+        },
+        "cart": null
+    }
+}

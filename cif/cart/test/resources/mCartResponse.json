@@ -1,0 +1,90 @@
+{
+  "data": {
+    "cart": {
+      "__typename": "Cart",
+      "applied_coupon": null,
+      "available_payment_methods": [
+        {
+          "__typename": "AvailablePaymentMethod",
+          "code": "credit_card",
+          "title": "Credit Card"
+        },
+        {
+          "__typename": "AvailablePaymentMethod",
+          "code": "cash_on_delivery",
+          "title": "Cash On Delivery"
+        },
+        {
+          "__typename": "AvailablePaymentMethod",
+          "code": "free",
+          "title": "Free"
+        }
+      ],
+      "billing_address": null,
+      "email": null,
+      "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+      "is_virtual": false,
+      "items": [
+        {
+          "__typename": "SimpleCartItem",
+          "prices": {
+            "__typename": "CartItemPrices",
+            "price": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 14500
+            },
+            "row_total": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 14500
+            }
+          },
+          "product": {
+            "__typename": "SimpleProduct",
+            "name": "Bag medium Liu Jo olive yo",
+            "sku": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+            "thumbnail": {
+              "__typename": "ProductImage",
+              "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg"
+            }
+          },
+          "quantity": 1,
+          "uid": "757dbca6-b3da-4909-98c3-f8d5099bfb94"
+        }
+      ],
+      "prices": {
+        "__typename": "CartPrices",
+        "applied_taxes": [],
+        "discounts": null,
+        "grand_total": {
+          "__typename": "Money",
+          "currency": "EUR",
+          "value": 14500
+        },
+        "subtotal_excluding_tax": {
+          "__typename": "Money",
+          "currency": "EUR",
+          "value": 14500
+        },
+        "subtotal_including_tax": {
+          "__typename": "Money",
+          "currency": "EUR",
+          "value": 14500
+        },
+        "subtotal_with_discount_excluding_tax": {
+          "__typename": "Money",
+          "currency": "EUR",
+          "value": 14500
+        }
+      },
+      "selected_payment_method": {
+        "__typename": "SelectedPaymentMethod",
+        "code": "cash_on_delivery",
+        "title": "Cash On Delivery"
+      },
+      "shipping_addresses": [],
+      "total_quantity": 1
+    }
+  }
+}

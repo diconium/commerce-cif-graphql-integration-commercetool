@@ -40,7 +40,7 @@ class TokenUtils {
         },
         data: qs.stringify({
           grant_type: 'client_credentials',
-          scope: 'manage_project:CT_INSTANCE_PROJECT',
+          scope: 'manage_project:adobeio-ct-connector',
         }),
       })
       .then(response => `Bearer ${response.data.access_token}`)

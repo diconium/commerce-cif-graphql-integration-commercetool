@@ -14,6 +14,7 @@
 'use strict';
 const CategoryListQuery = `query Categories($whereQuery:String!){
   categories(where: $whereQuery) {
+    total
     results {
       childCount
       id

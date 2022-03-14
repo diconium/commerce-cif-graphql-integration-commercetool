@@ -16,7 +16,7 @@
 
 const CategoryTreeLoader = require('../category/src/loaders/CategoryTreeLoader.js');
 const LoaderProxy = require('./LoaderProxy.js');
-
+const Products = require('./Products');
 // This module contains 3 classes because they have cross/cyclic dependencies to each other
 // and it's not possible to have them in separate files because this is not supported by Javascript
 
@@ -35,6 +35,8 @@ class CategoryTree {
   constructor(parameters) {
     this.graphqlContext = parameters.graphqlContext;
     this.actionParameters = parameters.actionParameters;
+    this.filters = { ...parameters.filters };
+    this.params = parameters.params;
     this.categoryTreeLoader =
       parameters.categoryTreeLoader || new CategoryTreeLoader(parameters);
     this.categoryLevel = parameters.categoryLevel
@@ -42,7 +44,11 @@ class CategoryTree {
       : 1;
     this.categoryId = parameters.categoryId || 1;
     if (parameters.filters && parameters.filters.category_uid) {
-      this.categoryId = parameters.filters.category_uid.eq;
+      this.categoryId =
+        parameters.filters.category_uid.eq ||
+        parameters.filters.category_uid.in.toString();
+    } else if (parameters.filters && parameters.filters.parent_category_uid) {
+      this.categoryId = parameters.filters.parent_category_uid.eq;
     }
     this.urlPath = parameters.urlPath ? parameters.urlPath : '';
     this.cpath = parameters.cpath ? parameters.cpath : this.categoryId;
@@ -53,7 +59,6 @@ class CategoryTree {
   }
 
   __load() {
-    console.debug(`Loading category for ${this.categoryId}`);
     return this.categoryTreeLoader.load(this.categoryId);
   }
 
@@ -70,6 +75,7 @@ class CategoryTree {
       this.urlPath = data.slug;
       this.cpath = data.externalId;
     }
+
     return {
       ...data,
       id: data.externalId,
@@ -83,7 +89,31 @@ class CategoryTree {
       staged: false,
     };
   }
-
+  get total_count() {
+    return this.__load().then(data => {
+      return data ? data.total : 0;
+    });
+  }
+  get page_info() {
+    return this.__load().then(data => {
+      return {
+        current_page: data ? this.params.currentPage || 20 : 1,
+        page_size: this.params.pageSize || 20,
+        total_pages: data ? 1 : 0,
+      };
+    });
+  }
+  get products() {
+    return this.__load().then(data => {
+      return new Products({
+        filters: { category_uid: { eq: data.externalId } },
+        limit: this.params.pageSize,
+        offset: this.params.currentPage,
+        graphqlContext: this.graphqlContext,
+        actionParameters: this.actionParameters,
+      });
+    });
+  }
   get __typename() {
     return 'CategoryTree';
   }
@@ -111,12 +141,43 @@ class CategoryTree {
           categoryTreeLoader: this.categoryTreeLoader,
           categoryLevel: parseInt(clevel + 1),
           urlPath: this.urlPath,
+          params: this.params,
           cpath: this.cpath,
         });
       });
     });
   }
 
+  get items() {
+    return this.__load().then(data => {
+      if (typeof data === 'undefined' || data === '' || data === null) {
+        return [];
+      }
+      if (!data.children || data.children.length === 0) {
+        return [];
+      }
+      let parentSlug = this.urlPath;
+      let catidPath = this.cpath;
+      this.urlPath = '';
+      this.cpath = '';
+      return data.children.map(category => {
+        this.categoryTreeLoader.prime(category.externalId, category);
+        this.urlPath = parentSlug + '/' + category.slug;
+        this.cpath = catidPath + '/' + category.externalId;
+        let clevel = this.categoryLevel;
+        return new CategoryTree({
+          categoryId: category.externalId,
+          graphqlContext: this.graphqlContext,
+          actionParameters: this.actionParameters,
+          categoryTreeLoader: this.categoryTreeLoader,
+          params: this.params,
+          categoryLevel: parseInt(clevel + 1),
+          urlPath: this.urlPath,
+          cpath: this.cpath,
+        });
+      });
+    });
+  }
   get children_count() {
     return this.__load().then(data => {
       return data.children ? data.children.length : 0;

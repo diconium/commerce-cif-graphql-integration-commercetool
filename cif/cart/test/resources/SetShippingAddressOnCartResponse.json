@@ -1,17 +1,65 @@
 {
   "data": {
     "updateCart": {
+      "id": "03bdd6d9-ede2-495c-8ed8-728326003259",
+      "totalPrice": {
+        "centAmount": 12300,
+        "currencyCode": "EUR"
+      },
+      "paymentInfo": null,
       "shippingAddress": {
-        "firstName": "Bob",
-        "lastName": "Roll",
-        "company": "Magento",
-        "streetName": "Magento shipping",
+        "id": "r8UdPUxc",
+        "firstname": "abc",
+        "lastname": "k",
+        "email": null,
+        "region": "201",
+        "country": "DE",
+        "streetName": "Magento Shipping",
         "city": "Austin",
-        "region": "US-WA",
-        "postalCode": "78758",
-        "country": "US",
-        "phone": "9999998899"
-      }
+        "postcode": "73331",
+        "telephone": "1234567890"
+      },
+      "discountCodes": [],
+      "billingAddress": {
+        "id": null,
+        "firstname": "abc",
+        "lastname": "k",
+        "email": null,
+        "region": "201",
+        "country": "DE",
+        "streetName": "Magento Shipping",
+        "city": "Austin",
+        "postcode": "73331",
+        "telephone": "1234567890"
+      },
+      "shippingInfo": {
+        "shippingMethod": {
+          "name": "Standard EU",
+          "id": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf"
+        }
+      },
+      "lineItems": [
+        {
+          "id": "0e81a497-563a-451a-9a30-80e47fd67074",
+          "quantity": 1,
+          "productId": "0871ef8c-b073-4482-8db6-be88ee7ae432",
+          "name": "Sneakers New Balance multi",
+          "slug": "newbalance-sneakers-MT980BB-multi",
+          "variant": {
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079560_1_large.jpg"
+              }
+            ]
+          },
+          "price": {
+            "value": {
+              "centAmount": 12000,
+              "currencyCode": "EUR"
+            }
+          }
+        }
+      ]
     }
   }
 }

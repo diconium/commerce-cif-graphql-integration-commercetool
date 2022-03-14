@@ -15,9 +15,9 @@
 'use strict';
 
 const LoaderProxy = require('../../../common/LoaderProxy.js');
+const CartInterface = require('../Interface/CartInterface.js');
 const {
   CreatePaymentLoader,
-  AvailablePaymentMethods,
 } = require('../loaders/CreatePaymentMethodLoader.js');
 const SetPaymentMethodOnCartLoader = require('../loaders/SetPaymentMethodOnCartLoader.js');
 const VersionLoader = require('../loaders/VersionLoader.js');
@@ -58,18 +58,11 @@ class SetPaymentMethodOnCart {
   }
 
   /**
+   * Converts data from the 3rd-party commerce system into the Magento GraphQL format.
    * get cart method call cart loader to get the cart entries
    */
   __convertData(data) {
-    const code = data.paymentInfo.payments[0].paymentMethodInfo.method;
-    return {
-      cart: {
-        selected_payment_method: {
-          code,
-          title: AvailablePaymentMethods[code].title,
-        },
-      },
-    };
+    return { cart: new CartInterface(data).value };
   }
 }
 

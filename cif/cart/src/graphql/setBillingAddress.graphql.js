@@ -46,19 +46,75 @@ const SetBillingAddressMutation = `
          }
        }
      ) {
-       billingAddress {
-         firstName
-         lastName
-         company
-         streetName
-         city
-         region
-         phone
-         postalCode
-         country
-       }
-     }
-   }
+      id
+      totalPrice {
+        centAmount
+        currencyCode
+      }
+      paymentInfo {
+        payments {
+          id
+          paymentMethodInfo {
+            name(locale: "en")
+            method
+          }
+        }
+      }
+      shippingAddress {
+        id
+        firstname: firstName
+        lastname: lastName
+        email
+        region
+        country
+        streetName
+        city
+        postcode: postalCode
+        telephone: phone
+      }
+      discountCodes{
+        discountCode{
+            code
+            id
+        }
+      }
+      billingAddress {
+        id
+        firstname: firstName
+        lastname: lastName
+        email
+        region
+        country
+        streetName
+        city
+        postcode: postalCode
+        telephone: phone
+      }
+      shippingInfo {
+        shippingMethod {
+          name
+          id
+        }
+      }
+      lineItems {
+        id
+        quantity
+        productId
+        name(locale: "en")
+        slug: productSlug(locale: "en")
+        variant {
+          images {
+            url
+          }
+        }
+        price {
+          value {
+            centAmount
+            currencyCode
+          }
+        }
+      }
+  }    }
  `;
 
 module.exports = SetBillingAddressMutation;

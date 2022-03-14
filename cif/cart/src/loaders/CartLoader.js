@@ -21,9 +21,9 @@ const GetCustomerCartQuery = require('../graphql/customerCart.graphql');
 
 class CartLoader {
   /**
-   * @param {Object} [actionParameters] Some optional parameters of the I/O Runtime action, like for example authentication info.
+   * @param {Object} [graphqlContext] Some optional parameters of the I/O Runtime action, like for example authentication info.
    */
-  constructor(actionParameters) {
+  constructor(graphqlContext) {
     let loadingFunction = cartIds => {
       /**
        * This loader loads each cart one by one, but if the 3rd party backend allows it,
@@ -33,7 +33,7 @@ class CartLoader {
       return Promise.resolve(
         cartIds.map(cartId => {
           console.debug(`--> Fetching cart with id ${cartId}`);
-          return this.__getCartById(cartId, actionParameters).catch(error => {
+          return this.__getCartById(cartId, graphqlContext).catch(error => {
             console.error(
               `Failed loading cart ${cartId}, got error ${JSON.stringify(
                 error,
@@ -41,7 +41,7 @@ class CartLoader {
                 0
               )}`
             );
-            throw new Error(error.message);
+            throw new Error(error[0].message);
           });
         })
       );
@@ -64,15 +64,13 @@ class CartLoader {
    * in order to fetch a cart based on the cart id. This method returns a Promise,
    * for example to simulate some HTTP REST call being performed to the 3rd-party commerce system.
    * @param {String} cartId The cart id.
-   * @param {Object} actionParameters Some parameters of the I/O action itself (e.g. backend server URL, authentication info, etc)
+   * @param {Object} graphqlContext Some parameters of the I/O action itself (e.g. backend server URL, authentication info, etc)
    * @returns {Promise} A Promise with the cart data.
    */
-  __getCartById(cartId, actionParameters) {
+  __getCartById(cartId, graphqlContext) {
     return new Promise((resolve, reject) => {
-      const { defaultRequest } = actionParameters.context.settings;
-
+      const { defaultRequest } = graphqlContext.settings;
       let request = { ...defaultRequest };
-
       request.data = {
         query: cartId ? GetCartQuery : GetCustomerCartQuery,
         variables: {

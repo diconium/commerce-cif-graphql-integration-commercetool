@@ -46,6 +46,10 @@ class Address {
   get selected_shipping_method() {
     if (!this.selectedShippingMethod) return null;
     return {
+      amount: {
+        currency: 'EUR',
+        value: 10,
+      },
       carrier_code: this.selectedShippingMethod.shippingMethod.id,
       carrier_title: this.selectedShippingMethod.shippingMethod.name,
       error_message: '',

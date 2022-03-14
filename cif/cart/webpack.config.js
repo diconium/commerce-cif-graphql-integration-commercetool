@@ -11,31 +11,30 @@
  *    governing permissions and limitations under the License.
  *
  ******************************************************************************/
+
 'use strict';
 
-const AddLineItemToCartMutation = `mutation UpdateCart($uid: String!, $version: Long!, $sku: String!, $quantity: Long!) {
-  updateCart(
-    id: $uid
-    version: $version
-    actions: { addLineItem: { sku: $sku, quantity: $quantity } }
-  ) {
-    id
-    totalPrice{
-      centAmount
-      currencyCode
-    }
-    lineItems {
-      id
-      productId
-      quantity
-      name(locale: "en")
-      price{
-        value{
-          centAmount
-          currencyCode
-        }
-      }
-    }
-  }
-}`;
-module.exports = AddLineItemToCartMutation;
+const slsw = require('serverless-webpack');
+const path = require('path');
+
+module.exports = {
+  entry: slsw.lib.entries,
+  devtool: 'source-map',
+  target: 'node',
+  stats: 'minimal',
+  output: {
+    libraryTarget: 'commonjs',
+    path: path.resolve(__dirname, '.webpack'),
+    filename: '[name].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ya?ml$/,
+        type: 'json',
+        use: 'yaml-loader',
+      },
+    ],
+  },
+  mode: 'development',
+};

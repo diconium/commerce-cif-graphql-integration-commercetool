@@ -17,7 +17,7 @@
 const { graphql } = require('graphql');
 const SchemaBuilder = require('../../../common/SchemaBuilder.js');
 const CreateEmptyCart = require('../actions/CreateEmptyCart.js');
-const AddLineItemToCart = require('../actions/AddLineItemToCart.js');
+const LineItemToCart = require('../actions/LineItemToCart.js');
 const SetShippingAddressOnCart = require('../actions/SetShippingAddressOnCart.js');
 const SetBillingAddressOnCart = require('../actions/SetBillingAddressOnCart.js');
 const Cart = require('../actions/Cart.js');
@@ -25,6 +25,8 @@ const SetPaymentMethodOnCart = require('../actions/SetPaymentMethodOnCart.js');
 const SetShippingMethodOnCart = require('../actions/SetShippingMethodOnCart.js');
 const ApplyCouponToCart = require('../actions/ApplyCouponToCart.js');
 const PlaceOrder = require('../actions/PlaceOrder.js');
+const CustomerCart = require('../actions/CustomerCart.js');
+const RemoveCouponToCart = require('../actions/RemoveCouponToCart.js');
 
 let cachedSchema = null;
 
@@ -45,7 +47,10 @@ function resolve(args) {
           'setPaymentMethodOnCart',
           'setShippingMethodsOnCart',
           'applyCouponToCart',
+          'removeCouponFromCart',
           'placeOrder',
+          'updateCartItems',
+          'removeItemFromCart',
         ])
       )
       .filterQueryFields(new Set(['cart', 'customerCart']));
@@ -82,8 +87,7 @@ function resolve(args) {
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     customerCart: (params, context) => {
-      return new Cart({
-        cartId: params.cart_id,
+      return new CustomerCart({
         graphqlContext: context,
         actionParameters: args,
       });
@@ -95,7 +99,33 @@ function resolve(args) {
      */
     addSimpleProductsToCart: (params, context) => {
       const { input } = params;
-      return new AddLineItemToCart({
+      return new LineItemToCart({
+        input,
+        graphqlContext: context,
+        actionParameters: params,
+      });
+    },
+    /**
+     * method used to update product to cart
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    updateCartItems: (params, context) => {
+      const { input } = params;
+      return new LineItemToCart({
+        input,
+        graphqlContext: context,
+        actionParameters: params,
+      });
+    },
+    /**
+     * method used to remove product to cart
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    removeItemFromCart: (params, context) => {
+      const { input } = params;
+      return new LineItemToCart({
         input,
         graphqlContext: context,
         actionParameters: params,
@@ -161,6 +191,19 @@ function resolve(args) {
       return new ApplyCouponToCart({
         input,
         couponCode: params.input.coupon_code,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
+    /**
+     * method used to apply coupon to cart
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {Object} context parameter contains the context of the GraphQL Schema
+     */
+    removeCouponFromCart: (params, context) => {
+      const { input } = params;
+      return new RemoveCouponToCart({
+        input,
         graphqlContext: context,
         actionParameters: args,
       });

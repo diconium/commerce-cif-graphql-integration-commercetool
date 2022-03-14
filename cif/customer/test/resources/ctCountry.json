@@ -1,0 +1,71 @@
+{
+    "data": {
+        "zones": {
+            "results": [
+                {
+                    "name": "United States",
+                    "locations": [
+                        {
+                            "country": "US",
+                            "state": null
+                        },
+                        {
+                            "country": "US",
+                            "state": "New York"
+                        },
+                        {
+                            "country": "US",
+                            "state": "[{\"id\":1,\"code\":\"NY\",\"name\":\"New York\"},{\"id\":2,\"code\":\"CA\",\"name\":\"Calfornia\"},{\"id\":3,\"code\":\"NJ\",\"name\":\"New Jersey\"}]"
+                        },
+                        {
+                            "country": "US",
+                            "state": "[{\"id\":300,\"code\":\"NY\",\"name\":\"New York\"},{\"id\":302,\"code\":\"CA\",\"name\":\"Calfornia\"},{\"id\":301,\"code\":\"NJ\",\"name\":\"New Jersey\"}]"
+                        }
+                    ]
+                },
+                {
+                    "name": "Germany",
+                    "locations": [
+                        {
+                            "country": "DE",
+                            "state": null
+                        },
+                        {
+                            "country": "DE",
+                            "state": "[{\"id\":102,\"code\":\"BL\",\"name\":\"Burgenland\"},{\"id\":99,\"code\":\"KN\",\"name\":\"Kärnten\"},{\"id\":96,\"code\":\"NO\",\"name\":\"Niederösterreich\"}]"
+                        },
+                        {
+                            "country": "US",
+                            "state": "[{\"id\":200,\"code\":\"BE\",\"name\":\"Berlin\"},{\"id\":201,\"code\":\"BA\",\"name\":\"Bavaria\"},{\"id\":202,\"code\":\"BR\",\"name\":\"Bremen\"}]"
+                        },
+                        {
+                            "country": "DE",
+                            "state": "[{\"id\":200,\"code\":\"BE\",\"name\":\"Berlin\"},{\"id\":201,\"code\":\"BA\",\"name\":\"Bavaria\"},{\"id\":202,\"code\":\"BR\",\"name\":\"Bremen\"}]"
+                        }
+                    ]
+                },
+                {
+                    "name": "Austria",
+                    "locations": [
+                        {
+                            "country": "AT",
+                            "state": "[{\"id\":102,\"code\":\"BL\",\"name\":\"Burgenland\"},{\"id\":99,\"code\":\"KN\",\"name\":\"Kärnten\"},{\"id\":96,\"code\":\"NO\",\"name\":\"Niederösterreich\"}]"
+                        },
+                        {
+                            "country": "AT",
+                            "state": "[{\"id\":102,\"code\":\"BL\",\"name\":\"Burgenland\"},{\"id\":99,\"code\":\"KN\",\"name\":\"Kärnten\"},{\"id\":96,\"code\":\"NO\",\"name\":\"Niederösterreic\"}]"
+                        },
+                        {
+                            "country": "AT",
+                            "state": "[{\"id\":102,\"code\":\"BL\",\"name\":\"Burgenland\"},{\"id\":99,\"code\":\"KN\",\"name\":\"Kärnten\"},{\"id\":96,\"code\":\"NO\",\"name\":\"Niederösterreih\"}]"
+                        },
+                        {
+                            "country": "AT",
+                            "state": "[{\"id\":102,\"code\":\"BL\",\"name\":\"Burgenland\"},{\"id\":99,\"code\":\"KN\",\"name\":\"Kärnten\"},{\"id\":96,\"code\":\"NO\",\"name\":\"Niederösterreihg\"}]"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

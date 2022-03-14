@@ -15,6 +15,7 @@
 'use strict';
 
 const LoaderProxy = require('../../../common/LoaderProxy.js');
+const CartInterface = require('../Interface/CartInterface.js');
 const ApplyCouponToCartLoader = require('../loaders/ApplyCouponToCartLoader.js');
 const VersionLoader = require('../loaders/VersionLoader.js');
 
@@ -53,21 +54,10 @@ class ApplyCouponToCart {
   /**
    * Converts data from the 3rd-party commerce system into the Magento GraphQL format.
    * @param {Object} data parameter data contains details from hybris
-   * @returns {Object} convert the hybris data into magento graphQL schema and return the object
+   * @returns {Object} convert the commerce tool data into magento graphQL schema and return the object
    */
   __convertData(data) {
-    const discountCodes = data.discountCodes;
-    return {
-      cart: {
-        applied_coupon: {
-          code:
-            (discountCodes &&
-              discountCodes.length > 0 &&
-              discountCodes[0].discountCode.code) ||
-            '',
-        },
-      },
-    };
+    return { cart: new CartInterface(data).value };
   }
 }
 module.exports = ApplyCouponToCart;

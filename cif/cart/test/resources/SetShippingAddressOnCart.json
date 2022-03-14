@@ -1,27 +1,88 @@
 {
-  "setShippingAddressesOnCart": {
-    "cart": {
-      "shipping_addresses": [
-        {
-          "firstname": "Bob",
-          "lastname": "Roll",
-          "company": "Magento",
-          "street": [
-            "Magento shipping"
-          ],
-          "city": "Austin",
-          "region": {
-            "code": "US-WA",
-            "label": "US-WA"
+  "data": {
+    "setShippingAddressesOnCart": {
+      "__typename": "SetShippingAddressesOnCartOutput",
+      "cart": {
+        "__typename": "Cart",
+        "applied_gift_cards": [],
+        "available_payment_methods": [
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "credit_card",
+            "title": "Credit Card"
           },
-          "postcode": "78758",
-          "telephone": "9999998899",
-          "country": {
-            "code": "US",
-            "label": "US"
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "cash_on_delivery",
+            "title": "Cash On Delivery"
+          },
+          {
+            "__typename": "AvailablePaymentMethod",
+            "code": "free",
+            "title": "Free"
           }
-        }
-      ]
+        ],
+        "email": null,
+        "id": "03bdd6d9-ede2-495c-8ed8-728326003259",
+        "items": [
+          {
+            "__typename": "SimpleCartItem",
+            "id": "0e81a497-563a-451a-9a30-80e47fd67074",
+            "quantity": 1
+          }
+        ],
+        "prices": {
+          "__typename": "CartPrices",
+          "applied_taxes": [],
+          "discounts": null,
+          "grand_total": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 12300
+          },
+          "subtotal_excluding_tax": {
+            "__typename": "Money",
+            "currency": "EUR",
+            "value": 12300
+          }
+        },
+        "shipping_addresses": [
+          {
+            "__typename": "ShippingCartAddress",
+            "available_shipping_methods": [],
+            "city": "Austin",
+            "country": {
+              "__typename": "CartAddressCountry",
+              "code": "DE",
+              "label": "DE"
+            },
+            "firstname": "abc",
+            "lastname": "k",
+            "postcode": "73331",
+            "region": {
+              "__typename": "CartAddressRegion",
+              "code": "201",
+              "label": "201",
+            "region_id": 201
+            },
+            "selected_shipping_method": {
+              "__typename": "SelectedShippingMethod",
+              "amount": {
+                "__typename": "Money",
+                "currency": "EUR",
+                "value": 10
+              },
+              "carrier_code": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf",
+            "method_code": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf",
+            "method_title": "Standard EU"
+            },
+            "street": [
+              "Magento Shipping"
+            ],
+            "telephone": "1234567890"
+          }
+        ]
+      }
     }
   }
 }

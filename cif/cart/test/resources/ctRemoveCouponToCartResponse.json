@@ -1,0 +1,75 @@
+{
+  "data": {
+    "updateCart": {
+      "id": "76f11761-0d10-4dd3-806d-8ce04ffcd653",
+      "totalPrice": {
+        "centAmount": 13350,
+        "currencyCode": "EUR"
+      },
+      "paymentInfo": {
+        "payments": [
+          {
+            "id": "ac74d694-1fdc-4e09-9eb7-fa1f55b480e9",
+            "paymentMethodInfo": {
+              "name": null,
+              "method": "free"
+            }
+          }
+        ]
+      },
+      "shippingAddress": {
+        "id": "r8UdPUxc",
+        "firstname": "abc",
+        "lastname": "k",
+        "email": null,
+        "region": "201",
+        "country": "DE",
+        "streetName": "Magento Shipping",
+        "city": "Austin",
+        "postcode": "73331",
+        "telephone": "1234567890"
+      },
+      "discountCodes": [],
+      "billingAddress": {
+        "id": null,
+        "firstname": "abc",
+        "lastname": "k",
+        "email": null,
+        "region": "201",
+        "country": "DE",
+        "streetName": "Magento Shipping",
+        "city": "Austin",
+        "postcode": "73331",
+        "telephone": "1234567890"
+      },
+      "shippingInfo": {
+        "shippingMethod": {
+          "name": "Standard EU",
+          "id": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf"
+        }
+      },
+      "lineItems": [
+        {
+          "id": "25f65ab9-4f83-45f1-871c-9809d32a5ca0",
+          "quantity": 1,
+          "productId": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+          "name": "Bag medium Liu Jo olive yo",
+          "slug": "liujo-bag-medium-A15085E0087-olive",
+          "variant": {
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg"
+              }
+            ]
+          },
+          "price": {
+            "value": {
+              "centAmount": 14500,
+              "currencyCode": "EUR"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

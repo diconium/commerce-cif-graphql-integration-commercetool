@@ -37,7 +37,7 @@ class SetPaymentMethodOnCartLoader {
             this.graphqlContext,
             this.actionParameters
           ).catch(error => {
-            throw new Error(error);
+            throw new Error(error[0].message);
           });
         })
       );
@@ -57,7 +57,7 @@ class SetPaymentMethodOnCartLoader {
 
   /**
    * Method used to set payment method on cart
-   * @param {Object} input parameter contains the cart ID details
+   * @param {Object} input parameter contains the cart ID and payment method details
    * @param {Object} version parameter contains the version number
    * @param {Object} graphqlContext The optional GraphQL execution context passed to the resolver.
    * @returns {Promise} a promise resolves and return payment method of cart.
@@ -83,7 +83,7 @@ class SetPaymentMethodOnCartLoader {
           if (!response.data.errors) {
             return resolve(response.data.data.updateCart);
           }
-          reject(response.data.errors[0].message);
+          reject(response.data.errors);
         })
         .catch(error => {
           reject(JSON.stringify(error));

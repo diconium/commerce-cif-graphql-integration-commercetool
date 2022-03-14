@@ -2,9 +2,9 @@
   "data": {
     "createCustomerV2": {
       "customer": {
-        "firstname": "Amaresh1",
-        "lastname": "muni",
-        "email": "amar10@test.com",
+        "firstname": "abc",
+        "lastname": "xyz",
+        "email": "abc.xyz@123.com",
         "is_subscribed": false
       }
     }

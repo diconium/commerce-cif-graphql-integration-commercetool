@@ -1,0 +1,69 @@
+{
+    "data": {
+        "countries": [
+            {
+                "available_regions": [
+                    {
+                        "code": "NY",
+                        "id": 300,
+                        "name": "New York"
+                    },
+                    {
+                        "code": "CA",
+                        "id": 302,
+                        "name": "Calfornia"
+                    },
+                    {
+                        "code": "NJ",
+                        "id": 301,
+                        "name": "New Jersey"
+                    }
+                ],
+                "full_name_locale": null,
+                "id": "US"
+            },
+            {
+                "available_regions": [
+                    {
+                        "code": "BE",
+                        "id": 200,
+                        "name": "Berlin"
+                    },
+                    {
+                        "code": "BA",
+                        "id": 201,
+                        "name": "Bavaria"
+                    },
+                    {
+                        "code": "BR",
+                        "id": 202,
+                        "name": "Bremen"
+                    }
+                ],
+                "full_name_locale": null,
+                "id": "DE"
+            },
+            {
+                "available_regions": [
+                    {
+                        "code": "BL",
+                        "id": 102,
+                        "name": "Burgenland"
+                    },
+                    {
+                        "code": "KN",
+                        "id": 99,
+                        "name": "Kärnten"
+                    },
+                    {
+                        "code": "NO",
+                        "id": 96,
+                        "name": "Niederösterreihg"
+                    }
+                ],
+                "full_name_locale": null,
+                "id": "AT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,224 @@
+{
+    "data": {
+      "me": {
+        "customer": {
+          "id": "2890eaad-0b24-4f05-a03a-35638e318116",
+          "firstname": "abc",
+          "lastname": "xyz",
+          "email": "abc.xyz@123.com",
+          "defaultBillingAddressId": null,
+          "defaultShippingAddressId": null,
+          "addresses": [
+            {
+              "id": "r8UdPUxc",
+              "firstname": "abc",
+              "lastname": "k",
+              "email": null,
+              "region": "201",
+              "country": "DE",
+              "city": "Austin",
+              "streetName": "Magento Shipping",
+              "streetNumber": null,
+              "postcode": "73331",
+              "telephone": "1234567890",
+              "country_code": "DE",
+              "company": "Magento"
+            },
+            {
+              "id": "r7P6IuXe",
+              "firstname": "abc",
+              "lastname": "k",
+              "email": null,
+              "region": "200",
+              "country": "DE",
+              "city": "Austin",
+              "streetName": "Magento Shipping",
+              "streetNumber": null,
+              "postcode": "73331",
+              "telephone": "1234567890",
+              "country_code": "DE"
+            }
+          ]
+        },
+        "orders": {
+          "results": [
+            {
+              "number": "1a745352-d01d-4bd2-b1af-505a63a4ce25",
+              "id": "4cc5dbb2-18d5-43ca-a98f-1fefc2f147d3",
+              "status": "Open",
+              "order_date": "2022-02-20T06:22:58.941Z",
+              "totalPrice": {
+                "centAmount": 33500,
+                "currencyCode": "EUR"
+              },
+              "paymentInfo": null,
+              "shippingAddress": {
+                "id": "r8UdPUxc",
+                "firstname": "abc",
+                "lastname": "k",
+                "email": null,
+                "region": "201",
+                "country": "DE",
+                "streetName": "Magento Shipping",
+                "city": "Austin",
+                "postcode": "73331",
+                "telephone": "1234567890"
+              },
+              "discountCodes": [],
+              "billingAddress": {
+                "id": null,
+                "firstname": "abc",
+                "lastname": "k",
+                "email": null,
+                "region": "201",
+                "country": "DE",
+                "streetName": "Magento Shipping",
+                "city": "Austin",
+                "postcode": "73331",
+                "telephone": "1234567890"
+              },
+              "shippingInfo": {
+                "shippingMethod": {
+                  "name": "Express EU",
+                  "id": "a7197f1b-84bb-40fb-9ea5-ea93bb625af6"
+                }
+              },
+              "lineItems": [
+                {
+                  "id": "88bcc1f4-4ec5-4438-b8e2-996b37203fd5",
+                  "quantity": 1,
+                  "productId": "71f84c9e-486c-4b0a-8967-c637987f7ba5",
+                  "name": "Bag “Cindy“medium Michael Kors yellow",
+                  "slug": "michael-kors-bag-30S5GCPS3L-yellow",
+                  "variant": {
+                    "images": [
+                      {
+                        "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082510_1_medium.jpg"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "value": {
+                      "centAmount": 32500,
+                      "currencyCode": "EUR"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "number": "7a313779-2f76-4304-b9da-ab87d5c2df07",
+              "id": "92f3252c-9ed8-4444-ac9c-6b39fec91e84",
+              "status": "Open",
+              "order_date": "2022-02-20T07:07:44.343Z",
+              "totalPrice": {
+                "centAmount": 225090,
+                "currencyCode": "EUR"
+              },
+              "paymentInfo": null,
+              "shippingAddress": {
+                "id": "r8UdPUxc",
+                "firstname": "abc",
+                "lastname": "k",
+                "email": null,
+                "region": "201",
+                "country": "DE",
+                "streetName": "Magento Shipping",
+                "city": "Austin",
+                "postcode": "73331",
+                "telephone": "1234567890"
+              },
+              "discountCodes": [
+                {
+                  "discountCode": {
+                    "code": "TEST3",
+                    "id": "3f141396-1665-41ff-a907-29fac8c0b920"
+                  }
+                }
+              ],
+              "billingAddress": {
+                "id": null,
+                "firstname": "abc",
+                "lastname": "k",
+                "email": null,
+                "region": "201",
+                "country": "DE",
+                "streetName": "Magento Shipping",
+                "city": "Austin",
+                "postcode": "73331",
+                "telephone": "1234567890"
+              },
+              "shippingInfo": {
+                "shippingMethod": {
+                  "name": "Standard EU",
+                  "id": "d92e7f4f-5e8e-4407-8443-67896ab7dbaf"
+                }
+              },
+              "lineItems": [
+                {
+                  "id": "46d591a1-8c84-4f49-b1a0-9578148f1a70",
+                  "quantity": 1,
+                  "productId": "bf3fa416-7a70-4efe-a638-1e047bd87019",
+                  "name": "Handbag ”Chelsea” Liebeskind brown",
+                  "slug": "liebeskind-handbag-chelsea-brown",
+                  "variant": {
+                    "images": [
+                      {
+                        "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/073294_1_large.jpg"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "value": {
+                      "centAmount": 25900,
+                      "currencyCode": "EUR"
+                    }
+                  }
+                },
+                {
+                  "id": "f766c495-ccd1-438d-bb3c-c144e68eac94",
+                  "quantity": 3,
+                  "productId": "23216b17-8bfa-458f-abca-b7664be3b01a",
+                  "name": "Handbag by Karl Lagerfeld",
+                  "slug": "bag-karllagerfeld-46kw3004-black",
+                  "variant": {
+                    "images": [
+                      {
+                        "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/071642_1_large.jpg"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "value": {
+                      "centAmount": 64900,
+                      "currencyCode": "EUR"
+                    }
+                  }
+                },
+                {
+                  "id": "e8fe1c4f-4669-46bb-8947-70aac3f6f9a4",
+                  "quantity": 1,
+                  "productId": "12aa1171-2afa-437b-91af-10ea1fefd529",
+                  "name": "Bag “Selma“ medium Michael Kors red",
+                  "slug": "michael-kors-bag-30S3GLMS2L-red",
+                  "variant": {
+                    "images": [
+                      {
+                        "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082533_1_large.jpg"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "value": {
+                      "centAmount": 29500,
+                      "currencyCode": "EUR"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }

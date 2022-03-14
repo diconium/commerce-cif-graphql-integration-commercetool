@@ -16,6 +16,7 @@
 
 const LoaderProxy = require('../../../common/LoaderProxy.js');
 const CustomerLoader = require('../../../customer/src/loaders/CustomerLoader.js');
+const CartInterface = require('../Interface/CartInterface.js');
 const SetShippingAddressOnCartLoader = require('../loaders/SetShippingAddressOnCartLoader.js');
 const VersionLoader = require('../loaders/VersionLoader.js');
 
@@ -50,58 +51,24 @@ class SetShippingAddressOnCart {
    */
   __load() {
     return this._versionLoader.load(this.input).then(version => {
-      if (this.input.shipping_addresses) {
-        return this.setShippingAddressOnCartLoader.load(
-          this.input.cart_id,
-          version,
-          this.input.shipping_addresses
-        );
-      } else {
-        return this.getCustomerLoader
-          .load(this.actionParameters)
-          .then(({ addresses }) => {
-            const getAddress =
-              addresses[this.input.shipping_addresses[0].customer_address_id];
-            const shippingAddress = [{ address: getAddress }];
-            return this.setShippingAddressOnCartLoader.load(
-              this.input.cart_id,
-              version,
-              shippingAddress
-            );
-          });
-      }
+      return this.getCustomerLoader
+        .load(this.actionParameters)
+        .then(({ customer }) => {
+          return this.setShippingAddressOnCartLoader.load(
+            this.input.cart_id,
+            version,
+            customer.addresses[0]
+          );
+        });
     });
   }
-
   /**
    * Converts shipping Address data from the 3rd-party commerce system into the Magento GraphQL format.
    * @param {Object} data parameter data contains shippingAddress details from commerce
    * @returns {Object} convert the commerce data into magento graphQL schema and return the shippingAddresss object
    */
   __convertData(data) {
-    return {
-      cart: {
-        shipping_addresses: [
-          {
-            firstname: data.firstName,
-            lastname: data.lastName,
-            company: data.company,
-            street: [data.streetName],
-            city: data.city,
-            region: {
-              code: data.region,
-              label: data.region,
-            },
-            postcode: data.postalCode,
-            telephone: data.phone,
-            country: {
-              code: data.country,
-              label: data.country,
-            },
-          },
-        ],
-      },
-    };
+    return { cart: new CartInterface(data).value };
   }
 }
 

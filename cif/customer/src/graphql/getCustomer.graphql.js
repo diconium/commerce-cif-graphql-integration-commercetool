@@ -14,6 +14,7 @@
 'use strict';
 const GetCustomerQuery = `query GetCustomer {
   me {
+
     customer {
       id
       firstname: firstName
@@ -36,6 +37,81 @@ const GetCustomerQuery = `query GetCustomer {
         country_code: country
       }
     }
+    orders {
+      results {
+      number:orderNumber
+      id
+      status:orderState
+      order_date:createdAt
+      totalPrice {
+      centAmount
+      currencyCode
+      }
+      paymentInfo {
+      payments {
+      id
+      paymentMethodInfo {
+      name(locale: "en")
+      method
+      }
+      }
+      }
+      shippingAddress {
+      id
+      firstname: firstName
+      lastname: lastName
+      email
+      region
+      country
+      streetName
+      city
+      postcode: postalCode
+      telephone: phone
+      }
+      discountCodes{
+      discountCode{
+      code
+      id
+      }
+      }
+      billingAddress {
+      id
+      firstname: firstName
+      lastname: lastName
+      email
+      region
+      country
+      streetName
+      city
+      postcode: postalCode
+      telephone: phone
+      }
+      shippingInfo {
+      shippingMethod {
+      name
+      id
+      }
+      }
+      lineItems {
+      id
+      quantity
+      productId
+      name(locale: "en")
+      slug :productSlug(locale:"en")
+      variant {
+      images {
+      url
+      }
+      }
+      price {
+      value {
+      centAmount
+      currencyCode
+      }
+      }
+      }
+      }
+      }
   }
 }
 `;

@@ -22,7 +22,7 @@ const expect = require('chai').expect;
 const resolve = require('../../src/resolvers/cartResolver.js').main;
 const chaiShallowDeepEqual = require('chai-shallow-deep-equal');
 chai.use(chaiShallowDeepEqual);
-const applyCoupon = require('../resources/applyCoupon/ctApplyCoupon.json');
+const mApplyCoupon = require('../resources/applyCoupon/ctApplyCoupon.json');
 const validResponseApplyCouponToCart = require('../resources/applyCoupon/validResponseApplyCouponToCart.json');
 const cartNotFound = require('../resources/applyCoupon/ctCartNotFound.json');
 const inExpiredCouponCode = require('../resources/applyCoupon/ctExpiredCouponCode.json');
@@ -35,7 +35,7 @@ const VersionCartQuery = require('../../src/graphql/version.grapql.js');
 const ApplyCouponToCartMutation = require('../../src/graphql/applyCouponToCart.graphql.js');
 
 describe('ApplyCouponOnCart', function() {
-  const scope = nock('https://CT_INSTANCE_HOSTNAME', {
+  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -56,37 +56,41 @@ describe('ApplyCouponOnCart', function() {
 
     it('Mutation: validate apply coupon to cart', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
-            uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
+            uid: '76f11761-0d10-4dd3-806d-8ce04ffcd653',
           },
         })
         .reply(200, commerceVersionNumberResponse);
 
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: ApplyCouponToCartMutation,
           variables: {
-            uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
+            uid: '76f11761-0d10-4dd3-806d-8ce04ffcd653',
             version: 106,
-            code: 'FLAT10',
+            code: 'FLAT20',
           },
         })
         .reply(200, validResponseApplyCouponToCart)
         .log(console.log);
+      args.variables = {
+        cartId: '76f11761-0d10-4dd3-806d-8ce04ffcd653',
+        couponCode: 'FLAT20',
+      };
       args.query =
-        'mutation {applyCouponToCart(input: {cart_id: "1cafee87-9cc2-4e3b-bc05-662b8594a5e7",coupon_code: "FLAT10"}){cart{applied_coupon{code}}}}';
+        'mutation applyCouponToCart($cartId:String!$couponCode:String!){applyCouponToCart(input:{cart_id:$cartId coupon_code:$couponCode}){cart{id ...CartPageFragment available_payment_methods{code title __typename}__typename}__typename}}fragment CartPageFragment on Cart{id total_quantity ...AppliedCouponsFragment ...GiftCardFragment ...ProductListingFragment ...PriceSummaryFragment __typename}fragment AppliedCouponsFragment on Cart{id applied_coupons{code __typename}__typename}fragment GiftCardFragment on Cart{applied_gift_cards{code current_balance{currency value __typename}__typename}id __typename}fragment ProductListingFragment on Cart{id items{id product{id name sku url_key url_suffix thumbnail{url __typename}small_image{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id small_image{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id configurable_product_option_value_uid option_label value_id value_label __typename}__typename}__typename}__typename}fragment PriceSummaryFragment on Cart{id items{id quantity __typename}...ShippingSummaryFragment prices{...TaxSummaryFragment ...DiscountSummaryFragment ...GrandTotalFragment subtotal_excluding_tax{currency value __typename}__typename}...GiftCardSummaryFragment __typename}fragment DiscountSummaryFragment on CartPrices{discounts{amount{currency value __typename}label __typename}__typename}fragment GiftCardSummaryFragment on Cart{id applied_gift_cards{code applied_balance{value currency __typename}__typename}__typename}fragment GrandTotalFragment on CartPrices{grand_total{currency value __typename}__typename}fragment ShippingSummaryFragment on Cart{id shipping_addresses{selected_shipping_method{amount{currency value __typename}__typename}street __typename}__typename}fragment TaxSummaryFragment on CartPrices{applied_taxes{amount{currency value __typename}__typename}__typename}';
       return resolve(args).then(result => {
         assert.isUndefined(result.errors);
         let response = result.data;
-        expect(response).to.deep.equals(applyCoupon);
+        expect(response).to.deep.equals(mApplyCoupon.data);
       });
     });
 
     it('Mutation: validate response should contain cart not found', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: 'Invalid_Cart_ID',
@@ -95,7 +99,7 @@ describe('ApplyCouponOnCart', function() {
         .reply(200, commerceVersionNumberResponse);
 
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: ApplyCouponToCartMutation,
           variables: {
             uid: 'Invalid_Cart_ID',
@@ -120,7 +124,7 @@ describe('ApplyCouponOnCart', function() {
 
     it('Mutation: validate response should contain coupon is expired', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -129,7 +133,7 @@ describe('ApplyCouponOnCart', function() {
         .reply(200, commerceVersionNumberResponse);
 
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: ApplyCouponToCartMutation,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -155,7 +159,7 @@ describe('ApplyCouponOnCart', function() {
 
     it('Mutation: validate response should contain coupon is invalid', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -164,7 +168,7 @@ describe('ApplyCouponOnCart', function() {
         .reply(200, commerceVersionNumberResponse);
 
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: ApplyCouponToCartMutation,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -189,7 +193,7 @@ describe('ApplyCouponOnCart', function() {
 
     it('Mutation: validate response should contain coupon is already exist in cart', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -198,7 +202,7 @@ describe('ApplyCouponOnCart', function() {
         .reply(200, commerceVersionNumberResponse);
 
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: ApplyCouponToCartMutation,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -223,7 +227,7 @@ describe('ApplyCouponOnCart', function() {
     });
     it('Mutation: validate response should contain coupon is inactive', () => {
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: VersionCartQuery,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',
@@ -232,7 +236,7 @@ describe('ApplyCouponOnCart', function() {
         .reply(200, commerceVersionNumberResponse);
 
       scope
-        .post('/CT_INSTANCE_PROJECT/graphql', {
+        .post('/adobeio-ct-connector/graphql', {
           query: ApplyCouponToCartMutation,
           variables: {
             uid: '1cafee87-9cc2-4e3b-bc05-662b8594a5e7',

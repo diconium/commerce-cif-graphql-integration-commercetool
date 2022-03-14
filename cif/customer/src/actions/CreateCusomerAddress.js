@@ -58,6 +58,8 @@ class CreateCustomerAddress {
     currentAddress.street = [currentAddress.street];
     return {
       ...new Address(currentAddress).address,
+      default_shipping: true,
+      id: data.length - 1,
     };
   }
 }

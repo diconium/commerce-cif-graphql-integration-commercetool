@@ -15,6 +15,7 @@
 'use strict';
 
 const LoaderProxy = require('../../../common/LoaderProxy.js');
+const CartInterface = require('../Interface/CartInterface.js');
 const SetShippingMethodOnCartLoader = require('../loaders/SetShippingMethodOnCartLoader.js');
 const VersionLoader = require('../loaders/VersionLoader.js');
 
@@ -50,24 +51,11 @@ class SetShippingMethodOnCart {
   }
 
   /**
+   * Converts data from the 3rd-party commerce system into the Magento GraphQL format.
    * get cart method call cart loader to get the cart entries
    */
   __convertData(data) {
-    return {
-      cart: {
-        shipping_addresses: [
-          {
-            selected_shipping_method: {
-              carrier_code: data.shippingInfo.shippingMethod.id,
-              carrier_title: data.shippingInfo.shippingMethod.name,
-              error_message: '',
-              method_code: data.shippingInfo.shippingMethod.id,
-              method_title: data.shippingInfo.shippingMethod.name,
-            },
-          },
-        ],
-      },
-    };
+    return { cart: new CartInterface(data).value };
   }
 }
 

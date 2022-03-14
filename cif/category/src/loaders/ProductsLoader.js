@@ -18,6 +18,7 @@ const DataLoader = require('dataloader');
 const axios = require('axios');
 const TokenUtils = require('../../../common/TokenUtils');
 const ProductQuery = require('../graphql/products.graphql');
+const ProductSearchQuery = require('../graphql/productsSearch.graphql');
 class ProductsLoader {
   /**
    * @param {Object} parameters parameters object contains the graphqlContext & actionParameters
@@ -33,7 +34,7 @@ class ProductsLoader {
 
       return Promise.resolve(
         productIds.map(productId => {
-          console.debug(`--> Fetching category with id ${productId}`);
+          // console.debug(`--> Fetching category with id ${productId}`);
           return this.__getCategoryById(productId, this.parameters).catch(
             error => {
               console.error(
@@ -43,7 +44,7 @@ class ProductsLoader {
                   0
                 )}`
               );
-              return null;
+              throw new Error(JSON.stringify(error));
             }
           );
         })
@@ -76,20 +77,35 @@ class ProductsLoader {
       let request = { ...defaultRequest };
 
       request.data = {
-        query: ProductQuery,
-        variables: {
-          whereQuery: `masterData(current(${
-            url_key
-              ? //eslint-disable-next-line
-              `slug(en=\"${url_key.eq}\")`
-              : sku
-              ? //eslint-disable-next-line
-              `masterVariant(sku=\"${sku.eq}\")`
-              : //eslint-disable-next-line
-              `categories(id=\"${productId}\")`
-          }))`,
-        },
+        query: parameters.search ? ProductSearchQuery : ProductQuery,
+        variables: {},
       };
+      if (parameters.search) {
+        request.data.variables = {
+          locale: 'en',
+          id: productId,
+          search: parameters.search,
+        };
+      } else if (sku) {
+        request.data.variables.skus = sku.eq ? [sku.eq] : sku.in;
+      } else {
+        request.data.variables.whereQuery = `masterData(current(${
+          url_key
+            ? //eslint-disable-next-line
+            `slug(en=\"${url_key.eq}\")`
+            : //eslint-disable-next-line
+            `categories(id=\"${productId}\")`
+        }))`;
+      }
+
+      if (!url_key && !sku) {
+        request.data.variables.limit = parameters.limit || 20;
+        request.data.variables.offset = parameters.offset || 1;
+      }
+
+      if (parameters.sort && parameters.sort.name && !parameters.search) {
+        request.data.variables.sort = `masterData.current.name.en ${parameters.sort.name.toLowerCase()}`;
+      }
       TokenUtils.getOAuthClientBearer(
         parameters.actionParameters.context.settings
       ).then(token => {
@@ -97,7 +113,12 @@ class ProductsLoader {
         axios
           .request(request)
           .then(response => {
-            resolve(response.data.data.products);
+            if (!response.data.errors) {
+              if (parameters.search)
+                return resolve(response.data.data.productProjectionSearch);
+              return resolve(response.data.data.products);
+            }
+            reject(response.data);
           })
           .catch(error => {
             reject(error);

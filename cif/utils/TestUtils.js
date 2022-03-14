@@ -43,17 +43,17 @@ class TestUtils {
           currency: 'USD',
           country: 'USA',
           CT_PROTOCOL: 'https',
-          CT_AUTH_HOST: 'CT_TEST_INSTANCE_HOSTNAME',
-          CT_OAUTH_PATH: '/oauth/CT_INSTANCE_PROJECT/anonymous/token',
-          CT_CUSTOMER_OAUTH_PATH: 'CT_TEST_INSTANCE_OAUTH_PATH',
-          CT_CLIENTSECRET: 'CT_TEST_INSTANCE_CLIENTSECRET',
-          CT_CLIENTID: 'CT_TEST_INSTANCE_CLIENTID',
-          bearer: 'RnbiQfaFcWXElStux1Zwc1HgijsagKIj',
+          CT_AUTH_HOST: '<auth-host>',
+          CT_OAUTH_PATH: '/oauth/adobeio-ct-connector/anonymous/token',
+          CT_CUSTOMER_OAUTH_PATH: '/oauth/adobeio-ct-connector/customers/token',
+          CT_CLIENTSECRET: '<CLIENT_SECRET>',
+          CT_CLIENTID: '<CLIENT_ID>',
+          bearer: '<BEARER_TOKEN>',
           defaultRequest: {
             url: this.getCtApiInstance(),
             method: 'post',
             headers: {
-              Authorization: `Bearer RnbiQfaFcWXElStux1Zwc1HgijsagKIj`,
+              Authorization: `Bearer <BEARER_TOKEN>`,
             },
           },
         },
@@ -68,9 +68,9 @@ class TestUtils {
     return chai
       .request(TestUtils.getCTInstance())
       .post(
-        'oauth/CT_INSTANCE_PROJECT/customers/token?grant_type=password&username=test@example.com&password=Password@123&scope=manage_project:CT_INSTANCE_PROJECT'
+        'oauth/adobeio-ct-connector/customers/token?grant_type=password&username=abc.xyz@123.com&password=abc@123&scope=manage_project:adobeio-ct-connector'
       )
-      .auth('CT_TEST_INSTANCE_CLIENTID', 'CT_TEST_INSTANCE_CLIENTSECRET')
+      .auth('<CLIENT_ID>', '<CLIENT_SECRET>')
       .then(response => response.body.access_token)
       .catch(error => error);
   }
@@ -83,9 +83,9 @@ class TestUtils {
     return chai
       .request(TestUtils.getCTInstance())
       .post(
-        'oauth/CT_INSTANCE_PROJECT/anonymous/token?grant_type=client_credentials'
+        'oauth/adobeio-ct-connector/anonymous/token?grant_type=client_credentials'
       )
-      .auth('CT_TEST_INSTANCE_CLIENTID', 'CT_TEST_INSTANCE_CLIENTSECRET')
+      .auth('<CLIENT_ID>', '<CLIENT_SECRET>')
       .then(response => response.body.access_token)
       .catch(error => error);
   }
@@ -98,9 +98,9 @@ class TestUtils {
     return chai
       .request(TestUtils.getCTInstance())
       .post(
-        'oauth/CT_INSTANCE_PROJECT/anonymous/token?grant_type=client_credentials'
+        'oauth/adobeio-ct-connector/anonymous/token?grant_type=client_credentials'
       )
-      .auth('CT_TEST_INSTANCE_CLIENTID', 'CT_TEST_INSTANCE_CLIENTSECRET')
+      .auth('<CLIENT_ID>', '<CLIENT_SECRET>')
       .then(response => response.body.refresh_token)
       .catch(error => error);
   }

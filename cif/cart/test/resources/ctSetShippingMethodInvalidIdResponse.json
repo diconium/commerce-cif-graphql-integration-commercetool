@@ -1,0 +1,29 @@
+{
+    "data": {
+      "updateCart": null
+    },
+    "errors": [
+      {
+        "message": "The referenced object of type 'shipping-method' with identifier 'a7197f1b-84bb-40fb-9ea5-00ea93bb625a' was not found. It either doesn't exist, or it can't be accessed from this endpoint (e.g., if the endpoint filters by store or customer account).",
+        "path": [
+          "updateCart"
+        ],
+        "locations": [
+          {
+            "line": 2,
+            "column": 3
+          }
+        ],
+        "code": "ReferencedResourceNotFound",
+        "actionIndex": 1,
+        "typeId": "shipping-method",
+        "id": "a7197f1b-84bb-40fb-9ea5-00ea93bb625a",
+        "extensions": {
+          "code": "ReferencedResourceNotFound",
+          "actionIndex": 1,
+          "typeId": "shipping-method",
+          "id": "a7197f1b-84bb-40fb-9ea5-00ea93bb625a"
+        }
+      }
+    ]
+  }

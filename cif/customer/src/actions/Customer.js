@@ -45,19 +45,23 @@ class Customer {
    * @param {*} data parameter data contains the generateCustomerToken(AccessToken+CustomerID) data
    */
   __convertData(data) {
+    const { customer, orders } = data;
     return {
-      ...data,
+      ...customer,
       id: 1,
       default_shipping: 1,
       default_billing: 1,
 
-      addresses: data.addresses.map((address, index) => {
+      addresses: customer.addresses.map((address, index) => {
         address.street = [address.street];
-        address.default_shipping = index === 1;
-        address.default_billing = index === 1;
+        address.default_shipping = index === 0;
+        address.default_billing = index === 0;
         address.id = index;
         return new Address(address).address;
       }),
+      orders: {
+        items: orders.results,
+      },
     };
   }
 }

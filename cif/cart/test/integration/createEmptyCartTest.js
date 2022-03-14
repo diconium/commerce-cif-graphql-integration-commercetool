@@ -15,7 +15,7 @@
 'use strict';
 const sinon = require('sinon');
 const assert = require('chai').assert;
-const resolve = require('../../src/resolvers/createCartResolver.js').main;
+const resolve = require('../../src/resolvers/cartResolver').main;
 const TestUtils = require('../../../utils/TestUtils.js');
 const chai = require('chai');
 const { expect } = chai;

@@ -1,0 +1,13 @@
+{
+    "data": {
+      "categories": {
+        "total_count": 0,
+        "page_info": {
+          "current_page": 1,
+          "page_size": 20,
+          "total_pages": 0
+        },
+        "items": []
+      }
+    }
+  }

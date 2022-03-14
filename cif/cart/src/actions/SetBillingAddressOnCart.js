@@ -15,6 +15,7 @@
 'use strict';
 
 const LoaderProxy = require('../../../common/LoaderProxy.js');
+const CartInterface = require('../Interface/CartInterface.js');
 const SetBillingAddressOnCartLoader = require('../loaders/SetBillingAddressOnCartLoader.js');
 const VersionLoader = require('../loaders/VersionLoader.js');
 
@@ -55,32 +56,12 @@ class SetBillingAddressOnCart {
   }
 
   /**
-   * Converts shipping Address data from the 3rd-party commerce system into the Magento GraphQL format.
+   * Converts billing Address data from the 3rd-party commerce system into the Magento GraphQL format.
    * @param {Object} data parameter data contains billingAddress details from commerce
    * @returns {Object} convert the commerce data into magento graphQL schema and return the billingAddresss object
    */
   __convertData(data) {
-    return {
-      cart: {
-        billing_address: {
-          firstname: data.firstName,
-          lastname: data.lastName,
-          company: data.company,
-          street: [data.streetName],
-          city: data.city,
-          region: {
-            code: data.region,
-            label: data.region,
-          },
-          postcode: data.postalCode,
-          telephone: data.phone,
-          country: {
-            code: data.country,
-            label: data.country,
-          },
-        },
-      },
-    };
+    return { cart: new CartInterface(data).value };
   }
 }
 
