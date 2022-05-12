@@ -4,7 +4,17 @@
       "__typename": "SetShippingMethodsOnCartOutput",
       "cart": {
         "__typename": "Cart",
-        "applied_gift_cards": [],
+        "applied_gift_cards": [
+          {
+            "__typename": "AppliedGiftCard",
+            "applied_balance": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 13350
+            },
+            "code": "FLAT20"
+          }
+        ],
         "available_payment_methods": [
           {
             "__typename": "AvailablePaymentMethod",
@@ -57,7 +67,7 @@
               "label": "DE"
             },
             "firstname": "abc",
-            "lastname": "k",
+            "lastname" : "xyz",
             "postcode": "73331",
             "region": {
               "__typename": "CartAddressRegion",

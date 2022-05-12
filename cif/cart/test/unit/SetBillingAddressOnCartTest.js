@@ -32,7 +32,7 @@ const VersionCartQuery = require('../../src/graphql/version.grapql.js');
 const SetBillingAddressMutation = require('../../src/graphql/setBillingAddress.graphql.js');
 
 describe('SetBillingAddressOnCart', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

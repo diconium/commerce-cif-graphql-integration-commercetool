@@ -43,10 +43,10 @@ describe('GenerateCustomerToken', function() {
           bearer: '',
           customerId: '',
           CT_PROTOCOL: 'https',
-          CT_AUTH_HOST: '<auth-host>',
+          CT_AUTH_HOST: '<CT_AUTH_HOST>',
           CT_OAUTH_PATH: '/oauth/adobeio-ct-connector/customers/token',
           CT_CLIENTSECRET: '<CLIENT_SECRET>',
-          CT_CLIENTID: '<CLIENT_ID>',
+          CT_CLIENTID: 'zCzF-LD2Y3Ga5BNSoi8mDtT9',
           apiHost: ctApiHost,
         },
       },
@@ -54,7 +54,7 @@ describe('GenerateCustomerToken', function() {
 
     it('Mutation: Validate generate customer token', () => {
       args.query =
-        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abc@123"){token}}';
       return resolve(args).then(result => {
         const { errors } = result;
         assert.isUndefined(result.errors);

@@ -34,9 +34,6 @@ class Cart {
     this.actionParameters = parameters.actionParameters;
     this.cartLoader = new CartLoader(parameters.graphqlContext);
 
-    // this.shippingMethodsLoader = new ShippingMethodsLoader(
-    //   parameters.actionParameters
-    // );
     /**
      * This class returns a Proxy to avoid having to implement a getter for all properties.
      */

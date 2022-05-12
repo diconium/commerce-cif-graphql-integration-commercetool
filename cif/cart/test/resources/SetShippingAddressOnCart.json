@@ -57,7 +57,7 @@
               "label": "DE"
             },
             "firstname": "abc",
-            "lastname": "k",
+            "lastname" : "xyz",
             "postcode": "73331",
             "region": {
               "__typename": "CartAddressRegion",

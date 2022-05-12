@@ -1,0 +1,13 @@
+{
+    "data": {
+      "products": {
+        "__typename": "Products",
+        "items": [],
+        "page_info": {
+          "__typename": "SearchResultPageInfo",
+          "total_pages": 0
+        },
+        "total_count": 0
+      }
+    }
+  }

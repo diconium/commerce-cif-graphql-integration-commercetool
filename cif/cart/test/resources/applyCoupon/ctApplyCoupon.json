@@ -8,7 +8,22 @@
           "__typename": "AppliedCoupon",
           "code": "FLAT20"
         }],
-        "applied_gift_cards": [],
+        "applied_gift_cards": [
+          {
+            "__typename": "AppliedGiftCard",
+            "applied_balance": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 13350
+            },
+            "code": "FLAT20",
+            "current_balance": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 13350
+            }
+          }
+        ],
         "available_payment_methods": [{
           "__typename": "AvailablePaymentMethod",
           "code": "credit_card",

@@ -1,0 +1,59 @@
+{
+    "data": {
+      "products": {
+        "__typename": "Products",
+        "items": [{
+          "__typename": "SimpleProduct",
+          "id": 1,
+          "name": "blazer Tagliatore dark blue",
+          "price_range": {
+            "__typename": "PriceRange",
+            "minimum_price": {
+              "__typename": "ProductPrice",
+              "final_price": {
+                "__typename": "Money",
+                "currency": "EUR",
+                "value": 62250
+              }
+            }
+          },
+          "sku": "M0E20000000DVCD",
+          "thumbnail": {
+            "__typename": "ProductImage",
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/078971_1_medium.jpg"
+          },
+          "uid": "42e01a66-c5e8-45a6-bd00-5befa6ee374c",
+          "updated_at": null,
+          "url_key": "tagliatore-blazer-15ueg079-blue"
+        }, {
+          "__typename": "SimpleProduct",
+          "id": 1,
+          "name": "Blazer Harris Wharf blue",
+          "price_range": {
+            "__typename": "PriceRange",
+            "minimum_price": {
+              "__typename": "ProductPrice",
+              "final_price": {
+                "__typename": "Money",
+                "currency": "EUR",
+                "value": 29875
+              }
+            }
+          },
+          "sku": "M0E20000000DT0L",
+          "thumbnail": {
+            "__typename": "ProductImage",
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/078767_1_large.jpg"
+          },
+          "uid": "c1b94e09-6cda-4784-969c-58cda4cb7758",
+          "updated_at": null,
+          "url_key": "harris-wharf-blazer-abp3131-blue"
+        }],
+        "page_info": {
+          "__typename": "SearchResultPageInfo",
+          "total_pages": 1
+        },
+        "total_count": 3
+      }
+    }
+  }

@@ -43,7 +43,7 @@ class TestUtils {
           currency: 'USD',
           country: 'USA',
           CT_PROTOCOL: 'https',
-          CT_AUTH_HOST: '<auth-host>',
+          CT_AUTH_HOST: '<CT_AUTH_HOST>',
           CT_OAUTH_PATH: '/oauth/adobeio-ct-connector/anonymous/token',
           CT_CUSTOMER_OAUTH_PATH: '/oauth/adobeio-ct-connector/customers/token',
           CT_CLIENTSECRET: '<CLIENT_SECRET>',
@@ -70,7 +70,7 @@ class TestUtils {
       .post(
         'oauth/adobeio-ct-connector/customers/token?grant_type=password&username=abc.xyz@123.com&password=abc@123&scope=manage_project:adobeio-ct-connector'
       )
-      .auth('<CLIENT_ID>', '<CLIENT_SECRET>')
+      .auth('zCzF-LD2Y3Ga5BNSoi8mDtT9', 'WZPn-vId3rVbJwm5xjJyDeavp_KuoBPN')
       .then(response => response.body.access_token)
       .catch(error => error);
   }
@@ -85,7 +85,7 @@ class TestUtils {
       .post(
         'oauth/adobeio-ct-connector/anonymous/token?grant_type=client_credentials'
       )
-      .auth('<CLIENT_ID>', '<CLIENT_SECRET>')
+      .auth('zCzF-LD2Y3Ga5BNSoi8mDtT9', 'WZPn-vId3rVbJwm5xjJyDeavp_KuoBPN')
       .then(response => response.body.access_token)
       .catch(error => error);
   }
@@ -100,7 +100,7 @@ class TestUtils {
       .post(
         'oauth/adobeio-ct-connector/anonymous/token?grant_type=client_credentials'
       )
-      .auth('<CLIENT_ID>', '<CLIENT_SECRET>')
+      .auth('zCzF-LD2Y3Ga5BNSoi8mDtT9', 'WZPn-vId3rVbJwm5xjJyDeavp_KuoBPN')
       .then(response => response.body.refresh_token)
       .catch(error => error);
   }

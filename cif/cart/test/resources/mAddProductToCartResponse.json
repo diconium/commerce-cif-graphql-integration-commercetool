@@ -1,0 +1,49 @@
+{
+    "data": {
+      "addProductsToCart": {
+        "cart": {
+          "id": "03bdd6d9-ede2-495c-8ed8-728326003259",
+          "items": [
+            {
+              "uid": "25f65ab9-4f83-45f1-871c-9809d32a5ca0",
+              "quantity": 2,
+              "product": {
+                "sku": "8ace3adf-2373-4b1b-94df-a022f3e9f1fe",
+                "name": "Bag medium Liu Jo olive yo",
+                "thumbnail": {
+                  "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg",
+                  "__typename": "ProductImage"
+                },
+                "__typename": "SimpleProduct",
+                "id": null,
+                "url_key": null,
+                "url_suffix": null,
+                "stock_status": null
+              },
+              "__typename": "SimpleCartItem",
+              "id": "25f65ab9-4f83-45f1-871c-9809d32a5ca0",
+              "prices": {
+                "price": {
+                  "currency": "EUR",
+                  "value": 14500,
+                  "__typename": "Money"
+                },
+                "__typename": "CartItemPrices"
+              }
+            }
+          ],
+          "total_quantity": 1,
+          "prices": {
+            "subtotal_excluding_tax": {
+              "currency": "USD",
+              "value": 16789,
+              "__typename": "Money"
+            },
+            "__typename": "CartPrices"
+          },
+          "__typename": "Cart"
+        },
+        "__typename": "AddProductsToCartOutput"
+      }
+    }
+  }

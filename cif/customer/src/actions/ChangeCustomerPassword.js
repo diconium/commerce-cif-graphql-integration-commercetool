@@ -52,8 +52,10 @@ class ChangePassword {
    * method used to convert getCustomerAddressIdLoader CT data into magento GraphQL response
    * @param {*} data parameter data contains the generateCustomerAddressToken(AccessToken+CustomerAddressID) data
    */
-  __convertData() {
-    return true;
+  __convertData(data) {
+    return {
+      email: data.email,
+    };
   }
 }
 

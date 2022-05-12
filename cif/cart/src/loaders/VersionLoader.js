@@ -29,12 +29,11 @@ class VersionLoader {
     let loadingFunction = inputs => {
       return Promise.resolve(
         inputs.map(input => {
-          return this._addLineItemToCart(
-            input.cart_id,
-            this.graphqlContext
-          ).catch(error => {
-            throw new Error(error);
-          });
+          return this._addLineItemToCart(input, this.graphqlContext).catch(
+            error => {
+              throw new Error(error);
+            }
+          );
         })
       );
     };
@@ -50,12 +49,13 @@ class VersionLoader {
   }
 
   /**
-   * @param {String} cartID consists of cart id to be added to the specified cart.
+   * @param {*} input consists of cart id to be added to the specified cart.
    * @param {Object} graphqlContext contains the product details, cart version and host details
    * @returns {Promise} promise resolves and return version number.
    */
-  _addLineItemToCart(cartID, graphqlContext) {
+  _addLineItemToCart(input, graphqlContext) {
     return new Promise((resolve, reject) => {
+      let cartID = input.cart_id || input.cartId;
       const { defaultRequest } = graphqlContext.settings;
       let request = { ...defaultRequest };
       let uid = cartID;

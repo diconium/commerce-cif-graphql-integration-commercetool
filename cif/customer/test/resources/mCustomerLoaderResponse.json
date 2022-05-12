@@ -1,47 +1,47 @@
 {
-    "data": {
-        "customer": {
-            "addresses": [
-                {
-                    "id": "0",
-                    "city": "Austin",
-                    "company": "Magento",
-                    "country_code": "DE",
-                    "default_billing": true,
-                    "default_shipping": true,
-                    "firstname": "abc",
-                    "lastname": "k",
-                    "postcode": "73331",
-                    "region": {
-                        "region_code": "201"
-                    },
-                    "street": [
-                        "Magento Shipping"
-                    ],
-                    "telephone": "1234567890"
-                },
+  "data": {
+      "customer": {
+          "addresses": [
               {
-                "id": "1",
-                "city": "Austin",
-                "company": null,
-                "country_code": "DE",
-                "default_billing": false,
-                "default_shipping": false,
-                "firstname": "abc",
-                "lastname": "k",
-                "postcode": "73331",
-                "region": {
-                  "region_code": "200"
-                },
-                "street": [
-                  "Magento Shipping"
-                ],
-                "telephone": "1234567890"
-              }
-            ],
-            "email": "abc.xyz@123.com",
-            "firstname": "abc",
-            "lastname": "xyz"
-        }
-    }
+                  "id": "0",
+                  "city": "Austin",
+                  "company": "Magento",
+                  "country_code": "DE",
+                  "default_billing": true,
+                  "default_shipping": true,
+                  "firstname": "abc",
+                  "lastname" : "xyz",
+                  "postcode": "73331",
+                  "region": {
+                      "region_code": "201"
+                  },
+                  "street": [
+                      "Magento Shipping"
+                  ],
+                  "telephone": "1234567890"
+              },
+            {
+              "id": "1",
+              "city": "Austin",
+              "company": null,
+              "country_code": "DE",
+              "default_billing": false,
+              "default_shipping": false,
+              "firstname": "abc",
+              "lastname" : "xyz",
+              "postcode": "73331",
+              "region": {
+                "region_code": "200"
+              },
+              "street": [
+                "Magento Shipping"
+              ],
+              "telephone": "1234567890"
+            }
+          ],
+          "email": "abc.xyz@123.com",
+          "firstname": "abc",
+          "lastname": "xyz"
+      }
+  }
 }

@@ -1,0 +1,1942 @@
+{
+    "data": {
+      "categories": {
+        "total": 133,
+        "results": [
+          {
+            "childCount": 3,
+            "id": "73f64d48-ab66-4baa-b961-6b19e0637760",
+            "externalId": "1",
+            "name": "New",
+            "key": "c1",
+            "product_count": 94,
+            "description": null,
+            "slug": "new",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "8",
+                "name": "Men",
+                "key": "c8",
+                "slug": "new-men",
+                "description": null,
+                "product_count": 99,
+                "children": [
+                  {
+                    "externalId": "69",
+                    "name": "Shoes",
+                    "key": "c69",
+                    "slug": "new-men-shoes",
+                    "description": null,
+                    "product_count": 32
+                  },
+                  {
+                    "externalId": "68",
+                    "name": "Clothing",
+                    "key": "c68",
+                    "slug": "new-men-clothing",
+                    "description": null,
+                    "product_count": 38
+                  },
+                  {
+                    "externalId": "71",
+                    "name": "Looks",
+                    "key": "c71",
+                    "slug": "new-men-looks",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "70",
+                    "name": "Bags",
+                    "key": "c70",
+                    "slug": "new-men-bags",
+                    "description": null,
+                    "product_count": 1
+                  }
+                ]
+              },
+              {
+                "externalId": "7",
+                "name": "Women",
+                "key": "c7",
+                "slug": "new-women",
+                "description": null,
+                "product_count": 49,
+                "children": [
+                  {
+                    "externalId": "66",
+                    "name": "Bags",
+                    "key": "c66",
+                    "slug": "new-women-bags",
+                    "description": null,
+                    "product_count": 10
+                  },
+                  {
+                    "externalId": "67",
+                    "name": "Looks",
+                    "key": "c67",
+                    "slug": "new-women-looks",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "64",
+                    "name": "Clothing",
+                    "key": "c64",
+                    "slug": "new-women-clothing",
+                    "description": null,
+                    "product_count": 44
+                  },
+                  {
+                    "externalId": "65",
+                    "name": "Shoes",
+                    "key": "c65",
+                    "slug": "new-women-shoes",
+                    "description": null,
+                    "product_count": 24
+                  },
+                  {
+                    "externalId": "9999",
+                    "name": "Summer Collection",
+                    "key": "summer-collection",
+                    "slug": "summer-collection",
+                    "description": "2022 Summer Collection",
+                    "product_count": 1
+                  }
+                ]
+              },
+              {
+                "externalId": "9",
+                "name": "Special",
+                "key": "c9",
+                "slug": "new-special",
+                "description": null,
+                "product_count": 0,
+                "children": [
+                  {
+                    "externalId": "72",
+                    "name": "Fall in love",
+                    "key": "c72",
+                    "slug": "new-special-fall-in-love",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "73",
+                    "name": "Just go",
+                    "key": "c73",
+                    "slug": "new-special-just-go",
+                    "description": null,
+                    "product_count": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "childCount": 4,
+            "id": "11cd0e47-42c9-46b8-abb9-ac17f9f35323",
+            "externalId": "2",
+            "name": "Women",
+            "key": "c2",
+            "product_count": 2186,
+            "description": null,
+            "slug": "women",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "10",
+                "name": "Clothing",
+                "key": "c10",
+                "slug": "women-clothing",
+                "description": null,
+                "product_count": 916,
+                "children": [
+                  {
+                    "externalId": "20",
+                    "name": "Jackets",
+                    "key": "c20",
+                    "slug": "women-clothing-jackets",
+                    "description": null,
+                    "product_count": 163
+                  },
+                  {
+                    "externalId": "23",
+                    "name": "Shirts",
+                    "key": "c23",
+                    "slug": "women-clothing-shirts",
+                    "description": null,
+                    "product_count": 56
+                  },
+                  {
+                    "externalId": "22",
+                    "name": "Tops",
+                    "key": "c22",
+                    "slug": "women-clothing-tops",
+                    "description": null,
+                    "product_count": 121
+                  },
+                  {
+                    "externalId": "28",
+                    "name": "Dresses",
+                    "key": "c28",
+                    "slug": "women-clothing-dresses",
+                    "description": null,
+                    "product_count": 119
+                  },
+                  {
+                    "externalId": "26",
+                    "name": "Trouser",
+                    "key": "c26",
+                    "slug": "women-clothing-trouser",
+                    "description": null,
+                    "product_count": 110
+                  },
+                  {
+                    "externalId": "29",
+                    "name": "Swimwear",
+                    "key": "c29",
+                    "slug": "women-clothing-swimwear",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "24",
+                    "name": "T-shirts",
+                    "key": "c24",
+                    "slug": "women-clothing-t-shirts",
+                    "description": null,
+                    "product_count": 220
+                  },
+                  {
+                    "externalId": "27",
+                    "name": "Skirts",
+                    "key": "c27",
+                    "slug": "women-clothing-skirts",
+                    "description": null,
+                    "product_count": 40
+                  },
+                  {
+                    "externalId": "25",
+                    "name": "Jeans",
+                    "key": "c25",
+                    "slug": "women-clothing-jeans",
+                    "description": null,
+                    "product_count": 63
+                  },
+                  {
+                    "externalId": "21",
+                    "name": "Blazer",
+                    "key": "c21",
+                    "slug": "women-clothing-blazer",
+                    "description": null,
+                    "product_count": 22
+                  }
+                ]
+              },
+              {
+                "externalId": "13",
+                "name": "Looks",
+                "key": "c13",
+                "slug": "women-looks",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "11",
+                "name": "Shoes",
+                "key": "c11",
+                "slug": "women-shoes",
+                "description": null,
+                "product_count": 255,
+                "children": [
+                  {
+                    "externalId": "33",
+                    "name": "Pumps",
+                    "key": "c33",
+                    "slug": "women-shoes-pumps",
+                    "description": null,
+                    "product_count": 17
+                  },
+                  {
+                    "externalId": "37",
+                    "name": "Sandals",
+                    "key": "c37",
+                    "slug": "women-shoes-sandals",
+                    "description": null,
+                    "product_count": 55
+                  },
+                  {
+                    "externalId": "30",
+                    "name": "Sneakers",
+                    "key": "c30",
+                    "slug": "women-shoes-sneakers",
+                    "description": null,
+                    "product_count": 124
+                  },
+                  {
+                    "externalId": "32",
+                    "name": "Ankle boots",
+                    "key": "c32",
+                    "slug": "women-shoes-ankle-boots",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "35",
+                    "name": "Lace-up shoes",
+                    "key": "c35",
+                    "slug": "women-shoes-lace-up-shoes",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "34",
+                    "name": "Ballerinas",
+                    "key": "c34",
+                    "slug": "women-shoes-ballerinas",
+                    "description": null,
+                    "product_count": 14
+                  },
+                  {
+                    "externalId": "31",
+                    "name": "Boots",
+                    "key": "c31",
+                    "slug": "women-shoes-boots",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "36",
+                    "name": "Loafers",
+                    "key": "c36",
+                    "slug": "women-shoes-loafers",
+                    "description": null,
+                    "product_count": 36
+                  },
+                  {
+                    "externalId": "38",
+                    "name": "Winterboots",
+                    "key": "c38",
+                    "slug": "women-shoes-winterboots",
+                    "description": null,
+                    "product_count": 0
+                  }
+                ]
+              },
+              {
+                "externalId": "12",
+                "name": "Vags",
+                "key": "c12",
+                "slug": "women-bags",
+                "description": null,
+                "product_count": 1013,
+                "children": [
+                  {
+                    "externalId": "39",
+                    "name": "Clutches",
+                    "key": "c39",
+                    "slug": "women-bags-clutches",
+                    "description": null,
+                    "product_count": 32
+                  },
+                  {
+                    "externalId": "42",
+                    "name": "Handbag",
+                    "key": "c42",
+                    "slug": "women-bags-handbag",
+                    "description": null,
+                    "product_count": 475
+                  },
+                  {
+                    "externalId": "40",
+                    "name": "Shoulder bags",
+                    "key": "c40",
+                    "slug": "women-bags-shoulder-bags",
+                    "description": null,
+                    "product_count": 227
+                  },
+                  {
+                    "externalId": "41",
+                    "name": "Shopper",
+                    "key": "c41",
+                    "slug": "women-bags-shopper",
+                    "description": null,
+                    "product_count": 80
+                  },
+                  {
+                    "externalId": "44",
+                    "name": "Bucketbag & packbag",
+                    "key": "c44",
+                    "slug": "women-bags-bucket-and-packbag",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "43",
+                    "name": "Wallets",
+                    "key": "c43",
+                    "slug": "women-bags-wallets",
+                    "description": null,
+                    "product_count": 194
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "childCount": 4,
+            "id": "369a8199-c2c6-446b-93f1-eea5f161eefd",
+            "externalId": "3",
+            "name": "Men",
+            "key": "c3",
+            "product_count": 663,
+            "description": null,
+            "slug": "men",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "14",
+                "name": "Clothing",
+                "key": "c14",
+                "slug": "men-clothing",
+                "description": null,
+                "product_count": 538,
+                "children": [
+                  {
+                    "externalId": "46",
+                    "name": "Tops",
+                    "key": "c46",
+                    "slug": "men-clothing-tops",
+                    "description": null,
+                    "product_count": 75
+                  },
+                  {
+                    "externalId": "45",
+                    "name": "Jackets",
+                    "key": "c45",
+                    "slug": "men-clothing-jackets",
+                    "description": null,
+                    "product_count": 98
+                  },
+                  {
+                    "externalId": "47",
+                    "name": "Shirts",
+                    "key": "c47",
+                    "slug": "men-clothing-shirts",
+                    "description": null,
+                    "product_count": 44
+                  },
+                  {
+                    "externalId": "49",
+                    "name": "Jeans",
+                    "key": "c49",
+                    "slug": "men-clothing-jeans",
+                    "description": null,
+                    "product_count": 33
+                  },
+                  {
+                    "externalId": "51",
+                    "name": "Suits",
+                    "key": "c51",
+                    "slug": "men-clothing-suits",
+                    "description": null,
+                    "product_count": 8
+                  },
+                  {
+                    "externalId": "50",
+                    "name": "Blazer",
+                    "key": "c50",
+                    "slug": "men-clothing-blazer",
+                    "description": null,
+                    "product_count": 41
+                  },
+                  {
+                    "externalId": "48",
+                    "name": "Trousers",
+                    "key": "c48",
+                    "slug": "men-clothing-trousers",
+                    "description": null,
+                    "product_count": 80
+                  },
+                  {
+                    "externalId": "52",
+                    "name": "T-shirts",
+                    "key": "c52",
+                    "slug": "men-clothing-t-shirts",
+                    "description": null,
+                    "product_count": 157
+                  }
+                ]
+              },
+              {
+                "externalId": "16",
+                "name": "Bags",
+                "key": "c16",
+                "slug": "men-bags",
+                "description": null,
+                "product_count": 0,
+                "children": [
+                  {
+                    "externalId": "61",
+                    "name": "Handbag",
+                    "key": "c61",
+                    "slug": "men-bags-handbag",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "59",
+                    "name": "Shoulder bags",
+                    "key": "c59",
+                    "slug": "men-bags-shoulder-bags",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "62",
+                    "name": "Wallets",
+                    "key": "c62",
+                    "slug": "men-bags-wallets",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "58",
+                    "name": "Clutches",
+                    "key": "c58",
+                    "slug": "men-bags-clutches",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "60",
+                    "name": "Shopper",
+                    "key": "c60",
+                    "slug": "men-bags-shopper",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "63",
+                    "name": "Bucketbag & packbag",
+                    "key": "c63",
+                    "slug": "men-bags-bucket-and-packbag",
+                    "description": null,
+                    "product_count": 0
+                  }
+                ]
+              },
+              {
+                "externalId": "17",
+                "name": "Looks",
+                "key": "c17",
+                "slug": "men-looks",
+                "description": null,
+                "product_count": 1,
+                "children": []
+              },
+              {
+                "externalId": "15",
+                "name": "Shoes",
+                "key": "c15",
+                "slug": "men-shoes",
+                "description": null,
+                "product_count": 120,
+                "children": [
+                  {
+                    "externalId": "54",
+                    "name": "Boots",
+                    "key": "c54",
+                    "slug": "men-shoes-boots",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "56",
+                    "name": "Loafers",
+                    "key": "c56",
+                    "slug": "men-shoes-loafers",
+                    "description": null,
+                    "product_count": 17
+                  },
+                  {
+                    "externalId": "57",
+                    "name": "Sandals",
+                    "key": "c57",
+                    "slug": "men-shoes-sandals",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "55",
+                    "name": "Lace-up shoes",
+                    "key": "c55",
+                    "slug": "men-shoes-lace-up-shoes",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "53",
+                    "name": "Sneakers",
+                    "key": "c53",
+                    "slug": "men-shoes-sneakers",
+                    "description": null,
+                    "product_count": 83
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "childCount": 0,
+            "id": "6987fc57-d540-40a6-a488-72e2c825208d",
+            "externalId": "5",
+            "name": "Brands",
+            "key": "c5",
+            "product_count": 0,
+            "description": null,
+            "slug": "brands",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": []
+          },
+          {
+            "childCount": 2,
+            "id": "2958cb70-08ae-40ba-9a48-717a6e0a53d7",
+            "externalId": "6",
+            "name": "Sale",
+            "key": "c6",
+            "product_count": 1597,
+            "description": null,
+            "slug": "sale",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "154",
+                "name": "Men",
+                "key": "c154",
+                "slug": "sale-men",
+                "description": null,
+                "product_count": 514,
+                "children": [
+                  {
+                    "externalId": "155",
+                    "name": "Clothing",
+                    "key": "c155",
+                    "slug": "sale-men-clothing",
+                    "description": null,
+                    "product_count": 330
+                  },
+                  {
+                    "externalId": "156",
+                    "name": "Shoes",
+                    "key": "c156",
+                    "slug": "sale-men-shoes",
+                    "description": null,
+                    "product_count": 43
+                  }
+                ]
+              },
+              {
+                "externalId": "151",
+                "name": "Women",
+                "key": "c151",
+                "slug": "sale-women",
+                "description": null,
+                "product_count": 1081,
+                "children": [
+                  {
+                    "externalId": "153",
+                    "name": "Shoes",
+                    "key": "c153",
+                    "slug": "sale-women-shoes",
+                    "description": null,
+                    "product_count": 96
+                  },
+                  {
+                    "externalId": "152",
+                    "name": "Clothing",
+                    "key": "c152",
+                    "slug": "sale-women-clothing",
+                    "description": null,
+                    "product_count": 311
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "childCount": 2,
+            "id": "996b814d-22c8-4cea-9a4b-5b4055ebc0ad",
+            "externalId": "4",
+            "name": "Accessories",
+            "key": "c4",
+            "product_count": 334,
+            "description": null,
+            "slug": "accessories",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "119",
+                "name": "Men",
+                "key": "c119",
+                "slug": "accessories-men",
+                "description": null,
+                "product_count": 155,
+                "children": [
+                  {
+                    "externalId": "124",
+                    "name": "Clothing",
+                    "key": "c124",
+                    "slug": "accessories-men-clothing",
+                    "description": null,
+                    "product_count": 17
+                  },
+                  {
+                    "externalId": "141",
+                    "name": "Sunglasses",
+                    "key": "c141",
+                    "slug": "accessories-men-sunglasses",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "139",
+                    "name": "Parfums",
+                    "key": "c139",
+                    "slug": "accessories-men-parfums",
+                    "description": null,
+                    "product_count": 18
+                  }
+                ]
+              },
+              {
+                "externalId": "118",
+                "name": "Women",
+                "key": "c118",
+                "slug": "accessories-women",
+                "description": null,
+                "product_count": 179,
+                "children": [
+                  {
+                    "externalId": "120",
+                    "name": "Clothing",
+                    "key": "c120",
+                    "slug": "accessories-women-clothing",
+                    "description": null,
+                    "product_count": 26
+                  },
+                  {
+                    "externalId": "121",
+                    "name": "Shoes",
+                    "key": "c121",
+                    "slug": "accessories-women-shoes",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "122",
+                    "name": "Bags",
+                    "key": "c122",
+                    "slug": "accessories-women-bags",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "123",
+                    "name": "Looks",
+                    "key": "c123",
+                    "slug": "accessories-women-looks",
+                    "description": null,
+                    "product_count": 14
+                  },
+                  {
+                    "externalId": "138",
+                    "name": "Parfums",
+                    "key": "c138",
+                    "slug": "accessories-women-parfums",
+                    "description": null,
+                    "product_count": 18
+                  },
+                  {
+                    "externalId": "140",
+                    "name": "Sunglasses",
+                    "key": "c140",
+                    "slug": "accessories-women-sunglasses",
+                    "description": null,
+                    "product_count": 5
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "childCount": 4,
+            "id": "8315e074-a9e4-49ee-b1b6-bf4c86fa874a",
+            "externalId": "8",
+            "name": "Men",
+            "key": "c8",
+            "product_count": 99,
+            "description": null,
+            "slug": "new-men",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "69",
+                "name": "Shoes",
+                "key": "c69",
+                "slug": "new-men-shoes",
+                "description": null,
+                "product_count": 32,
+                "children": [
+                  {
+                    "externalId": "108",
+                    "name": "Boots",
+                    "key": "c108",
+                    "slug": "new-men-shoes-boots",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "107",
+                    "name": "Sneakers",
+                    "key": "c107",
+                    "slug": "new-men-shoes-sneakers",
+                    "description": null,
+                    "product_count": 9
+                  },
+                  {
+                    "externalId": "109",
+                    "name": "Lace-up shoes",
+                    "key": "c109",
+                    "slug": "new-men-shoes-lace-up-shoes",
+                    "description": null,
+                    "product_count": 4
+                  },
+                  {
+                    "externalId": "111",
+                    "name": "Sandals",
+                    "key": "c111",
+                    "slug": "new-men-shoes-sandals",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "110",
+                    "name": "Loafers",
+                    "key": "c110",
+                    "slug": "new-men-shoes-loafers",
+                    "description": null,
+                    "product_count": 4
+                  }
+                ]
+              },
+              {
+                "externalId": "68",
+                "name": "Clothing",
+                "key": "c68",
+                "slug": "new-men-clothing",
+                "description": null,
+                "product_count": 38,
+                "children": [
+                  {
+                    "externalId": "99",
+                    "name": "Jackets",
+                    "key": "c99",
+                    "slug": "new-men-clothing-jackets",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "101",
+                    "name": "Shirts",
+                    "key": "c101",
+                    "slug": "new-men-clothing-shirts",
+                    "description": null,
+                    "product_count": 3
+                  },
+                  {
+                    "externalId": "100",
+                    "name": "Tops",
+                    "key": "c100",
+                    "slug": "new-men-clothing-tops",
+                    "description": null,
+                    "product_count": 3
+                  },
+                  {
+                    "externalId": "103",
+                    "name": "Jeans",
+                    "key": "c103",
+                    "slug": "new-men-clothing-jeans",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "104",
+                    "name": "Blazer",
+                    "key": "c104",
+                    "slug": "new-men-clothing-blazer",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "102",
+                    "name": "Trousers",
+                    "key": "c102",
+                    "slug": "new-men-clothing-trousers",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "106",
+                    "name": "T-shirts",
+                    "key": "c106",
+                    "slug": "new-men-clothing-t-shirts",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "105",
+                    "name": "Suits",
+                    "key": "c105",
+                    "slug": "new-men-clothing-suits",
+                    "description": null,
+                    "product_count": 2
+                  }
+                ]
+              },
+              {
+                "externalId": "71",
+                "name": "Looks",
+                "key": "c71",
+                "slug": "new-men-looks",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "70",
+                "name": "Bags",
+                "key": "c70",
+                "slug": "new-men-bags",
+                "description": null,
+                "product_count": 1,
+                "children": [
+                  {
+                    "externalId": "112",
+                    "name": "Clutches",
+                    "key": "c112",
+                    "slug": "new-men-bags-clutches",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "115",
+                    "name": "Handbag",
+                    "key": "c115",
+                    "slug": "new-men-bags-handbag",
+                    "description": null,
+                    "product_count": 1
+                  },
+                  {
+                    "externalId": "113",
+                    "name": "Shoulder bags",
+                    "key": "c113",
+                    "slug": "new-men-bags-shoulder-bags",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "117",
+                    "name": "Bucketbag & packbag",
+                    "key": "c117",
+                    "slug": "new-men-bags-beutel-rucksaecke",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "116",
+                    "name": "Wallets",
+                    "key": "c116",
+                    "slug": "new-men-bags-wallets",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "114",
+                    "name": "Shopper",
+                    "key": "c114",
+                    "slug": "new-men-bags-shopper",
+                    "description": null,
+                    "product_count": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "childCount": 8,
+            "id": "5e74009b-eec6-452c-9625-3199de576445",
+            "externalId": "14",
+            "name": "Clothing",
+            "key": "c14",
+            "product_count": 538,
+            "description": null,
+            "slug": "men-clothing",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "46",
+                "name": "Tops",
+                "key": "c46",
+                "slug": "men-clothing-tops",
+                "description": null,
+                "product_count": 75,
+                "children": []
+              },
+              {
+                "externalId": "45",
+                "name": "Jackets",
+                "key": "c45",
+                "slug": "men-clothing-jackets",
+                "description": null,
+                "product_count": 98,
+                "children": []
+              },
+              {
+                "externalId": "47",
+                "name": "Shirts",
+                "key": "c47",
+                "slug": "men-clothing-shirts",
+                "description": null,
+                "product_count": 44,
+                "children": []
+              },
+              {
+                "externalId": "49",
+                "name": "Jeans",
+                "key": "c49",
+                "slug": "men-clothing-jeans",
+                "description": null,
+                "product_count": 33,
+                "children": []
+              },
+              {
+                "externalId": "51",
+                "name": "Suits",
+                "key": "c51",
+                "slug": "men-clothing-suits",
+                "description": null,
+                "product_count": 8,
+                "children": []
+              },
+              {
+                "externalId": "50",
+                "name": "Blazer",
+                "key": "c50",
+                "slug": "men-clothing-blazer",
+                "description": null,
+                "product_count": 41,
+                "children": []
+              },
+              {
+                "externalId": "48",
+                "name": "Trousers",
+                "key": "c48",
+                "slug": "men-clothing-trousers",
+                "description": null,
+                "product_count": 80,
+                "children": []
+              },
+              {
+                "externalId": "52",
+                "name": "T-shirts",
+                "key": "c52",
+                "slug": "men-clothing-t-shirts",
+                "description": null,
+                "product_count": 157,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 10,
+            "id": "8fe0b820-40a5-4e27-9450-b1ff0869ab67",
+            "externalId": "10",
+            "name": "Clothing",
+            "key": "c10",
+            "product_count": 916,
+            "description": null,
+            "slug": "women-clothing",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "20",
+                "name": "Jackets",
+                "key": "c20",
+                "slug": "women-clothing-jackets",
+                "description": null,
+                "product_count": 163,
+                "children": []
+              },
+              {
+                "externalId": "23",
+                "name": "Shirts",
+                "key": "c23",
+                "slug": "women-clothing-shirts",
+                "description": null,
+                "product_count": 56,
+                "children": []
+              },
+              {
+                "externalId": "22",
+                "name": "Tops",
+                "key": "c22",
+                "slug": "women-clothing-tops",
+                "description": null,
+                "product_count": 121,
+                "children": []
+              },
+              {
+                "externalId": "28",
+                "name": "Dresses",
+                "key": "c28",
+                "slug": "women-clothing-dresses",
+                "description": null,
+                "product_count": 119,
+                "children": []
+              },
+              {
+                "externalId": "26",
+                "name": "Trouser",
+                "key": "c26",
+                "slug": "women-clothing-trouser",
+                "description": null,
+                "product_count": 110,
+                "children": []
+              },
+              {
+                "externalId": "29",
+                "name": "Swimwear",
+                "key": "c29",
+                "slug": "women-clothing-swimwear",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "24",
+                "name": "T-shirts",
+                "key": "c24",
+                "slug": "women-clothing-t-shirts",
+                "description": null,
+                "product_count": 220,
+                "children": []
+              },
+              {
+                "externalId": "27",
+                "name": "Skirts",
+                "key": "c27",
+                "slug": "women-clothing-skirts",
+                "description": null,
+                "product_count": 40,
+                "children": []
+              },
+              {
+                "externalId": "25",
+                "name": "Jeans",
+                "key": "c25",
+                "slug": "women-clothing-jeans",
+                "description": null,
+                "product_count": 63,
+                "children": []
+              },
+              {
+                "externalId": "21",
+                "name": "Blazer",
+                "key": "c21",
+                "slug": "women-clothing-blazer",
+                "description": null,
+                "product_count": 22,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 5,
+            "id": "76688cfd-26d8-4c21-97b3-b90f291b68de",
+            "externalId": "7",
+            "name": "Women",
+            "key": "c7",
+            "product_count": 49,
+            "description": null,
+            "slug": "new-women",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "66",
+                "name": "Bags",
+                "key": "c66",
+                "slug": "new-women-bags",
+                "description": null,
+                "product_count": 10,
+                "children": [
+                  {
+                    "externalId": "96",
+                    "name": "Handbag",
+                    "key": "c96",
+                    "slug": "new-women-bags-handbag",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "95",
+                    "name": "Shopper",
+                    "key": "c95",
+                    "slug": "new-women-bags-shopper",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "97",
+                    "name": "Wallets",
+                    "key": "c97",
+                    "slug": "new-women-bags-wallets",
+                    "description": null,
+                    "product_count": 1
+                  },
+                  {
+                    "externalId": "98",
+                    "name": "Bucketbag & packbag",
+                    "key": "c98",
+                    "slug": "new-women-bags-bucket-and-packbags",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "94",
+                    "name": "Shoulder bags",
+                    "key": "c94",
+                    "slug": "new-women-bags-shoulder-bags",
+                    "description": null,
+                    "product_count": 3
+                  },
+                  {
+                    "externalId": "93",
+                    "name": "Clutches",
+                    "key": "c93",
+                    "slug": "new-women-bags-clutches",
+                    "description": null,
+                    "product_count": 0
+                  }
+                ]
+              },
+              {
+                "externalId": "67",
+                "name": "Looks",
+                "key": "c67",
+                "slug": "new-women-looks",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "64",
+                "name": "Clothing",
+                "key": "c64",
+                "slug": "new-women-clothing",
+                "description": null,
+                "product_count": 44,
+                "children": [
+                  {
+                    "externalId": "74",
+                    "name": "Jackets",
+                    "key": "c74",
+                    "slug": "new-women-clothing-jackets",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "81",
+                    "name": "Skirts",
+                    "key": "c81",
+                    "slug": "new-women-clothing-skirts",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "80",
+                    "name": "Trousers",
+                    "key": "c80",
+                    "slug": "new-women-clothing-trousers",
+                    "description": null,
+                    "product_count": 3
+                  },
+                  {
+                    "externalId": "79",
+                    "name": "Jeans",
+                    "key": "c79",
+                    "slug": "new-women-clothing-jeans",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "76",
+                    "name": "Tops",
+                    "key": "c76",
+                    "slug": "new-women-clothing-tops",
+                    "description": null,
+                    "product_count": 4
+                  },
+                  {
+                    "externalId": "77",
+                    "name": "Shirts",
+                    "key": "c77",
+                    "slug": "new-women-clothing-shirts",
+                    "description": null,
+                    "product_count": 3
+                  },
+                  {
+                    "externalId": "83",
+                    "name": "Swimwear",
+                    "key": "c83",
+                    "slug": "new-women-clothing-swimwear",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "82",
+                    "name": "Dresses",
+                    "key": "c82",
+                    "slug": "new-women-clothing-dresses",
+                    "description": null,
+                    "product_count": 5
+                  },
+                  {
+                    "externalId": "75",
+                    "name": "Blazer",
+                    "key": "c75",
+                    "slug": "new-women-clothing-blazer",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "78",
+                    "name": "T-shirts",
+                    "key": "c78",
+                    "slug": "new-women-clothing-t-shirts",
+                    "description": null,
+                    "product_count": 2
+                  }
+                ]
+              },
+              {
+                "externalId": "65",
+                "name": "Shoes",
+                "key": "c65",
+                "slug": "new-women-shoes",
+                "description": null,
+                "product_count": 24,
+                "children": [
+                  {
+                    "externalId": "85",
+                    "name": "Boots",
+                    "key": "c85",
+                    "slug": "new-women-shoes-boots",
+                    "description": null,
+                    "product_count": 1
+                  },
+                  {
+                    "externalId": "87",
+                    "name": "Pumps",
+                    "key": "c87",
+                    "slug": "new-women-shoes-pumps",
+                    "description": null,
+                    "product_count": 3
+                  },
+                  {
+                    "externalId": "90",
+                    "name": "Loafers",
+                    "key": "c90",
+                    "slug": "new-women-shoes-loafers",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "89",
+                    "name": "Lace-up shoes",
+                    "key": "c89",
+                    "slug": "new-women-shoes-lace-up-shoes",
+                    "description": null,
+                    "product_count": 0
+                  },
+                  {
+                    "externalId": "88",
+                    "name": "Ballerinas",
+                    "key": "c88",
+                    "slug": "new-women-shoes-ballerinas",
+                    "description": null,
+                    "product_count": 1
+                  },
+                  {
+                    "externalId": "91",
+                    "name": "Sandals",
+                    "key": "c91",
+                    "slug": "new-women-shoes-sandals",
+                    "description": null,
+                    "product_count": 2
+                  },
+                  {
+                    "externalId": "86",
+                    "name": "Ankle boots",
+                    "key": "c86",
+                    "slug": "new-women-shoes-ankle-boots",
+                    "description": null,
+                    "product_count": 1
+                  },
+                  {
+                    "externalId": "84",
+                    "name": "Sneakers",
+                    "key": "c84",
+                    "slug": "new-women-shoes-sneakers",
+                    "description": null,
+                    "product_count": 4
+                  }
+                ]
+              },
+              {
+                "externalId": "9999",
+                "name": "Summer Collection",
+                "key": "summer-collection",
+                "slug": "summer-collection",
+                "description": "2022 Summer Collection",
+                "product_count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 6,
+            "id": "5434b98f-4a89-49f5-991e-1222f9344a37",
+            "externalId": "16",
+            "name": "Bags",
+            "key": "c16",
+            "product_count": 0,
+            "description": null,
+            "slug": "men-bags",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "61",
+                "name": "Handbag",
+                "key": "c61",
+                "slug": "men-bags-handbag",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "59",
+                "name": "Shoulder bags",
+                "key": "c59",
+                "slug": "men-bags-shoulder-bags",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "62",
+                "name": "Wallets",
+                "key": "c62",
+                "slug": "men-bags-wallets",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "58",
+                "name": "Clutches",
+                "key": "c58",
+                "slug": "men-bags-clutches",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "60",
+                "name": "Shopper",
+                "key": "c60",
+                "slug": "men-bags-shopper",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "63",
+                "name": "Bucketbag & packbag",
+                "key": "c63",
+                "slug": "men-bags-bucket-and-packbag",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 3,
+            "id": "a7a0cea6-981a-4e34-bb61-c261b29119ed",
+            "externalId": "119",
+            "name": "Men",
+            "key": "c119",
+            "product_count": 155,
+            "description": null,
+            "slug": "accessories-men",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "124",
+                "name": "Clothing",
+                "key": "c124",
+                "slug": "accessories-men-clothing",
+                "description": null,
+                "product_count": 17,
+                "children": []
+              },
+              {
+                "externalId": "141",
+                "name": "Sunglasses",
+                "key": "c141",
+                "slug": "accessories-men-sunglasses",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "139",
+                "name": "Parfums",
+                "key": "c139",
+                "slug": "accessories-men-parfums",
+                "description": null,
+                "product_count": 18,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 0,
+            "id": "f7b25d2d-e22b-4edc-813b-83e2504e7ea6",
+            "externalId": "13",
+            "name": "Looks",
+            "key": "c13",
+            "product_count": 0,
+            "description": null,
+            "slug": "women-looks",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": []
+          },
+          {
+            "childCount": 9,
+            "id": "b0b2c797-29c5-41f3-b4fe-37f9c8553445",
+            "externalId": "11",
+            "name": "Shoes",
+            "key": "c11",
+            "product_count": 255,
+            "description": null,
+            "slug": "women-shoes",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "33",
+                "name": "Pumps",
+                "key": "c33",
+                "slug": "women-shoes-pumps",
+                "description": null,
+                "product_count": 17,
+                "children": []
+              },
+              {
+                "externalId": "37",
+                "name": "Sandals",
+                "key": "c37",
+                "slug": "women-shoes-sandals",
+                "description": null,
+                "product_count": 55,
+                "children": []
+              },
+              {
+                "externalId": "30",
+                "name": "Sneakers",
+                "key": "c30",
+                "slug": "women-shoes-sneakers",
+                "description": null,
+                "product_count": 124,
+                "children": []
+              },
+              {
+                "externalId": "32",
+                "name": "Ankle boots",
+                "key": "c32",
+                "slug": "women-shoes-ankle-boots",
+                "description": null,
+                "product_count": 5,
+                "children": []
+              },
+              {
+                "externalId": "35",
+                "name": "Lace-up shoes",
+                "key": "c35",
+                "slug": "women-shoes-lace-up-shoes",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "34",
+                "name": "Ballerinas",
+                "key": "c34",
+                "slug": "women-shoes-ballerinas",
+                "description": null,
+                "product_count": 14,
+                "children": []
+              },
+              {
+                "externalId": "31",
+                "name": "Boots",
+                "key": "c31",
+                "slug": "women-shoes-boots",
+                "description": null,
+                "product_count": 2,
+                "children": []
+              },
+              {
+                "externalId": "36",
+                "name": "Loafers",
+                "key": "c36",
+                "slug": "women-shoes-loafers",
+                "description": null,
+                "product_count": 36,
+                "children": []
+              },
+              {
+                "externalId": "38",
+                "name": "Winterboots",
+                "key": "c38",
+                "slug": "women-shoes-winterboots",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 2,
+            "id": "96fb26d4-e0e1-45bb-b0a8-11c3f11123a6",
+            "externalId": "9",
+            "name": "Special",
+            "key": "c9",
+            "product_count": 0,
+            "description": null,
+            "slug": "new-special",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "72",
+                "name": "Fall in love",
+                "key": "c72",
+                "slug": "new-special-fall-in-love",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "73",
+                "name": "Just go",
+                "key": "c73",
+                "slug": "new-special-just-go",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 0,
+            "id": "37f20c90-8028-4e36-af6d-ae86783f496c",
+            "externalId": "17",
+            "name": "Looks",
+            "key": "c17",
+            "product_count": 1,
+            "description": null,
+            "slug": "men-looks",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": []
+          },
+          {
+            "childCount": 6,
+            "id": "6d4bbd98-7ec9-4d55-bdb6-c85466fadaa1",
+            "externalId": "12",
+            "name": "Vags",
+            "key": "c12",
+            "product_count": 1013,
+            "description": null,
+            "slug": "women-bags",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "39",
+                "name": "Clutches",
+                "key": "c39",
+                "slug": "women-bags-clutches",
+                "description": null,
+                "product_count": 32,
+                "children": []
+              },
+              {
+                "externalId": "42",
+                "name": "Handbag",
+                "key": "c42",
+                "slug": "women-bags-handbag",
+                "description": null,
+                "product_count": 475,
+                "children": []
+              },
+              {
+                "externalId": "40",
+                "name": "Shoulder bags",
+                "key": "c40",
+                "slug": "women-bags-shoulder-bags",
+                "description": null,
+                "product_count": 227,
+                "children": []
+              },
+              {
+                "externalId": "41",
+                "name": "Shopper",
+                "key": "c41",
+                "slug": "women-bags-shopper",
+                "description": null,
+                "product_count": 80,
+                "children": []
+              },
+              {
+                "externalId": "44",
+                "name": "Bucketbag & packbag",
+                "key": "c44",
+                "slug": "women-bags-bucket-and-packbag",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "43",
+                "name": "Wallets",
+                "key": "c43",
+                "slug": "women-bags-wallets",
+                "description": null,
+                "product_count": 194,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 2,
+            "id": "d1a03b7d-e6ba-4158-979d-f599f67d76c0",
+            "externalId": "154",
+            "name": "Men",
+            "key": "c154",
+            "product_count": 514,
+            "description": null,
+            "slug": "sale-men",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "155",
+                "name": "Clothing",
+                "key": "c155",
+                "slug": "sale-men-clothing",
+                "description": null,
+                "product_count": 330,
+                "children": []
+              },
+              {
+                "externalId": "156",
+                "name": "Shoes",
+                "key": "c156",
+                "slug": "sale-men-shoes",
+                "description": null,
+                "product_count": 43,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 6,
+            "id": "0d871210-e9df-46cd-855f-ae13f12ade6a",
+            "externalId": "118",
+            "name": "Women",
+            "key": "c118",
+            "product_count": 179,
+            "description": null,
+            "slug": "accessories-women",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "120",
+                "name": "Clothing",
+                "key": "c120",
+                "slug": "accessories-women-clothing",
+                "description": null,
+                "product_count": 26,
+                "children": []
+              },
+              {
+                "externalId": "121",
+                "name": "Shoes",
+                "key": "c121",
+                "slug": "accessories-women-shoes",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "122",
+                "name": "Bags",
+                "key": "c122",
+                "slug": "accessories-women-bags",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "123",
+                "name": "Looks",
+                "key": "c123",
+                "slug": "accessories-women-looks",
+                "description": null,
+                "product_count": 14,
+                "children": []
+              },
+              {
+                "externalId": "138",
+                "name": "Parfums",
+                "key": "c138",
+                "slug": "accessories-women-parfums",
+                "description": null,
+                "product_count": 18,
+                "children": []
+              },
+              {
+                "externalId": "140",
+                "name": "Sunglasses",
+                "key": "c140",
+                "slug": "accessories-women-sunglasses",
+                "description": null,
+                "product_count": 5,
+                "children": []
+              }
+            ]
+          },
+          {
+            "childCount": 5,
+            "id": "9e59ba95-7501-4bbe-b31f-f8c693759777",
+            "externalId": "15",
+            "name": "Shoes",
+            "key": "c15",
+            "product_count": 120,
+            "description": null,
+            "slug": "men-shoes",
+            "meta_title": null,
+            "meta_description": null,
+            "meta_keywords": null,
+            "children": [
+              {
+                "externalId": "54",
+                "name": "Boots",
+                "key": "c54",
+                "slug": "men-shoes-boots",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "56",
+                "name": "Loafers",
+                "key": "c56",
+                "slug": "men-shoes-loafers",
+                "description": null,
+                "product_count": 17,
+                "children": []
+              },
+              {
+                "externalId": "57",
+                "name": "Sandals",
+                "key": "c57",
+                "slug": "men-shoes-sandals",
+                "description": null,
+                "product_count": 0,
+                "children": []
+              },
+              {
+                "externalId": "55",
+                "name": "Lace-up shoes",
+                "key": "c55",
+                "slug": "men-shoes-lace-up-shoes",
+                "description": null,
+                "product_count": 5,
+                "children": []
+              },
+              {
+                "externalId": "53",
+                "name": "Sneakers",
+                "key": "c53",
+                "slug": "men-shoes-sneakers",
+                "description": null,
+                "product_count": 83,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }

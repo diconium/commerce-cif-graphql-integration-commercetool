@@ -1,0 +1,167 @@
+{
+  "data": {
+    "customer": {
+      "id": 1,
+      "orders": {
+        "items": [
+          {
+            "billing_address": {
+              "city": "Austin",
+              "country_code": "DE",
+              "firstname": "abc",
+              "lastname" : "xyz",
+              "postcode": "73331",
+              "region": "201",
+              "street": [
+                "Magento Shipping"
+              ],
+              "telephone": "1234567890",
+              "__typename": "OrderAddress"
+            },
+            "id": "4cc5dbb2-18d5-43ca-a98f-1fefc2f147d3",
+            "invoices": [
+              {
+                "id": "4cc5dbb2-18d5-43ca-a98f-1fefc2f147d3",
+                "__typename": "Invoice"
+              }
+            ],
+            "items": null,
+            "number": "1a745352-d01d-4bd2-b1af-505a63a4ce25",
+            "order_date": "2022-02-20T06:22:58.941Z",
+            "payment_methods": null,
+            "shipments": null,
+            "shipping_address": {
+              "city": "Austin",
+              "country_code": "DE",
+              "firstname": "abc",
+              "lastname" : "xyz",
+              "postcode": "73331",
+              "region": "201",
+              "street": [
+                "Magento Shipping"
+              ],
+              "telephone": "1234567890",
+              "__typename": "OrderAddress"
+            },
+            "shipping_method": "Express EU",
+            "status": "Open",
+            "total": {
+              "discounts": [
+                {
+                  "amount": {
+                    "currency": "EUR",
+                    "value": 33500,
+                    "__typename": "Money"
+                  },
+                  "__typename": "Discount"
+                }
+              ],
+              "grand_total": {
+                "currency": "EUR",
+                "value": 33500,
+                "__typename": "Money"
+              },
+              "subtotal": {
+                "currency": "EUR",
+                "value": 33500,
+                "__typename": "Money"
+              },
+              "total_shipping": {
+                "currency": "EUR",
+                "value": 33500,
+                "__typename": "Money"
+              },
+              "total_tax": {
+                "currency": "EUR",
+                "value": 33500,
+                "__typename": "Money"
+              },
+              "__typename": "OrderTotal"
+            },
+            "__typename": "CustomerOrder"
+          },
+          {
+            "billing_address": {
+              "city": "Austin",
+              "country_code": "DE",
+              "firstname": "abc",
+              "lastname" : "xyz",
+              "postcode": "73331",
+              "region": "201",
+              "street": [
+                "Magento Shipping"
+              ],
+              "telephone": "1234567890",
+              "__typename": "OrderAddress"
+            },
+            "id": "92f3252c-9ed8-4444-ac9c-6b39fec91e84",
+            "invoices": [
+              {
+                "id": "92f3252c-9ed8-4444-ac9c-6b39fec91e84",
+                "__typename": "Invoice"
+              }
+            ],
+            "items": null,
+            "number": "7a313779-2f76-4304-b9da-ab87d5c2df07",
+            "order_date": "2022-02-20T07:07:44.343Z",
+            "payment_methods": null,
+            "shipments": null,
+            "shipping_address": {
+              "city": "Austin",
+              "country_code": "DE",
+              "firstname": "abc",
+              "lastname" : "xyz",
+              "postcode": "73331",
+              "region": "201",
+              "street": [
+                "Magento Shipping"
+              ],
+              "telephone": "1234567890",
+              "__typename": "OrderAddress"
+            },
+            "shipping_method": "Standard EU",
+            "status": "Open",
+            "total": {
+              "discounts": [
+                {
+                  "amount": {
+                    "currency": "EUR",
+                    "value": 225090,
+                    "__typename": "Money"
+                  },
+                  "__typename": "Discount"
+                }
+              ],
+              "grand_total": {
+                "currency": "EUR",
+                "value": 225090,
+                "__typename": "Money"
+              },
+              "subtotal": {
+                "currency": "EUR",
+                "value": 225090,
+                "__typename": "Money"
+              },
+              "total_shipping": {
+                "currency": "EUR",
+                "value": 225090,
+                "__typename": "Money"
+              },
+              "total_tax": {
+                "currency": "EUR",
+                "value": 225090,
+                "__typename": "Money"
+              },
+              "__typename": "OrderTotal"
+            },
+            "__typename": "CustomerOrder"
+          }
+        ],
+        "page_info": null,
+        "total_count": null,
+        "__typename": "CustomerOrders"
+      },
+      "__typename": "Customer"
+    }
+  }
+}

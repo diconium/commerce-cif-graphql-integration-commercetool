@@ -34,7 +34,7 @@ const ctCustomerLoaderReponse = require('../../../customer/test/resources/ctCust
 const GetCustomerQuery = require('./../../../customer/src/graphql/getCustomer.graphql');
 
 describe('SetShippingAddressOnCart', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

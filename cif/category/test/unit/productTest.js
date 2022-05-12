@@ -26,6 +26,8 @@ const TestUtils = require('../../../utils/TestUtils.js');
 const ProductsQuery = require('./../../src/graphql/products.graphql.js');
 const CategoryListQuery = require('./../../src/graphql/categoryList.graphql.js');
 const ctGetCategoryResponse = require('../resources/getCategory.json');
+const ctProductUrlKeyResponse = require('../resources/ctProductUrlKeyResponse.json');
+const ctProductUrlKey1Response = require('../resources/ctProductUrlKeys1Response.json');
 const ctProductsInvalidSkuResponse = require('../resources/ctProductsInvalidSku.json');
 const mProductsInvalidSkuResponse = require('../resources/mProductsInvalidSku.json');
 const ctProductsInvalidUrlkeyResponse = require('../resources/ctProductsInvalidUrlkey.json');
@@ -33,7 +35,7 @@ const mProductsInvalidUrlkeyResponse = require('../resources/mProductsInvalidUrl
 const mProductsResponse = require('../resources/mProducts.json');
 
 describe('GetProducts', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -127,6 +129,41 @@ describe('GetProducts', function() {
         let response = result.data;
         assert.isUndefined(result.errors);
         expect(response).to.deep.equals(mProductsResponse.data);
+      });
+    });
+
+    it('Query: response should return products with filtered array of url key', () => {
+      scope
+        .post('/adobeio-ct-connector/graphql', {
+          query: ProductsQuery,
+          variables: {
+            whereQuery:
+              'masterData(current(slug(en="liujo-bag-medium-A15085E0087-olive")))',
+          },
+        })
+        .reply(200, ctProductUrlKey1Response);
+      scope
+        .post('/adobeio-ct-connector/graphql', {
+          query: ProductsQuery,
+          variables: {
+            whereQuery:
+              'masterData(current(slug(en="daniele-alessandrini-tshirt-M5618E6283506-black")))',
+          },
+        })
+        .reply(200, ctProductUrlKeyResponse);
+      args.variables = {
+        urlKeys: [
+          'liujo-bag-medium-A15085E0087-olive',
+          'daniele-alessandrini-tshirt-M5618E6283506-black',
+        ],
+      };
+
+      args.query =
+        'query GetProductThumbnailsByURLKey($urlKeys:[String!]!){products(filter:{url_key:{in:$urlKeys}}){items{id sku thumbnail{label url __typename}url_key url_suffix ...on ConfigurableProduct{variants{product{sku id thumbnail{label url __typename}__typename}__typename}__typename}__typename}__typename}}';
+
+      return resolve(args).then(result => {
+        let response = result.data;
+        console.log(response);
       });
     });
 

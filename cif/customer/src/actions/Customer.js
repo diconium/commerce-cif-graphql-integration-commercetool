@@ -17,6 +17,7 @@
 const LoaderProxy = require('../../../common/LoaderProxy.js');
 const CustomerLoader = require('../loaders/CustomerLoader.js');
 const Address = require('./Address.js');
+const CustomerOrderItemInterface = require('../Interface/CustomerOrderItemInterface.js');
 
 class Customer {
   /**
@@ -27,6 +28,7 @@ class Customer {
   constructor(parameters) {
     this.actionParameters = parameters.actionParameters;
     this.getCustomerLoader = new CustomerLoader(parameters.actionParameters);
+    this.totalPage = this.actionParameters.variables.pageSize;
     /**
      * This class returns a Proxy to avoid having to implement a getter for all properties.
      */
@@ -46,6 +48,7 @@ class Customer {
    */
   __convertData(data) {
     const { customer, orders } = data;
+
     return {
       ...customer,
       id: 1,
@@ -59,8 +62,115 @@ class Customer {
         address.id = index;
         return new Address(address).address;
       }),
+
       orders: {
-        items: orders.results,
+        items: orders.results.flatMap(order => {
+          const {
+            totalPrice,
+            taxedPrice,
+            shippingInfo,
+            billingAddress,
+            shippingAddress,
+            lineItems,
+          } = order;
+          return {
+            id: order.id,
+            number: order.number,
+            order_date: order.order_date,
+            status: order.status,
+            billing_address:
+              billingAddress != undefined
+                ? {
+                    city: billingAddress.city,
+                    country_code: billingAddress.country,
+                    firstname: billingAddress.firstname,
+                    lastname: billingAddress.lastname,
+                    postcode: billingAddress.postcode,
+                    region: billingAddress.region,
+                    street: [billingAddress.streetName],
+                    telephone: billingAddress.telephone,
+                  }
+                : {
+                    city: shippingAddress.city,
+                    country_code: shippingAddress.country,
+                    firstname: shippingAddress.firstname,
+                    lastname: shippingAddress.lastname,
+                    postcode: shippingAddress.postcode,
+                    region: shippingAddress.region,
+                    street: [shippingAddress.streetName],
+                    telephone: shippingAddress.telephone,
+                  },
+            invoices: [
+              {
+                id: order.id,
+              },
+            ],
+            items: lineItems.map(product => {
+              return new CustomerOrderItemInterface({
+                id: product.productId,
+                product_name: product.name,
+                product_sale_price: {
+                  currency: product.price.value.currencyCode,
+                  value: product.price.value.centAmount,
+                },
+                product_sku: product.productId,
+                product_url_key: product.slug,
+                selected_options: [],
+                quantity_ordered: product.quantity,
+              });
+            }),
+            payment_methods: [
+              {
+                name: 'Free',
+                type: 'free',
+                additional_data: [],
+              },
+            ],
+            shipping_address: {
+              city: shippingAddress.city,
+              country_code: shippingAddress.country,
+              firstname: shippingAddress.firstname,
+              lastname: shippingAddress.lastname,
+              postcode: shippingAddress.postcode,
+              region: shippingAddress.region,
+              street: [shippingAddress.streetName],
+              telephone: shippingAddress.telephone,
+            },
+            shipments: [],
+            shipping_method: shippingInfo.shippingMethod.name,
+            total: {
+              discounts: [
+                {
+                  amount: {
+                    currency: totalPrice.currencyCode,
+                    value: 0,
+                  },
+                },
+              ],
+              grand_total: {
+                currency: totalPrice.currencyCode,
+                value: totalPrice.centAmount,
+              },
+              subtotal: {
+                currency: taxedPrice.totalNet.currencyCode,
+                value: taxedPrice.totalNet.centAmount,
+              },
+              total_shipping: {
+                currency: shippingInfo.shippingRate.price.currencyCode,
+                value: shippingInfo.shippingRate.price.centAmount,
+              },
+              total_tax: {
+                currency: taxedPrice.taxPortions[0].amount.currencyCode,
+                value: taxedPrice.taxPortions[0].amount.centAmount,
+              },
+            },
+          };
+        }),
+        page_info: {
+          current_page: 0,
+          total_pages: this.totalPage,
+        },
+        total_count: orders.results.length,
       },
     };
   }

@@ -4,7 +4,17 @@
       "__typename": "SetBillingAddressOnCartOutput",
       "cart": {
         "__typename": "Cart",
-        "applied_gift_cards": [],
+        "applied_gift_cards": [
+          {
+            "__typename": "AppliedGiftCard",
+            "applied_balance": {
+              "__typename": "Money",
+              "currency": "EUR",
+              "value": 39150
+            },
+            "code": "TEST3"
+          }
+        ],
         "available_payment_methods": [
           {
             "__typename": "AvailablePaymentMethod",

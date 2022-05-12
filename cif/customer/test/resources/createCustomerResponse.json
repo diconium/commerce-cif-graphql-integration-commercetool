@@ -3,8 +3,8 @@
     "createCustomerV2": {
       "customer": {
         "firstname": "abc",
-        "lastname": "xyz",
-        "email": "abc.xyz@123.com",
+        "lastname" : "xyz",
+        "email": "abc@123.com",
         "is_subscribed": false
       }
     }

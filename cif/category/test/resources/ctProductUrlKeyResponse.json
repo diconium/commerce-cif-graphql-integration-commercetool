@@ -1,0 +1,35 @@
+{
+    "data": {
+      "products": {
+        "total": 1,
+        "results": [
+          {
+            "id": "0871ef8c-b073-4482-8db6-be88ee7ae432",
+            "masterData": {
+              "current": {
+                "masterVariant": {
+                  "sku": "M0E20000000E1AZ",
+                  "id": 1,
+                  "price": {
+                    "id": "2b3477b9-d592-4d82-a071-6b21938de26d",
+                    "value": {
+                      "centAmount": 15000,
+                      "currencyCode": "EUR"
+                    }
+                  },
+                  "images": [
+                    {
+                      "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079560_1_large.jpg",
+                      "label": null
+                    }
+                  ]
+                },
+                "slug": "newbalance-sneakers-MT980BB-multi",
+                "name": "Sneakers New Balance multi"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }

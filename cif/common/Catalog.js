@@ -16,7 +16,7 @@
 
 const CategoryTreeLoader = require('../category/src/loaders/CategoryTreeLoader.js');
 const LoaderProxy = require('./LoaderProxy.js');
-const Products = require('./Products');
+const { Products } = require('./Products.js');
 // This module contains 3 classes because they have cross/cyclic dependencies to each other
 // and it's not possible to have them in separate files because this is not supported by Javascript
 
@@ -75,7 +75,6 @@ class CategoryTree {
       this.urlPath = data.slug;
       this.cpath = data.externalId;
     }
-
     return {
       ...data,
       id: data.externalId,
@@ -89,6 +88,7 @@ class CategoryTree {
       staged: false,
     };
   }
+
   get total_count() {
     return this.__load().then(data => {
       return data ? data.total : 0;

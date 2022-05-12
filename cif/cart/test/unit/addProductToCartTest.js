@@ -23,7 +23,7 @@ const chaiShallowDeepEqual = require('chai-shallow-deep-equal');
 chai.use(chaiShallowDeepEqual);
 const resolve = require('../../src/resolvers/cartResolver.js').main;
 const commerceAddLineItemToCartResponse = require('../resources/ctAddLineItemToCartResponse.json');
-const ctAddProductToCartResponse = require('../resources/ctAddProductToCartResponse.json');
+const mAddProductToCartResponse = require('../resources/mAddProductToCartResponse.json');
 const commerceVersionNumberResponse = require('../resources/ctVersionNumberResponse.json');
 const commerceInvalidVersionIdResponse = require('../resources/ctInvalidVersionIdResponse.json');
 const commerceInvalidCartIdResponse = require('../resources/ctInvalidCartIdResponse.json');
@@ -32,7 +32,7 @@ const VersionCartQuery = require('../../src/graphql/version.grapql.js');
 const LineItemToCartMutation = require('../../src/graphql/lineItemCart.graphql.js');
 
 describe('addProductToCart', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -81,20 +81,19 @@ describe('addProductToCart', function() {
         cartId: '03bdd6d9-ede2-495c-8ed8-728326003259',
         cartItems: [
           {
-            data: {
-              sku: 'A0E2000000022N9',
-              quantity: 1,
-            },
+            sku: 'A0E2000000022N9',
+            selected_options: [],
+            quantity: 1,
           },
         ],
       };
 
       args.query =
-        'mutation addSimpleProductToCart($cartId:String!$cartItems:[SimpleProductCartItemInput]!){addSimpleProductsToCart(input:{cart_id:$cartId cart_items:$cartItems}){cart{id items{uid quantity product{name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
+        'mutation($cartId:String!$cartItems:[CartItemInput!]!){addProductsToCart(cartId:$cartId cartItems:$cartItems){cart{id items{uid quantity product{sku name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
       return resolve(args).then(result => {
         let response = result.data;
         assert.isUndefined(result.errors);
-        expect(response).to.deep.equals(ctAddProductToCartResponse.data);
+        expect(response).to.deep.equals(mAddProductToCartResponse.data);
       });
     });
 
@@ -126,16 +125,14 @@ describe('addProductToCart', function() {
         cartId: '03bdd6d9-ede2-495c-8ed8-728326003259',
         cartItems: [
           {
-            data: {
-              sku: 'A0E2000000022N9',
-              quantity: 2,
-            },
+            sku: 'A0E2000000022N9',
+            quantity: 2,
           },
         ],
       };
 
       args.query =
-        'mutation addSimpleProductToCart($cartId:String!$cartItems:[SimpleProductCartItemInput]!){addSimpleProductsToCart(input:{cart_id:$cartId cart_items:$cartItems}){cart{id items{uid quantity product{name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
+        'mutation($cartId:String!$cartItems:[CartItemInput!]!){addProductsToCart(cartId:$cartId cartItems:$cartItems){cart{id items{uid quantity product{sku name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
 
       return resolve(args).then(result => {
         const errors = result.errors[0];
@@ -177,16 +174,14 @@ describe('addProductToCart', function() {
         cartId: '03bdd6d9-ede2-495c-8ed8-072832600325',
         cartItems: [
           {
-            data: {
-              sku: 'A0E2000000022N9',
-              quantity: 2,
-            },
+            sku: 'A0E2000000022N9',
+            quantity: 2,
           },
         ],
       };
 
       args.query =
-        'mutation addSimpleProductToCart($cartId:String!$cartItems:[SimpleProductCartItemInput]!){addSimpleProductsToCart(input:{cart_id:$cartId cart_items:$cartItems}){cart{id items{uid quantity product{name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
+        'mutation($cartId:String!$cartItems:[CartItemInput!]!){addProductsToCart(cartId:$cartId cartItems:$cartItems){cart{id items{uid quantity product{sku name thumbnail{url __typename}__typename}__typename}...MiniCartFragment __typename}__typename}}fragment MiniCartFragment on Cart{id total_quantity prices{subtotal_excluding_tax{currency value __typename}__typename}...ProductListFragment __typename}fragment ProductListFragment on Cart{id items{id product{id name url_key url_suffix thumbnail{url __typename}stock_status ...on ConfigurableProduct{variants{attributes{uid __typename}product{id thumbnail{url __typename}__typename}__typename}__typename}__typename}prices{price{currency value __typename}__typename}quantity ...on ConfigurableCartItem{configurable_options{id option_label value_id value_label __typename}__typename}__typename}__typename}';
       return resolve(args).then(result => {
         const errors = result.errors[0];
         expect(errors).shallowDeepEqual({

@@ -71,12 +71,22 @@ class CartLoader {
     return new Promise((resolve, reject) => {
       const { defaultRequest } = graphqlContext.settings;
       let request = { ...defaultRequest };
-      request.data = {
-        query: cartId ? GetCartQuery : GetCustomerCartQuery,
-        variables: {
-          cartId,
-        },
-      };
+
+      if (cartId.destination_cart_id != undefined) {
+        const { destination_cart_id } = cartId;
+        request.data = {
+          query: GetCartQuery,
+          variables: {
+            cartId: destination_cart_id,
+          },
+        };
+      } else
+        request.data = {
+          query: cartId ? GetCartQuery : GetCustomerCartQuery,
+          variables: {
+            cartId,
+          },
+        };
 
       axios
         .request(request)

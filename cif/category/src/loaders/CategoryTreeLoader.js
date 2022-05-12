@@ -88,6 +88,7 @@ class CategoryTreeLoader {
           whereQuery,
         },
       };
+
       TokenUtils.getOAuthClientBearer(actionParameters.context.settings).then(
         token => {
           request.headers.Authorization = token;

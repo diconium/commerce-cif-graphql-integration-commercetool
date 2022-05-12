@@ -64,12 +64,29 @@ class CustomerLoader {
    */
   getCustomer(actionParameters) {
     return new Promise((resolve, reject) => {
+      let orderNumber =
+        actionParameters.variables &&
+        actionParameters.variables.filter &&
+        actionParameters.variables.filter.number &&
+        actionParameters.variables.filter.number.match
+          ? actionParameters.variables.filter.number.match
+          : undefined;
       const { defaultRequest } = actionParameters.context.settings;
       let request = { ...defaultRequest };
 
-      request.data = {
-        query: GetCustomerQuery,
-      };
+      if (orderNumber === undefined || orderNumber === '') {
+        request.data = {
+          query: GetCustomerQuery,
+        };
+      } else {
+        request.data = {
+          query: GetCustomerQuery,
+          variables: {
+            // eslint-disable-next-line no-useless-escape
+            where: `orderNumber=\"${orderNumber}\"`, //To Fetch searched customer order number details
+          },
+        };
+      }
       axios
         .request(request)
         .then(response => {

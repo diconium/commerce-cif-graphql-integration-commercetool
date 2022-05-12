@@ -1,0 +1,23 @@
+{
+    "data": {
+      "updateCustomer": null
+    },
+    "errors": [
+      {
+        "message": "The customer with ID '2890eaad-0b24-4f05-a03a-035638e31811' was not found.",
+        "path": [
+          "updateCustomer"
+        ],
+        "locations": [
+          {
+            "line": 2,
+            "column": 3
+          }
+        ],
+        "code": "InvalidSubject",
+        "extensions": {
+          "code": "InvalidSubject"
+        }
+      }
+    ]
+  }

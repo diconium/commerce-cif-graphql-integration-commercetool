@@ -38,7 +38,7 @@ describe('CreateCustomer', function() {
 
     it('Mutation: create customer response should always contain new customer object', () => {
       args.query =
-        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc.xyz@123.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
+        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc@123.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
       return TestUtils.getBearer().then(accessToken => {
         args.context.settings.bearer = accessToken;
         return resolve(args).then(result => {

@@ -1,0 +1,33 @@
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "id": 1,
+          "sku": "A0E2000000022N9",
+          "thumbnail": {
+            "label": "Bag medium Liu Jo olive yo",
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079718_1_large.jpg",
+            "__typename": "ProductImage"
+          },
+          "url_key": "liujo-bag-medium-A15085E0087-olive",
+          "url_suffix": null,
+          "__typename": "SimpleProduct"
+        },
+        {
+          "id": 1,
+          "sku": "M0E20000000E1AZ",
+          "thumbnail": {
+            "label": "Sneakers New Balance multi",
+            "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079560_1_large.jpg",
+            "__typename": "ProductImage"
+          },
+          "url_key": "newbalance-sneakers-MT980BB-multi",
+          "url_suffix": null,
+          "__typename": "SimpleProduct"
+        }
+      ],
+      "__typename": "Products"
+    }
+  }
+}

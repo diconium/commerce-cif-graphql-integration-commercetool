@@ -1,0 +1,54 @@
+{
+    "data": {
+      "productProjectionSearch": {
+        "total": 3,
+        "count": 2,
+        "results": [
+          {
+            "masterVariant": {
+              "sku": "M0E20000000DVCD",
+              "id": 1,
+              "price": {
+                "id": "b99e3a2b-3625-4843-a769-6e630c6da5e7",
+                "value": {
+                  "centAmount": 62250,
+                  "currencyCode": "EUR"
+                }
+              },
+              "images": [
+                {
+                  "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/078971_1_medium.jpg",
+                  "label": null
+                }
+              ]
+            },
+            "id": "42e01a66-c5e8-45a6-bd00-5befa6ee374c",
+            "slug": "tagliatore-blazer-15ueg079-blue",
+            "name": "blazer Tagliatore dark blue"
+          },
+          {
+            "masterVariant": {
+              "sku": "M0E20000000DT0L",
+              "id": 1,
+              "price": {
+                "id": "3c7c034d-33e4-4eb3-8c24-595f93221ace",
+                "value": {
+                  "centAmount": 29875,
+                  "currencyCode": "EUR"
+                }
+              },
+              "images": [
+                {
+                  "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/078767_1_large.jpg",
+                  "label": null
+                }
+              ]
+            },
+            "id": "c1b94e09-6cda-4784-969c-58cda4cb7758",
+            "slug": "harris-wharf-blazer-abp3131-blue",
+            "name": "Blazer Harris Wharf blue"
+          }
+        ]
+      }
+    }
+  }
