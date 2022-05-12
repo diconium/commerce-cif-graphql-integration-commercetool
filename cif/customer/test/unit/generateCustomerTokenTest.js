@@ -30,7 +30,7 @@ const badClientCredentialsResponse = require('../resources/badClientCredentials.
 const qs = require('querystring');
 
 describe('GenerateCustomerToken', () => {
-  const scopeAuth = nock('https://<auth-host>');
+  const scopeAuth = nock('https://commercetools.example.com');
 
   before(() => {
     // Disable console debugging
@@ -50,7 +50,7 @@ describe('GenerateCustomerToken', () => {
       const query = {
         grant_type: 'password',
         username: 'abc.xyz@123.com',
-        password: 'abcxyz@123',
+        password: 'abc@123',
         scope: 'manage_project:adobeio-ct-connector',
       };
       scopeAuth
@@ -64,7 +64,7 @@ describe('GenerateCustomerToken', () => {
         })
         .reply(200, ctGenerateCustomerBearerResponse);
       args.query =
-        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abc@123"){token}}';
       return resolve(args).then(result => {
         assert.isUndefined(result.errors);
         let response = result.data.generateCustomerToken.token;
@@ -78,7 +78,7 @@ describe('GenerateCustomerToken', () => {
       const query = {
         grant_type: 'password',
         username: 'abc.xyz@123.com',
-        password: 'abcxyz@123',
+        password: 'abc@123',
         scope: 'manage_project:adobeio-ct-connector',
       };
       scopeAuth
@@ -92,7 +92,7 @@ describe('GenerateCustomerToken', () => {
         })
         .reply(400, unSupportedGrantTypeResponse);
       args.query =
-        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abc@123"){token}}';
       args.context.settings.grant_type = 'pass';
       return resolve(args).then(result => {
         const errors = result.errors[0];
@@ -109,7 +109,7 @@ describe('GenerateCustomerToken', () => {
       const query = {
         grant_type: 'password',
         username: 'abc.xyz@123.com',
-        password: 'abcxyz@123',
+        password: 'abc@123',
         scope: 'manage_project:adobeio-ct-connector',
       };
       scopeAuth
@@ -117,11 +117,11 @@ describe('GenerateCustomerToken', () => {
           '/oauth/adobeio-ct-connector/customers/token',
           qs.stringify(query)
         )
-        .basicAuth({ user: 'zCzF-LD2Y3Ga5BNSoi8mDtT9', pass: 'ADOBE_' })
+        .basicAuth({ user: 'zCzF-LD2Y3Ga5BNSoi8mDtT9', pass: '<password>' })
         .reply(401, badClientCredentialsResponse);
       args.query =
-        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abcxyz@123"){token}}';
-      args.context.settings.CT_CLIENTSECRET = 'ADOBE_';
+        'mutation {generateCustomerToken(email: "abc.xyz@123.com", password: "abc@123"){token}}';
+      args.context.settings.CT_CLIENTSECRET = '<CLIENT_SECRET>';
       return resolve(args).then(result => {
         const errors = result.errors[0];
         expect(errors).shallowDeepEqual({

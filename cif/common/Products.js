@@ -16,9 +16,10 @@
 
 const CategoryTreeLoader = require('../category/src/loaders/CategoryTreeLoader.js');
 const ProductsLoader = require('../category/src/loaders/ProductsLoader.js');
+const ProductsUrlKeysLoader = require('../category/src/loaders/ProductsUrlKeysLoader.js');
 const LoaderProxy = require('./LoaderProxy.js');
 
-// This module contains 3 classes because they have cross/cyclic dependencies to each other
+// This module contains 4 classes because they have cross/cyclic dependencies to each other
 // and it's not possible to have them in separate files because this is not supported by Javascript
 
 class Products {
@@ -86,6 +87,59 @@ class Products {
       page_info: {
         total_pages: Math.ceil(data.total / this.parameters.limit),
       },
+    };
+  }
+}
+class ProductsUrlKeys {
+  /**
+   * @param {Object} parameters
+   * @param {Object} [parameters.filters] This contains array of url_keys to search the required products
+   * @param {Object} [parameters.graphqlContext] The optional GraphQL execution context passed to the resolver.
+   * @param {Object} [parameters.actionParameters] Some optional parameters of the I/O Runtime action, like for example authentication info.
+   * @param {CategoryTreeLoader} [parameters.categoryTreeLoader] An optional CategoryTreeLoader, to optimise caching.
+  
+   */
+  constructor(parameters) {
+    this.graphqlContext = parameters.graphqlContext;
+    this.parameters = parameters;
+    this.filters = { ...parameters.filters };
+    this.actionParameters = parameters.actionParameters;
+    this.productsUrlkeysLoader = new ProductsUrlKeysLoader(parameters);
+
+    if (parameters.filters && parameters.filters.url_key) {
+      this.product_url = parameters.filters.url_key.in;
+    }
+    /**
+     * This class returns a Proxy to avoid having to implement a getter for all properties.
+     */
+    return new LoaderProxy(this);
+  }
+
+  /**
+   *  method used to call load method from ProductsUrlKeys loader class.
+   */
+  __load() {
+    return this.productsUrlkeysLoader.loadMany(this.product_url);
+  }
+
+  /**
+   * Converts some products data from the 3rd-party commerce system into the Magento GraphQL format.
+   * Properties that require some extra data fetching with the 3rd-party system must have dedicated getters
+   * in this class.
+   *
+   * @param {Object} data
+   * @returns {Object} The backend products data converted into a GraphQL "products" data.
+   */
+  __convertData(data) {
+    const items = data.flatMap(Products => {
+      return Products.results.map(product => {
+        return new Product({
+          productData: product,
+        });
+      });
+    });
+    return {
+      items,
     };
   }
 }
@@ -194,5 +248,7 @@ class MediaGallery {
     };
   }
 }
-
-module.exports = Products;
+module.exports.MediaGallery = MediaGallery;
+module.exports.ProductsUrlKeys = ProductsUrlKeys;
+module.exports.Product = Product;
+module.exports.Products = Products;

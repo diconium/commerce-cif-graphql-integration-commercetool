@@ -36,9 +36,7 @@ class ChangePasswordLoader {
           ).catch(error => {
             console.error(
               `Failed loading customer ${key}, got error ${JSON.stringify(
-                error[0].message,
-                null,
-                0
+                error
               )}`
             );
             return null;
@@ -85,7 +83,7 @@ class ChangePasswordLoader {
         .then(response => {
           if (!response.data.errors)
             return resolve(response.data.data.customerChangeMyPassword);
-          reject(response.data.errors);
+          reject(response.data.errors[0].message);
         })
         .catch(error => {
           reject(error);

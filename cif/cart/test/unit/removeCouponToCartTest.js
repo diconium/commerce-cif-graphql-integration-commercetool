@@ -35,7 +35,7 @@ const ctInvalidCartIdResponse = require('../resources/ctInvalidCartIdResponse.js
 const ctRemoveCouponIdErrorResposne = require('../resources/ctRemoveCouponIdErrorResponse.json');
 
 describe('RemoveCouponToCart', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

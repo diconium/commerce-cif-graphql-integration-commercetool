@@ -24,6 +24,7 @@ const Cart = require('../actions/Cart.js');
 const SetPaymentMethodOnCart = require('../actions/SetPaymentMethodOnCart.js');
 const SetShippingMethodOnCart = require('../actions/SetShippingMethodOnCart.js');
 const ApplyCouponToCart = require('../actions/ApplyCouponToCart.js');
+const ApplyGiftCardToCart = require('../actions/ApplyGiftCardToCart.js');
 const PlaceOrder = require('../actions/PlaceOrder.js');
 const CustomerCart = require('../actions/CustomerCart.js');
 const RemoveCouponToCart = require('../actions/RemoveCouponToCart.js');
@@ -51,6 +52,9 @@ function resolve(args) {
           'placeOrder',
           'updateCartItems',
           'removeItemFromCart',
+          'mergeCarts',
+          'applyGiftCardToCart',
+          'addProductsToCart',
         ])
       )
       .filterQueryFields(new Set(['cart', 'customerCart']));
@@ -99,6 +103,19 @@ function resolve(args) {
      */
     addSimpleProductsToCart: (params, context) => {
       const { input } = params;
+      return new LineItemToCart({
+        input,
+        graphqlContext: context,
+        actionParameters: params,
+      });
+    },
+    /**
+     * method used to add product to cart
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    addProductsToCart: (params, context) => {
+      const input = params;
       return new LineItemToCart({
         input,
         graphqlContext: context,
@@ -196,7 +213,7 @@ function resolve(args) {
       });
     },
     /**
-     * method used to apply coupon to cart
+     * method used to remove coupon to cart
      * @param {Object} params parameter contains input,graphqlContext and actionParameters
      * @param {Object} context parameter contains the context of the GraphQL Schema
      */
@@ -209,6 +226,20 @@ function resolve(args) {
       });
     },
     /**
+     * method used to apply gift Card to cart
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {Object} context parameter contains the context of the GraphQL Schema
+     */
+    applyGiftCardToCart: (params, context) => {
+      const { input } = params;
+      return new ApplyGiftCardToCart({
+        input,
+        couponCode: params.input.gift_card_code,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
+    /**
      * method used to place the order to cart
      * @param {Object} params parameter contains input,graphqlContext and actionParameters
      * @param {Object} context parameter contains the context of the GraphQL Schema
@@ -216,6 +247,18 @@ function resolve(args) {
     placeOrder: (params, context) => {
       return new PlaceOrder({
         input: params.input,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
+    /**
+     * method used to get the cart
+     * @param {Object} params parameter contains input,graphqlContext and actionParameters
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    mergeCarts: (params, context) => {
+      return new Cart({
+        cartId: params,
         graphqlContext: context,
         actionParameters: args,
       });

@@ -1,0 +1,14 @@
+{
+    "data": {
+      "mergeCarts": {
+        "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+        "items": [
+          {
+            "id": "757dbca6-b3da-4909-98c3-f8d5099bfb94",
+            "__typename": "SimpleCartItem"
+          }
+        ],
+        "__typename": "Cart"
+      }
+    }
+  }

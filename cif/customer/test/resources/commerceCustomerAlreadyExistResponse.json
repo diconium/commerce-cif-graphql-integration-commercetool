@@ -4,7 +4,7 @@
   },
   "errors": [
     {
-      "message": "There is already an existing customer with the email '\"abc.xyz@123.com\"'.",
+      "message": "There is already an existing customer with the email '\"abc@123.com\"'.",
       "path": [
         "customerSignUp"
       ],
@@ -15,11 +15,11 @@
         }
       ],
       "code": "DuplicateField",
-      "duplicateValue": "abc.xyz@123.com",
+      "duplicateValue": "abc@123.com",
       "field": "email",
       "extensions": {
         "code": "DuplicateField",
-        "duplicateValue": "abc.xyz@123.com",
+        "duplicateValue": "abc@123.com",
         "field": "email"
       }
     }

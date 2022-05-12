@@ -2,10 +2,10 @@
     "data": {
         "customerSignUp": {
             "customer": {
-                "email": "abc.xyz@123.com",
+                "email": "abc@123.com",
                 "password": "Test@1234",
                 "firstName": "abc",
-                "lastName": "xyz"
+                "lastname" : "xyz"
             }
         }
     }

@@ -72,14 +72,6 @@ $ npm run deploy
 
 This will deploy the `graphql-reference/dispatcher` and `graphql-reference/cart` actions in your namespace. The dispatcher is a web action that is accessible with the URL `https://adobeioruntime.net/api/v1/web/NAMESPACE/graphql-reference/dispatcher`. To test the GraphQL endpoint, you can for example use the `GraphiQL` plugin in the Chrome browser. 
 
-
-## Post deployment 
-
-1. Install Latest venia aem-cif-guides-venia.all-2022.02.24-classic.zip for classic AEM or cloud.
-2. Build and Install Latest CIF 2.6.0 on AEM with build package core-cif-components-all-2.6.0 in your   package manager
-3. Include the connector server URL in cif configuration with required server details. 
-4. Please refer https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/content-and-commerce/home.html for more details on configuration. 
-
 ## Developing a real 3rd-party integration
 
 This repository provides a reference implementation that can be used as a starting point to develop a real integration with a 3rd-party commerce system. In order to implement a real integration, one will have to:

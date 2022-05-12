@@ -1,0 +1,141 @@
+{
+    "data": {
+      "categorySearch": {
+        "offset": 0,
+        "count": 1,
+        "total": 1,
+        "results": [
+          {
+            "id": "73f64d48-ab66-4baa-b961-6b19e0637760",
+            "name": "New",
+            "version": 2,
+            "description": null,
+            "slug": "new",
+            "externalId": "1",
+            "createdAt": "2020-05-14T04:29:37.521Z",
+            "product_count": 94,
+            "children": [
+              {
+                "id": "8315e074-a9e4-49ee-b1b6-bf4c86fa874a",
+                "name": "Men",
+                "externalId": "8",
+                "description": null,
+                "slug": "new-men",
+                "product_count": 99,
+                "children": [
+                  {
+                    "id": "044c7a55-bd6d-4bb8-bbac-e7befec22d6c",
+                    "name": "Clothing",
+                    "externalId": "68",
+                    "description": null,
+                    "slug": "new-men-clothing",
+                    "product_count": 38
+                  },
+                  {
+                    "id": "83e4d641-bd0b-406d-8ab9-49ddc559fe84",
+                    "name": "Bags",
+                    "externalId": "70",
+                    "description": null,
+                    "slug": "new-men-bags",
+                    "product_count": 1
+                  },
+                  {
+                    "id": "136b549f-bb09-460e-8789-4e93102739b0",
+                    "name": "Shoes",
+                    "externalId": "69",
+                    "description": null,
+                    "slug": "new-men-shoes",
+                    "product_count": 32
+                  },
+                  {
+                    "id": "dca27ace-73b2-424d-ad87-2a66f9ff4013",
+                    "name": "Looks",
+                    "externalId": "71",
+                    "description": null,
+                    "slug": "new-men-looks",
+                    "product_count": 0
+                  }
+                ]
+              },
+              {
+                "id": "96fb26d4-e0e1-45bb-b0a8-11c3f11123a6",
+                "name": "Special",
+                "externalId": "9",
+                "description": null,
+                "slug": "new-special",
+                "product_count": 0,
+                "children": [
+                  {
+                    "id": "de6a99cc-823b-4885-a6be-4abec8f38d56",
+                    "name": "Just go",
+                    "externalId": "73",
+                    "description": null,
+                    "slug": "new-special-just-go",
+                    "product_count": 0
+                  },
+                  {
+                    "id": "1c22510f-fc4c-45c6-96fe-e65b21cd239e",
+                    "name": "Fall in love",
+                    "externalId": "72",
+                    "description": null,
+                    "slug": "new-special-fall-in-love",
+                    "product_count": 0
+                  }
+                ]
+              },
+              {
+                "id": "76688cfd-26d8-4c21-97b3-b90f291b68de",
+                "name": "Women",
+                "externalId": "7",
+                "description": null,
+                "slug": "new-women",
+                "product_count": 49,
+                "children": [
+                  {
+                    "id": "4b062206-8a04-46f8-8080-97e6305725ae",
+                    "name": "Bags",
+                    "externalId": "66",
+                    "description": null,
+                    "slug": "new-women-bags",
+                    "product_count": 10
+                  },
+                  {
+                    "id": "54bca424-cc91-4f63-8b0b-ceaa7e2a70ed",
+                    "name": "Clothing",
+                    "externalId": "64",
+                    "description": null,
+                    "slug": "new-women-clothing",
+                    "product_count": 44
+                  },
+                  {
+                    "id": "2b3baa1d-ee26-48f1-8118-7b8ea824c572",
+                    "name": "Shoes",
+                    "externalId": "65",
+                    "description": null,
+                    "slug": "new-women-shoes",
+                    "product_count": 24
+                  },
+                  {
+                    "id": "824cc5e7-e0b7-4a1f-975c-c107aae9a1e5",
+                    "name": "Looks",
+                    "externalId": "67",
+                    "description": null,
+                    "slug": "new-women-looks",
+                    "product_count": 0
+                  },
+                  {
+                    "id": "b109b8cd-6d50-40b2-b2de-bc7743daf21d",
+                    "name": "Summer Collection",
+                    "externalId": "9999",
+                    "description": "2022 Summer Collection",
+                    "slug": "summer-collection",
+                    "product_count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }

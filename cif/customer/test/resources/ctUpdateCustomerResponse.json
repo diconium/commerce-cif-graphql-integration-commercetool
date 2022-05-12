@@ -1,0 +1,10 @@
+{
+    "data": {
+      "updateCustomer": {
+        "id": "2890eaad-0b24-4f05-a03a-35638e318116",
+        "email": "abc.xyz@123.com",
+        "firstName": "abc",
+        "lastName": "xyz"
+      }
+    }
+  }

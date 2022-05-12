@@ -28,7 +28,7 @@ const TestUtils = require('../../../utils/TestUtils.js');
 const GetCountryQuery = require('./../../src/graphql/getCountry.graphql');
 
 describe('getCountries', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

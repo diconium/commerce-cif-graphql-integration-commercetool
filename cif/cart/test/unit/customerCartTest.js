@@ -28,7 +28,7 @@ const ctCustomerCartResponse = require('../resources/ctCustomerCartResponse.json
 const mCustomerCartResponse = require('../resources/mCustomerCartResponse.json');
 
 describe('CustomerCart', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

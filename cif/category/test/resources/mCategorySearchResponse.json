@@ -1,0 +1,68 @@
+{
+  "categories": {
+    "items": [
+      {
+        "id": 2,
+        "image": null,
+        "name": "Women",
+        "uid": "2",
+        "url_key": "women",
+        "url_path": "women",
+        "__typename": "CategoryTree",
+        "children_count": "4"
+      },
+      {
+        "id": 7,
+        "image": null,
+        "name": "Women",
+        "uid": "7",
+        "url_key": "new-women",
+        "url_path": "new-women",
+        "__typename": "CategoryTree",
+        "children_count": "5"
+      },
+      {
+        "id": 118,
+        "image": null,
+        "name": "Women",
+        "uid": "118",
+        "url_key": "accessories-women",
+        "url_path": "accessories-women",
+        "__typename": "CategoryTree",
+        "children_count": "6"
+      },
+      {
+        "id": 7,
+        "image": null,
+        "name": "Women",
+        "uid": "7",
+        "url_key": "new-women",
+        "url_path": "new-women",
+        "__typename": "CategoryTree",
+        "children_count": null
+      },
+      {
+        "id": 151,
+        "image": null,
+        "name": "Women",
+        "uid": "151",
+        "url_key": "sale-women",
+        "url_path": "sale-women",
+        "__typename": "CategoryTree",
+        "children_count": null
+      },
+      {
+        "id": 118,
+        "image": null,
+        "name": "Women",
+        "uid": "118",
+        "url_key": "accessories-women",
+        "url_path": "accessories-women",
+        "__typename": "CategoryTree",
+        "children_count": null
+      }
+    ],
+    "total_count": 6,
+    "__typename": "CategoryResult"
+  }
+}

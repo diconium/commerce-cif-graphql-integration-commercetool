@@ -26,11 +26,11 @@ class ProductsLoader {
    */
   constructor(parameters) {
     this.parameters = parameters;
-    // The loading function: "categoryIds" is an Array of category ids
+    // The loading function: "productIds" is an Array of category ids
     let loadingFunction = productIds => {
       // This loader loads each category one by one, but if the 3rd party backend allows it,
-      // it could also fetch all categories in one single request. In this case, the method
-      // must still return an Array of categories with the same order as the keys.
+      // it could also fetch all products in one single request. In this case, the method
+      // must still return an Array of products with the same order as the keys.
 
       return Promise.resolve(
         productIds.map(productId => {

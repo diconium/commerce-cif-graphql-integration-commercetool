@@ -17,7 +17,8 @@
 const { graphql } = require('graphql');
 const SchemaBuilder = require('../../../common/SchemaBuilder.js');
 const { CategoryTree } = require('../../../common/Catalog.js');
-const Products = require('../../../common/Products.js');
+const CategorySearch = require('../actions/CategorySearch.js');
+const { Products, ProductsUrlKeys } = require('../../../common/Products.js');
 let cachedSchema = null;
 
 /**
@@ -56,12 +57,24 @@ function resolve(args) {
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     categories: (params, context) => {
-      return new CategoryTree({
-        filters: params.filters,
-        params,
-        graphqlContext: context,
-        actionParameters: args,
-      });
+      if (params.filters && params.filters.name) {
+        return new CategorySearch({
+          filters: params.filters,
+          params,
+          limit: params.pageSize,
+          offset: params.currentPage,
+          graphqlContext: context,
+          actionParameters: args,
+        });
+      } else
+        return new CategoryTree({
+          filters: params.filters,
+          params,
+          limit: params.pageSize,
+          offset: params.currentPage,
+          graphqlContext: context,
+          actionParameters: args,
+        });
     },
     /**
      * method used to get the products
@@ -69,15 +82,22 @@ function resolve(args) {
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     products: (params, context) => {
-      return new Products({
-        filters: params.filter,
-        sort: params.sort,
-        search: params.search,
-        limit: params.pageSize,
-        offset: params.currentPage,
-        graphqlContext: context,
-        actionParameters: args,
-      });
+      if (params.filter && params.filter.url_key && params.filter.url_key.in) {
+        return new ProductsUrlKeys({
+          filters: params.filter,
+          graphqlContext: context,
+          actionParameters: args,
+        });
+      } else
+        return new Products({
+          filters: params.filter,
+          sort: params.sort,
+          search: params.search,
+          limit: params.pageSize,
+          offset: params.currentPage,
+          graphqlContext: context,
+          actionParameters: args,
+        });
     },
   };
 
