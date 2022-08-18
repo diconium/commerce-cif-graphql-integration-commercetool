@@ -33,7 +33,7 @@ const SetShippingMethodMutation = require('../../src/graphql/setShippingMethod.g
 const VersionCartQuery = require('../../src/graphql/version.grapql.js');
 
 describe('setShippingMethodOnCart', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

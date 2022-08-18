@@ -29,7 +29,7 @@ const TestUtils = require('../../../utils/TestUtils.js');
 const CreateCustomerMutation = require('./../../src/graphql/createCustomer.graphql');
 
 describe('CreateCustomer', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
@@ -54,7 +54,7 @@ describe('CreateCustomer', function() {
         .post('/adobeio-ct-connector/graphql', {
           query: CreateCustomerMutation,
           variables: {
-            email: 'abc.xyz@123.com',
+            email: 'abc@123.com',
             password: 'Test@1234',
             firstName: 'abc',
             lastName: 'xyz',
@@ -62,7 +62,7 @@ describe('CreateCustomer', function() {
         })
         .reply(200, ctCreateCustomerResponse);
       args.query =
-        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc.xyz@123.com", password: "Test@1234", is_subscribed: false}) {customer {firstname,lastname,email,is_subscribed}}}';
+        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc@123.com", password: "Test@1234", is_subscribed: false}) {customer {firstname,lastname,email,is_subscribed}}}';
       return resolve(args).then(result => {
         let response = result.data;
         assert.isUndefined(result.errors);
@@ -75,7 +75,7 @@ describe('CreateCustomer', function() {
         .post('/adobeio-ct-connector/graphql', {
           query: CreateCustomerMutation,
           variables: {
-            email: 'abc.xyz@123.com',
+            email: 'abc@123.com',
             password: 'Test@1234',
             firstName: 'abc',
             lastName: 'xyz',
@@ -83,12 +83,12 @@ describe('CreateCustomer', function() {
         })
         .reply(200, ctCustomerAlreadyExistResponse);
       args.query =
-        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc.xyz@123.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
+        'mutation {createCustomerV2(input: {firstname: "abc", lastname: "xyz", email: "abc@123.com", password: "Test@1234", is_subscribed: true}) {customer {firstname,lastname,email,is_subscribed}}}';
       return resolve(args).then(result => {
         const errors = result.errors[0];
         expect(errors).shallowDeepEqual({
           message:
-            'There is already an existing customer with the email \'"abc.xyz@123.com"\'.',
+            'There is already an existing customer with the email \'"abc@123.com"\'.',
           source: {
             name: 'GraphQL request',
           },

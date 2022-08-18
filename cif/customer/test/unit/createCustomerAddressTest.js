@@ -31,7 +31,7 @@ const VersionCustomerQuery = require('../../src/graphql/version.grapql.js');
 const CreateCustomerAddressMutation = require('../../src/graphql/createCustomerAddress.graphql');
 
 describe('CreateCustomerAddress', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,

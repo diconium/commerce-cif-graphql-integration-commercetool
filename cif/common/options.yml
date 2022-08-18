@@ -1,7 +1,7 @@
 
-CT_API_HOST: "https://commercetool.example.com/graphql"
+CT_API_HOST: "https://api.commercetools.example.com/adobeio-ct-connector/graphql"
 CT_PROTOCOL: 'https'
-CT_AUTH_HOST: '<auth-host>'
+CT_AUTH_HOST: '<CT_AUTH_HOST>'
 CT_OAUTH_PATH: '/oauth/token'
 CT_CUSTOMER_OAUTH_PATH: '/oauth/adobeio-ct-connector/customers/token'
 CT_CLIENTSECRET: '<CLIENT_SECRET>'

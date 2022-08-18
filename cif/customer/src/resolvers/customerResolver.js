@@ -23,6 +23,7 @@ const Country = require('../actions/Country.js');
 const GenerateCustomerToken = require('../actions/GenerateCustomerToken.js');
 const CreateCustomerAddress = require('../actions/CreateCusomerAddress.js');
 const ChangePassword = require('../actions/ChangeCustomerPassword.js');
+const UpdateCustomer = require('../actions/UpdateCustomer.js');
 let cachedSchema = null;
 
 function resolve(args) {
@@ -36,6 +37,7 @@ function resolve(args) {
           'createCustomerAddress',
           'revokeCustomerToken',
           'changeCustomerPassword',
+          'updateCustomer',
         ])
       )
       .filterQueryFields(new Set(['customer', 'countries', 'country']));
@@ -95,7 +97,19 @@ function resolve(args) {
       });
     },
     /**
-     * method used to get the countries
+     * method used to update customer
+     * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
+     */
+    updateCustomer: (params, context) => {
+      return new UpdateCustomer({
+        input: params.input,
+        graphqlContext: context,
+        actionParameters: args,
+      });
+    },
+
+    /**
+     * method used to get the customer
      * @param {cachedSchema} context parameter contains the context of the GraphQL Schema
      */
     customer: context => {

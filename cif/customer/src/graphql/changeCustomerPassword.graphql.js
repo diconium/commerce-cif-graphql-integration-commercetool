@@ -23,6 +23,7 @@ const CustomerChangeMyPasswordMutation = `mutation ChagePassword(
     newPassword: $newPassword
   ) {
     id
+    email
   }
 }
 `;

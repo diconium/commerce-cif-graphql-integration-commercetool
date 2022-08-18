@@ -20,7 +20,7 @@
       "shippingAddress": {
         "id": "r8UdPUxc",
         "firstname": "abc",
-        "lastname": "k",
+        "lastname" : "xyz",
         "email": null,
         "region": "201",
         "country": "DE",
@@ -46,7 +46,7 @@
       "billingAddress": {
         "id": null,
         "firstname": "abc",
-        "lastname": "k",
+        "lastname" : "xyz",
         "email": null,
         "region": "201",
         "country": "DE",

@@ -73,7 +73,23 @@ class CartInterface {
             cart.shippingInfo
           )
         : [],
-      applied_gift_cards: [],
+      applied_gift_cards:
+        cart.discountCodes && cart.discountCodes.length
+          ? [
+              {
+                code: cart.discountCodes[0].discountCode.code,
+
+                applied_balance: {
+                  currency: cart.totalPrice.currencyCode,
+                  value: cart.totalPrice.centAmount,
+                },
+                current_balance: {
+                  currency: cart.totalPrice.currencyCode,
+                  value: cart.totalPrice.centAmount,
+                },
+              },
+            ]
+          : [],
       billing_address: cart.billingAddress
         ? this.getAddress(cart.billingAddress)[0]
         : null,

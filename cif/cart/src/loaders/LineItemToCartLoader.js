@@ -32,7 +32,7 @@ class LineItemToCartLoader {
       return Promise.resolve(
         inputs.map(input => {
           return this._addLineItemToCart(
-            input.cart_id,
+            input,
             this.version,
             this.graphqlContext,
             this.actionParameters,
@@ -57,30 +57,46 @@ class LineItemToCartLoader {
   }
 
   /**
-   * @param {String} cartID consists of cart id to be added to the specified cart.
+   * @param {*} input consists of cart id to be added to the specified cart.
    * @param {*} version parameter contains the version number
    * @param {Object} actionParameters contains the product details, cart version and host details
    * @param {Object} graphqlContext contains the product details, cart version and host details
    * @returns {Promise} promise resolves and return newly added cart item details.
    */
-  _addLineItemToCart(cartID, version, graphqlContext, actionParameters) {
+  _addLineItemToCart(input, version, graphqlContext, actionParameters) {
     return new Promise((resolve, reject) => {
+      let cartID = input.cart_id || input.cartId;
       const { defaultRequest } = graphqlContext.settings;
       let actions = {};
-      if (actionParameters.input.cart_item_uid) {
+      if (
+        actionParameters.input &&
+        actionParameters.input.cart_items &&
+        actionParameters.input.cart_items[0].cart_item_id
+      ) {
         actions.removeLineItem = {
-          lineItemId: actionParameters.input.cart_item_uid,
+          lineItemId: actionParameters.input.cart_items[0].cart_item_id,
         }; //Remove Item to cart
       } else {
-        let params = actionParameters.input.cart_items;
-        if (params[0].data) {
+        let params =
+          actionParameters.input &&
+          actionParameters.input.cart_items != undefined
+            ? actionParameters.input.cart_items
+            : actionParameters.cartItems;
+        // Add Item to cart if we addSimpleProductToCart mutation input
+        if (params[0].data != undefined) {
           const { sku, quantity } = params[0].data;
           actions.addLineItem = { sku, quantity }; // Add Item to cart
+        }
+        // Add Item to cart if we addProductToCart mutation input
+        else if (params[0].sku != undefined) {
+          const { sku, quantity } = params[0];
+          actions.addLineItem = { sku, quantity }; // Add Item to cart
         } else {
-          const { cart_item_uid: lineItemId, quantity } = params[0];
+          const { cart_item_id: lineItemId, quantity } = params[0];
           actions.changeLineItemQuantity = { lineItemId, quantity }; //Update Item to cart
         }
       }
+
       let request = { ...defaultRequest };
 
       let uid = cartID;

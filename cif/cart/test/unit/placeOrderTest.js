@@ -32,7 +32,7 @@ const mPlaceOrderJSON = require('./../resources/mPlaceOrder.json');
 const ctVersionNumberResponse = require('../resources/ctVersionNumberResponse.json');
 
 describe('Place Order', function() {
-  const scope = nock('https://api.europe-west1.gcp.commercetools.com', {
+  const scope = nock('https://api.commercetools.example.com', {
     reqheaders: {
       Authorization: TestUtils.getContextData().context.settings.defaultRequest
         .headers.Authorization,
